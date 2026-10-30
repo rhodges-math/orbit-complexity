@@ -1,0 +1,2344 @@
+# Statements of the paper and their Lean counterparts
+
+Each statement of *Orbit structures and complexity in Schubert and Richardson Varieties* (Yibo
+Gao and Reuven Hodges, 2024), [arXiv:2405.13774](https://arxiv.org/abs/2405.13774), with its
+status and the Lean declarations that formalize it, in the order of the paper. The index covers
+every theorem, proposition, lemma, corollary, definition, example and remark of the paper, the
+displayed equations its proofs cite, the definitions and claims made in its prose, and the
+results of other papers that it cites. Numbers are those printed in the paper
+(arXiv:2405.13774v3), and labels are its LaTeX labels; a statement without a number is given
+with its section. A short note follows a statement whose Lean statement or proof differs from
+the paper. Paths are relative to the repository root.
+
+| Statement | Label | Status |
+| --- | --- | --- |
+| Flag varieties, Schubert varieties and Richardson varieties (Section 1) | — | formalized |
+| Normality of Schubert and Richardson varieties (Section 1) | — | formalized |
+| Definition 1.1 | `def:complexity` | formalized |
+| Spherical and toric varieties (Section 1) | — | formalized |
+| The Bruhat order and Richardson varieties (Section 1) | — | formalized |
+| Theorem 1.2 | `thm:torus-complexity` | formalized |
+| Corollary 1.3 | `cor:torus-complexity-Schubert` | formalized |
+| Theorem 1.4 | `thm:torus-dimension-richardson` | formalized |
+| Root systems, parabolic subgroups and Levi subgroups (Section 1) | — | formalized |
+| Theorem 1.5 | `theorem:torusLeviBorelBijection` | formalized |
+| The stabilizer of a Schubert variety (Section 1; Billey and Lakshmibai, Lemma 8.2.3) | — | formalized |
+| Theorem 1.6 | `theorem:generalTypeLeviComplexity` | formalized |
+| Combinatorics of the Weyl group (Section 2.1) | — | formalized |
+| Equation (1) | `eq:lengthaddinvset` | formalized |
+| Bruhat intervals of rank two (Section 2.1; Björner and Brenti, Lemma 2.7.3) | — | formalized |
+| Proposition 2.1 | `prop:subword-property` | formalized |
+| Proposition 2.2 | `prop:lifting` | formalized |
+| Root subgroups and the groups $U\_w$ (Section 2.2) | — | formalized |
+| Equation (2) | `eq:formofUw` | formalized |
+| Lemma 2.3 | `lemma:directlyspannedUw` | formalized |
+| Definition 3.1 | `def:Bruhat-graph` | formalized |
+| Definition 3.2 | — | formalized |
+| Bruhat interval polytopes (Section 3; Tsukerman and Williams, Definition 7.8) | — | formalized |
+| Proposition 3.3 | `prop:AD-BIP` | formalized |
+| Corollary 3.4 | `cor:max-t-orbit-ad` | formalized |
+| The moment map (Section 3; Tsukerman and Williams, Definition 6.18) | — | formalized |
+| A point of $\mathcal{R}\_{u,v}$ with full weight support (Section 3) | — | formalized |
+| Torus orbit closures and their moment polytopes (Section 3; Tsukerman and Williams, Theorem 6.19) | — | formalized |
+| The moment image of $\mathcal{R}\_{u,v}$ (Section 3; Tsukerman and Williams, Remark 7.11) | — | formalized |
+| Lemma 3.5 | `lem:Dyer-rank2` | formalized |
+| Lemma 3.6 | `lem:strong-weak-diamond` | formalized |
+| Lemma 3.7 | `lem:AD-spanned-by-covers` | formalized |
+| Long edges of the Bruhat graph (Section 3.1; Dyer, Proposition 3.3) | — | formalized |
+| Proposition 3.8 | `prop:AD-recursion` | formalized |
+| Example 3.9 | `ex:AD-induction-example` | formalized |
+| Proposition 3.10 | `prop:AD-usual-recurrence` | formalized |
+| Definition 3.11 | `def:toric-interval` | formalized |
+| Toric intervals are not a combinatorial invariant (Section 3.1) | — | formalized |
+| Proposition 3.12 | `prop:toric-ad` | formalized |
+| Claim 3.13 | `claim:swap-0-1` | formalized |
+| Corollary 3.14 | `cor:toric-interval-richardson` | formalized |
+| Toric Richardson varieties and $\dim Q\_{u,v}$ (Section 3.1; Tsukerman and Williams, Proposition 7.12) | — | formalized |
+| The arguments of Section 3.1 for any Coxeter group (Section 3.1) | — | formalized |
+| Definition 3.15 | `def:subexpressions` | formalized |
+| Root elements and coset representatives (Section 3.2) | — | formalized |
+| Equation (3) | `eq:tactionrootsubgroup` | formalized |
+| Definition 3.16 | `def:deodhar-component` | formalized |
+| Positive distinguished subwords (Section 3.2; Marsh and Rietsch, Lemma 3.5) | — | formalized |
+| Theorem 3.17 | — | formalized |
+| Example 3.18 | — | formalized |
+| Definition 3.19 | `def:root-for-subword` | formalized |
+| Lemma 3.20 | `lemma:DeodharcomponentUnipotentSubgroup` | formalized |
+| Equation (4) | `eq:inductiveg` | formalized |
+| Twisted torus actions (Section 4.1; Gao, Hodges and Yong, Lemmas 3.1 and 3.2) | — | formalized |
+| Equation (5) | `eq:SchubertcellAffine` | formalized |
+| Definition 4.1 | — | formalized |
+| Proposition 4.2 | `proposition:tStableHeartIso` | formalized |
+| Levi–Borel subgroups and $U\_{\bar a}$ (Section 4.1) | — | formalized |
+| Lemma 4.3 | `lemma:equivalentCharUbara` | formalized |
+| Lemma 4.4 | `lemma:uBarStableHeart` | formalized |
+| Lemma 4.5 | `lemma:orbitDynamicsRevisited` | formalized |
+| Lemma 4.6 | `lemma:orbitStabilizer` | formalized |
+| Theorem 4.7 | `theorem:codimensionPreservingOrbitBijection` | formalized |
+| Dimensions of orbits (Section 4.1; Brion, Proposition 1.11) | — | formalized |
+| Corollary 4.8 | `corollary:bigCellBIComplexity` | formalized |
+| Proposition 4.9 | `proposition:BLICodim` | formalized |
+| Equation (6) | `eq:codimlb1` | formalized |
+| Equation (7) | `eq:codimlb2` | formalized |
+| The Bruhat decomposition of a Schubert variety (Section 4.2) | — | formalized |
+| Partial flag varieties (Section 4.3) | — | formalized |
+| Lemma 4.10 | `lemma:stabilizer` | formalized |
+| Theorem 4.11 | `thm:sphericalityTransfer` | formalized |
+| Birational invariance of complexity (Section 4.3; Pezzini, §2) | — | formalized |
+| Corollary 4.12 | `cor:toricClassification` | formalized |
+
+## Statements
+
+### Flag varieties, Schubert varieties and Richardson varieties (Section 1)
+
+Status: **formalized**
+
+Here $G$ is a connected reductive group over an algebraically closed field $K$ of characteristic $0$, and every main result is also stated over $\mathbb{C}$. The Weyl group $W$ is that of the root system of $(G,T)$, identified with $N\_G(T)/T$.
+
+- `SchubertOrbits.flag_variety_definitions` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.flag_varieties_complex` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertGeometry.flagVariety` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagQuotientMorphism` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagQuotientMorphism_points` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagVarietyPointsEquiv` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagVarietyPointsHomeomorph` ([OrbitComplexity/SchubertGeometry/FlagVariety/PointTopology.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/PointTopology.lean))
+- `SchubertGeometry.flagQuotient_surjective` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagVarietyIntegral` ([OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Variety.lean))
+- `SchubertGeometry.flagVariety_smooth` ([OrbitComplexity/SchubertGeometry/FlagVariety/Properties.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Properties.lean))
+- `SchubertGeometry.flagVariety_dim` ([OrbitComplexity/SchubertGeometry/FlagVariety/Properties.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Properties.lean))
+- `SchubertGeometry.flagQuotient_isOpenMap` ([OrbitComplexity/SchubertGeometry/FlagVariety/QuotientOpen.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/QuotientOpen.lean))
+- `SchubertGeometry.flagVarietyAction` ([OrbitComplexity/SchubertGeometry/FlagVariety/Action.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Action.lean))
+- `SchubertGeometry.flagVarietyAction_points` ([OrbitComplexity/SchubertGeometry/FlagVariety/Action.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Action.lean))
+- `SchubertGeometry.baseFlagPoint` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean))
+- `SchubertGeometry.borelStabilizerIso` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean))
+- `SchubertGeometry.bruhatDecomposition` ([OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean](../OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean))
+- `SchubertGeometry.bruhatDecomposition_unique` ([OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean](../OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean))
+- `SchubertOrbits.FlagDefinitions.groupClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.quotientClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.strataClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.intersectionClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.subgroupClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.actionClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.orbitClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.flagDefinitions` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertOrbits.FlagDefinitions.flagDefinitionsComplex` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertGeometry.weylQuotientMap_surjective` ([OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean](../OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean))
+- `SchubertGeometry.weylQuotientEquiv` ([OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean](../OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean))
+- `SchubertGeometry.weylQuotientEquiv_apply` ([OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean](../OrbitComplexity/SchubertGeometry/Groups/WeylQuotient.lean))
+- `SchubertOrbits.FlagDefinitions.pointSubgroupClauses` ([OrbitComplexity/Paper/Complex/FlagVarieties.lean](../OrbitComplexity/Paper/Complex/FlagVarieties.lean))
+- `SchubertGeometry.flagChartMap_quotient` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsorPullback` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsorIso` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsorIso_fst` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsorIso_group` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsorIso_mul` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorCharts.lean))
+- `SchubertGeometry.flagTorsor_section` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean))
+- `SchubertGeometry.flagTorsor_transition` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean))
+- `SchubertGeometry.flagTorsor_cocycle` ([OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TorsorTransitions.lean))
+- `GroupActions.projectiveZeroIso` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean))
+- `GroupActions.projectiveScheme` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean))
+- `GroupActions.projectiveToSpec` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean))
+- `GroupActions.projectiveToSpec_isProper` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpace.lean))
+- `GroupActions.projective_irrelevant_eq_span` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsBasis.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsBasis.lean))
+- `GroupActions.projectiveChartRingEquiv` ([OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean))
+- `GroupActions.projectiveChartRingEquiv_X` ([OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean))
+- `GroupActions.projectiveChartRingEquiv_C` ([OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveCharts.lean))
+- `GroupActions.projectiveChartIso` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMap` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMap_isOpen` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMap_range` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMap_toSpec` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartCover` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveScheme_reduced` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveVariety` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMorphism` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMorphism_isOpen` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsScheme.lean))
+- `GroupActions.projectiveChartMap_preimage` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsOverlap.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsOverlap.lean))
+- `GroupActions.projectiveChart_reciprocal` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsReciprocal.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsReciprocal.lean))
+- `GroupActions.projectiveDehomogenize` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsInverse.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsInverse.lean))
+- `GroupActions.projectiveChartRingEquiv_symm_mk` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsInverse.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsInverse.lean))
+- `GroupActions.projectiveCoeffMap` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean))
+- `GroupActions.projectiveCoeffMap_chart` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean))
+- `GroupActions.projectiveBaseChange` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean))
+- `GroupActions.projectiveBaseChange_fst` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean))
+- `GroupActions.projectiveBaseChange_snd` ([OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveSpaceBaseChange.lean))
+- `GroupActions.projectiveToSpec_smooth` ([OrbitComplexity/GroupActions/Varieties/ProjectiveChartsSmooth.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveChartsSmooth.lean))
+- `GroupActions.tensorHom_isOpen` ([OrbitComplexity/GroupActions/Varieties/ProductImmersions.lean](../OrbitComplexity/GroupActions/Varieties/ProductImmersions.lean))
+- `GroupActions.tensorSection_isClosed` ([OrbitComplexity/GroupActions/Varieties/ProductImmersions.lean](../OrbitComplexity/GroupActions/Varieties/ProductImmersions.lean))
+- `GroupActions.mem_additiveNonzero` ([OrbitComplexity/GroupActions/Varieties/AdditiveOpens.lean](../OrbitComplexity/GroupActions/Varieties/AdditiveOpens.lean))
+- `GroupActions.additiveNonzero_points` ([OrbitComplexity/GroupActions/Varieties/AdditiveOpens.lean](../OrbitComplexity/GroupActions/Varieties/AdditiveOpens.lean))
+- `SchubertGeometry.additiveScaleIso` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsScaling.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsScaling.lean))
+- `SchubertGeometry.additiveScaleIso_points` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsScaling.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsScaling.lean))
+- `SchubertGeometry.simplePositiveChart` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simplePositiveChart_isOpen` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simplePositiveChart_points` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleNegativeChart` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleNegativeChart_isOpen` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleNegativeChart_points` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleNegativeChart_comp` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleCharts_transition` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleCharts_cover` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/Charts.lean))
+- `SchubertGeometry.simpleCharts_overlap` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsOverlap.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsOverlap.lean))
+- `SchubertGeometry.simpleCharts_overlap_open` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsTransition.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsTransition.lean))
+- `SchubertGeometry.simpleCharts_transition_comp` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsTransition.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/ChartsTransition.lean))
+- `SchubertGeometry.projectiveLineChart` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_isOpen` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_range` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_preimage` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_cover` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_overlap` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.projectiveLineChart_transition` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoCharts.lean))
+- `SchubertGeometry.simpleSchubertIso` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean))
+- `SchubertGeometry.simpleSchubertIso_positive` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean))
+- `SchubertGeometry.simpleSchubertIso_negative` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoGluing.lean))
+- `SchubertGeometry.simpleSchubert_isProper` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoProperties.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoProperties.lean))
+- `SchubertGeometry.simpleSchubert_smooth` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoSmooth.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoSmooth.lean))
+- `SchubertGeometry.flagBundleInclusion` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleIso` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleIso_fst` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleIso_snd` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTransition` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTransition_fst` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTransition_snd` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTransition_self` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleTransition` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleTransition_snd` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleTripleTransition_cycle` ([OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Transitions.lean))
+- `SchubertGeometry.flagBundleGlueData` ([OrbitComplexity/SchubertGeometry/FlagBundle/Gluing.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Gluing.lean))
+- `SchubertGeometry.flagBundleScheme` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleChart` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleChart_isOpen` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleProjection` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleChart_projection` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleProjection_preimage` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundlePullback` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleProjection_isProper` ([OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Projection.lean))
+- `SchubertGeometry.flagBundleMap` ([OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean))
+- `SchubertGeometry.flagBundleChart_map` ([OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean))
+- `SchubertGeometry.flagBundleMap_toSpec` ([OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Maps.lean))
+- `SchubertGeometry.flagBundleProjection_smooth` ([OrbitComplexity/SchubertGeometry/FlagBundle/Smooth.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Smooth.lean))
+- `GroupActions.projectiveScheme_integral` ([OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean))
+- `GroupActions.projectiveToSpec_geometricallyIntegral` ([OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean))
+- `GroupActions.projectiveToSpec_geometricallyConnected` ([OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean](../OrbitComplexity/GroupActions/Varieties/ProjectiveConnected.lean))
+- `SchubertGeometry.flagBundle_geometricallyConnected` ([OrbitComplexity/SchubertGeometry/FlagBundle/Connected.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Connected.lean))
+- `SchubertGeometry.flagBundle_geometricallyIntegral` ([OrbitComplexity/SchubertGeometry/FlagBundle/Connected.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Connected.lean))
+- `SchubertGeometry.simpleSchubert_geomIntegral` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoConnected.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoConnected.lean))
+- `SchubertGeometry.simpleSchubert_geomConnected` ([OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoConnected.lean](../OrbitComplexity/SchubertGeometry/ProjectiveLine/IsoConnected.lean))
+- `GroupActions.Variety.zeroSection_points_range` ([OrbitComplexity/GroupActions/Varieties/ProductImages.lean](../OrbitComplexity/GroupActions/Varieties/ProductImages.lean))
+- `GroupActions.Variety.reciprocalFactor_points_range` ([OrbitComplexity/GroupActions/Varieties/ProductImages.lean](../OrbitComplexity/GroupActions/Varieties/ProductImages.lean))
+- `GroupActions.Variety.surjective_of_dense_points` ([OrbitComplexity/GroupActions/Varieties/ClosedImage.lean](../OrbitComplexity/GroupActions/Varieties/ClosedImage.lean))
+- `GroupActions.Variety.exists_productChart_points` ([OrbitComplexity/GroupActions/Actions/ProductChartPoints.lean](../OrbitComplexity/GroupActions/Actions/ProductChartPoints.lean))
+- `SchubertGeometry.schubertSupport_longest` ([OrbitComplexity/SchubertGeometry/Cells/Longest.lean](../OrbitComplexity/SchubertGeometry/Cells/Longest.lean))
+- `SchubertGeometry.longestCell_dense` ([OrbitComplexity/SchubertGeometry/Cells/Longest.lean](../OrbitComplexity/SchubertGeometry/Cells/Longest.lean))
+- `SchubertGeometry.longestSchubertIso` ([OrbitComplexity/SchubertGeometry/Cells/Longest.lean](../OrbitComplexity/SchubertGeometry/Cells/Longest.lean))
+- `SchubertGeometry.longestSchubertIso_hom` ([OrbitComplexity/SchubertGeometry/Cells/Longest.lean](../OrbitComplexity/SchubertGeometry/Cells/Longest.lean))
+- `SchubertGeometry.flagBundlePoint` ([OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean))
+- `SchubertGeometry.flagBundlePoint_projection` ([OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean))
+- `SchubertGeometry.flagBundlePoint_toSpec` ([OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean))
+- `SchubertGeometry.flagBundlePoint_map` ([OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean](../OrbitComplexity/SchubertGeometry/FlagBundle/Points.lean))
+- `SchubertGeometry.flagVariety_isProper` ([OrbitComplexity/SchubertGeometry/FlagVariety/Proper.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Proper.lean))
+- `SchubertGeometry.bigCellMorphism` ([OrbitComplexity/SchubertGeometry/FlagVariety/BigCell.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BigCell.lean))
+- `SchubertGeometry.bigCellMorphism_left` ([OrbitComplexity/SchubertGeometry/FlagVariety/BigCell.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BigCell.lean))
+- `SchubertGeometry.borelStabilizerIso_hom_comp` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelStabilizer.lean))
+- `SchubertGeometry.flagChartPoint` ([OrbitComplexity/SchubertGeometry/FlagVariety/Transitions.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Transitions.lean))
+- `SchubertGeometry.flagChartPoint_isOpen` ([OrbitComplexity/SchubertGeometry/FlagVariety/ChartMorphisms.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/ChartMorphisms.lean))
+- `SchubertGeometry.flagProjection` ([OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean))
+- `SchubertGeometry.flagProjection_preimage` ([OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean))
+- `SchubertGeometry.flagOverlapBorel` ([OrbitComplexity/SchubertGeometry/FlagVariety/TranslatedCharts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/TranslatedCharts.lean))
+- `SchubertGeometry.flagTranslation` ([OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean))
+- `SchubertGeometry.flagTranslation_apply` ([OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Charts.lean))
+- `SchubertGeometry.isOpenMap_flagProjection` ([OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean))
+- `SchubertGeometry.oppositeSchubertCellInclusion` ([OrbitComplexity/SchubertGeometry/Cells/Opposite.lean](../OrbitComplexity/SchubertGeometry/Cells/Opposite.lean))
+- `SchubertGeometry.oppositeCellBorelEquivariant` ([OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean))
+- `SchubertGeometry.oppositeCellTorusEquivariant` ([OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean))
+- `SchubertGeometry.oppositeCell_torus_smul` ([OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean](../OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean))
+- `SchubertGeometry.oppositeSchubertInclusion` ([OrbitComplexity/SchubertGeometry/Cells/Opposite.lean](../OrbitComplexity/SchubertGeometry/Cells/Opposite.lean))
+- `SchubertGeometry.oppositeSchubertTorusEquivariant` ([OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeActions.lean))
+- `SchubertGeometry.oppositeSchubert_torus_smul` ([OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean](../OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean))
+- `SchubertGeometry.richardsonCell` ([OrbitComplexity/SchubertGeometry/Cells/Richardson.lean](../OrbitComplexity/SchubertGeometry/Cells/Richardson.lean))
+- `SchubertGeometry.richardsonCell_integral` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonCell_nonempty_iff` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonCellInclusion` ([OrbitComplexity/SchubertGeometry/Cells/Richardson.lean](../OrbitComplexity/SchubertGeometry/Cells/Richardson.lean))
+- `SchubertGeometry.richardsonCell_torus_smul` ([OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean](../OrbitComplexity/SchubertGeometry/Cells/ActionPoints.lean))
+- `SchubertGeometry.richardsonInclusion` ([OrbitComplexity/SchubertGeometry/Cells/Richardson.lean](../OrbitComplexity/SchubertGeometry/Cells/Richardson.lean))
+- `SchubertGeometry.richardson_app_ker` ([OrbitComplexity/SchubertGeometry/Normality/RichardsonKernel.lean](../OrbitComplexity/SchubertGeometry/Normality/RichardsonKernel.lean))
+- `SchubertGeometry.rootCurve_weyl_inv` ([OrbitComplexity/SchubertGeometry/Connectedness/RootCurveFlags.lean](../OrbitComplexity/SchubertGeometry/Connectedness/RootCurveFlags.lean))
+- `SchubertGeometry.schubertVariety_isProper` ([OrbitComplexity/SchubertGeometry/Cells/Proper.lean](../OrbitComplexity/SchubertGeometry/Cells/Proper.lean))
+- `SchubertGeometry.baseFlag` ([OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean))
+- `SchubertGeometry.torus_smul_baseFlag` ([OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/Points.lean))
+- `GroupActions.algebraSpecMap` ([OrbitComplexity/GroupActions/Varieties/AffineTensorAction.lean](../OrbitComplexity/GroupActions/Varieties/AffineTensorAction.lean))
+- `GroupActions.algebraSpecMap_left` ([OrbitComplexity/GroupActions/Varieties/AffineTensorAction.lean](../OrbitComplexity/GroupActions/Varieties/AffineTensorAction.lean))
+- `GroupActions.closedSubgroupMap` ([OrbitComplexity/GroupActions/Varieties/ClosedSubgroupMaps.lean](../OrbitComplexity/GroupActions/Varieties/ClosedSubgroupMaps.lean))
+- `GroupActions.closedSubgroupMap_points` ([OrbitComplexity/GroupActions/Varieties/ClosedSubgroupMaps.lean](../OrbitComplexity/GroupActions/Varieties/ClosedSubgroupMaps.lean))
+- `ReductiveGroups.ReductiveGroupData.torusPoints` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPoints.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPoints.lean))
+- `GroupActions.isClosed_torusPoints` ([OrbitComplexity/GroupActions/Varieties/ReductiveVariety.lean](../OrbitComplexity/GroupActions/Varieties/ReductiveVariety.lean))
+- `GroupActions.oppositeBorelInclusion` ([OrbitComplexity/GroupActions/Varieties/OppositeBorelVariety.lean](../OrbitComplexity/GroupActions/Varieties/OppositeBorelVariety.lean))
+- `GroupActions.oppositeBorelInclusion_isClosed` ([OrbitComplexity/GroupActions/Varieties/OppositeBorelVariety.lean](../OrbitComplexity/GroupActions/Varieties/OppositeBorelVariety.lean))
+- `GroupActions.torusVariety` ([OrbitComplexity/GroupActions/Varieties/TorusVariety.lean](../OrbitComplexity/GroupActions/Varieties/TorusVariety.lean))
+- `GroupActions.torusVarietyCommGroup` ([OrbitComplexity/GroupActions/Varieties/TorusVariety.lean](../OrbitComplexity/GroupActions/Varieties/TorusVariety.lean))
+- `GroupActions.torusVariety_dim` ([OrbitComplexity/GroupActions/Tori/Dimension.lean](../OrbitComplexity/GroupActions/Tori/Dimension.lean))
+- `ReductiveGroups.GLn.groupData` ([OrbitComplexity/ReductiveGroups/GLn/GroupData.lean](../OrbitComplexity/ReductiveGroups/GLn/GroupData.lean))
+- `ReductiveGroups.GLn.groupData_borelIdeal` ([OrbitComplexity/ReductiveGroups/GLn/GroupData.lean](../OrbitComplexity/ReductiveGroups/GLn/GroupData.lean))
+- `ReductiveGroups.GLn.groupData_coordinateAlgebra` ([OrbitComplexity/ReductiveGroups/GLn/GroupData.lean](../OrbitComplexity/ReductiveGroups/GLn/GroupData.lean))
+- `ReductiveGroups.GLn.groupData_torusIdeal` ([OrbitComplexity/ReductiveGroups/GLn/GroupData.lean](../OrbitComplexity/ReductiveGroups/GLn/GroupData.lean))
+- `ReductiveGroups.ReductiveGroupData.oppositeBorelIdeal` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupOpposite.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupOpposite.lean))
+- `ReductiveGroups.ReductiveGroupData.oppositeBorel_le_torus` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupOpposite.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupOpposite.lean))
+
+### Normality of Schubert and Richardson varieties (Section 1)
+
+Status: **formalized**
+
+Cited in the paper and proved here, also for the Schubert varieties of every $G/P\_J$, by Frobenius splitting in positive characteristic and passage to characteristic $0$ through models over $\mathbb{Z}$. The Cohen–Macaulay property and rational singularities, which no proof uses, are not formalized.
+
+- `SchubertOrbits.schubert_richardson_normality` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+- `SchubertOrbits.schubert_richardson_normality_complex` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+
+All 1492 declarations of the proof are listed in [NORMALITY_DECLARATIONS.md](NORMALITY_DECLARATIONS.md).
+
+### Definition 1.1 (`def:complexity`)
+
+Status: **formalized**
+
+- `GroupActions.complexity_definition` ([OrbitComplexity/GroupActions/Complexity/Definition.lean](../OrbitComplexity/GroupActions/Complexity/Definition.lean))
+- `GroupActions.complexity` ([OrbitComplexity/GroupActions/Complexity/Basic.lean](../OrbitComplexity/GroupActions/Complexity/Basic.lean))
+- `GroupActions.complexity_eq_minOrbitCodim` ([OrbitComplexity/GroupActions/Complexity/Basic.lean](../OrbitComplexity/GroupActions/Complexity/Basic.lean))
+- `GroupActions.complexity_le` ([OrbitComplexity/GroupActions/Complexity/Basic.lean](../OrbitComplexity/GroupActions/Complexity/Basic.lean))
+- `GroupActions.complexity_isLeast` ([OrbitComplexity/GroupActions/Complexity/Basic.lean](../OrbitComplexity/GroupActions/Complexity/Basic.lean))
+- `GroupActions.minOrbitCodim` ([OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean](../OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean))
+- `GroupActions.minOrbitCodim_le` ([OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean](../OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean))
+- `GroupActions.exists_orbitCodim_eq` ([OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean](../OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean))
+- `GroupActions.minOrbitCodim_isLeast` ([OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean](../OrbitComplexity/GroupActions/Complexity/OrbitCodimension.lean))
+- `GroupActions.orbitCodim` ([OrbitComplexity/GroupActions/Actions/Orbits.lean](../OrbitComplexity/GroupActions/Actions/Orbits.lean))
+- `GroupActions.orbitCodim_nonneg` ([OrbitComplexity/GroupActions/Actions/Orbits.lean](../OrbitComplexity/GroupActions/Actions/Orbits.lean))
+- `SchubertOrbits.complexity_complex` ([OrbitComplexity/Paper/Complex/Complexity.lean](../OrbitComplexity/Paper/Complex/Complexity.lean))
+
+### Spherical and toric varieties (Section 1)
+
+Status: **formalized**
+
+- `GroupActions.spherical_toric_definition` ([OrbitComplexity/GroupActions/Complexity/SphericalToric.lean](../OrbitComplexity/GroupActions/Complexity/SphericalToric.lean))
+- `SchubertOrbits.spherical_toric_complex` ([OrbitComplexity/Paper/Complex/Spherical.lean](../OrbitComplexity/Paper/Complex/Spherical.lean))
+- `GroupActions.IsSpherical` ([OrbitComplexity/GroupActions/Complexity/Spherical.lean](../OrbitComplexity/GroupActions/Complexity/Spherical.lean))
+- `GroupActions.isSpherical_iff_normal_dense` ([OrbitComplexity/GroupActions/Complexity/Spherical.lean](../OrbitComplexity/GroupActions/Complexity/Spherical.lean))
+- `GroupActions.IsToricVariety` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.torusComplexity` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.torusComplexity_le` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.torusComplexity_isLeast` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.torusComplexity_eq_zero_iff` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.isToricVariety_iff_normal_dense` ([OrbitComplexity/GroupActions/Complexity/Toric.lean](../OrbitComplexity/GroupActions/Complexity/Toric.lean))
+- `GroupActions.torus_isOwnBorel` ([OrbitComplexity/GroupActions/Complexity/TorusBorel.lean](../OrbitComplexity/GroupActions/Complexity/TorusBorel.lean))
+- `GroupActions.complexity_of_borel_bot` ([OrbitComplexity/GroupActions/Complexity/TorusBorel.lean](../OrbitComplexity/GroupActions/Complexity/TorusBorel.lean))
+- `GroupActions.splitTorus_complexity` ([OrbitComplexity/GroupActions/Complexity/TorusBorel.lean](../OrbitComplexity/GroupActions/Complexity/TorusBorel.lean))
+- `GroupActions.torusComplexity_eq_complexity` ([OrbitComplexity/GroupActions/Complexity/TorusBorel.lean](../OrbitComplexity/GroupActions/Complexity/TorusBorel.lean))
+- `GroupActions.isToricVariety_iff_isSpherical` ([OrbitComplexity/GroupActions/Complexity/TorusBorel.lean](../OrbitComplexity/GroupActions/Complexity/TorusBorel.lean))
+
+### The Bruhat order and Richardson varieties (Section 1)
+
+Status: **formalized**
+
+Cited in the paper and proved here; the dimension $\ell(v)-\ell(u)$ comes from the Deodhar components of $\mathcal{R}^{\circ}\_{u,v}$. The entry also includes the decomposition of $\mathcal{R}\_{u,v}$ into the disjoint cells $\mathcal{R}^{\circ}\_{x,y}$, $u\le x\le y\le v$.
+
+- `SchubertGeometry.richardson_structure` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonStructure.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonStructure.lean))
+- `SchubertGeometry.richardsonVariety` ([OrbitComplexity/SchubertGeometry/Cells/Richardson.lean](../OrbitComplexity/SchubertGeometry/Cells/Richardson.lean))
+
+### Theorem 1.2 (`thm:torus-complexity`)
+
+Status: **formalized**
+
+Over $\mathbb{C}$ the proof is the paper's. Over $K$ the largest dimension $\mathrm{ad}(u,v)$ of a $T$-orbit is obtained from Theorem 1.4, applied to the Deodhar components of every cell $\mathcal{R}^{\circ}\_{x,y}$ with $u\le x\le y\le v$, instead of from the moment map.
+
+- `SchubertOrbits.richardson_complexity_formula` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.richardson_complexity_formula_complex` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.richardson_complexity_and_max` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.richardson_complexity_and_max_complex` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.deodharParameter_complexity` ([OrbitComplexity/Paper/Deodhar/ParameterComplexity.lean](../OrbitComplexity/Paper/Deodhar/ParameterComplexity.lean))
+- `SchubertGeometry.positiveParameters_dim` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterDimensions.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterDimensions.lean))
+- `SchubertOrbits.positiveParameter_complexity` ([OrbitComplexity/Paper/Deodhar/ParameterDimensions.lean](../OrbitComplexity/Paper/Deodhar/ParameterDimensions.lean))
+- `SchubertGeometry.richardsonCellToVariety` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean))
+- `SchubertGeometry.richardsonCellToVariety_comp` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean))
+- `SchubertGeometry.richardsonCellToVariety_isOpen` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean))
+- `SchubertGeometry.richardsonCellToVariety_torus` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOpen.lean))
+- `GroupActions.actionFamily_isOpen` ([OrbitComplexity/GroupActions/Actions/OrbitOpen.lean](../OrbitComplexity/GroupActions/Actions/OrbitOpen.lean))
+- `SchubertGeometry.borelOppositeMul` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `SchubertGeometry.oppositeBorelMul` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `SchubertGeometry.borelOppositeMul_smooth` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `SchubertGeometry.oppositeBorelMul_smooth` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `SchubertGeometry.borelOppositeMul_pair` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `SchubertGeometry.oppositeBorelMul_pair` ([OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/BorelProduct.lean))
+- `GroupActions.affineMulTangent_surjective_of_sup` ([OrbitComplexity/GroupActions/Varieties/AffineMulSmooth.lean](../OrbitComplexity/GroupActions/Varieties/AffineMulSmooth.lean))
+- `GroupActions.affineMulMap_smooth` ([OrbitComplexity/GroupActions/Varieties/AffineMulSmooth.lean](../OrbitComplexity/GroupActions/Varieties/AffineMulSmooth.lean))
+- `SchubertGeometry.oppositeCell_unipotent_points` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonChartPoints.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonChartPoints.lean))
+- `SchubertGeometry.richardsonCell_preirreducible` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIrreducible.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIrreducible.lean))
+- `GroupActions.actionFamily_open_of_smooth_mul` ([OrbitComplexity/GroupActions/Actions/SubgroupOpen.lean](../OrbitComplexity/GroupActions/Actions/SubgroupOpen.lean))
+- `SchubertGeometry.oppositeSchubert_borel_open` ([OrbitComplexity/SchubertGeometry/Cells/SchubertActionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/SchubertActionOpen.lean))
+- `SchubertGeometry.schubert_oppositeBorel_open` ([OrbitComplexity/SchubertGeometry/Cells/SchubertActionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/SchubertActionOpen.lean))
+- `SchubertGeometry.richardsonToSchubert` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `SchubertGeometry.richardsonToOpposite` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `SchubertGeometry.richardsonToSchubert_comp` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `SchubertGeometry.richardsonToOpposite_comp` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `SchubertGeometry.borelRichardsonFamily_open` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `SchubertGeometry.oppositeRichardsonFamily_open` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntersectionOpen.lean))
+- `GroupActions.dense_preimage_of_open_action` ([OrbitComplexity/GroupActions/Actions/DenseRestriction.lean](../OrbitComplexity/GroupActions/Actions/DenseRestriction.lean))
+- `SchubertGeometry.richardsonCellToVariety_dominant` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonDensity.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonDensity.lean))
+- `SchubertGeometry.richardsonVariety_preirreducible` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonDensity.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonDensity.lean))
+- `GroupActions.Variety.dim_closure_range_immersion` ([OrbitComplexity/GroupActions/Varieties/FullDimension.lean](../OrbitComplexity/GroupActions/Varieties/FullDimension.lean))
+- `GroupActions.Variety.isDominant_of_dim_eq` ([OrbitComplexity/GroupActions/Varieties/FullDimension.lean](../OrbitComplexity/GroupActions/Varieties/FullDimension.lean))
+- `GroupActions.Variety.isOpenImmersion_of_dominant` ([OrbitComplexity/GroupActions/Varieties/FullDimension.lean](../OrbitComplexity/GroupActions/Varieties/FullDimension.lean))
+- `GroupActions.Variety.dim_le_of_finite_immersion_cover` ([OrbitComplexity/GroupActions/Varieties/ImmersionCovers.lean](../OrbitComplexity/GroupActions/Varieties/ImmersionCovers.lean))
+- `BruhatIntervals.subexpression_step_count` ([OrbitComplexity/BruhatIntervals/Words/StepCount.lean](../OrbitComplexity/BruhatIntervals/Words/StepCount.lean))
+- `SchubertGeometry.deodharParameters_dim_le` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterDimensions.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterDimensions.lean))
+- `GroupActions.minOrbitCodim_eq_sub_max` ([OrbitComplexity/GroupActions/Complexity/MaxOrbit.lean](../OrbitComplexity/GroupActions/Complexity/MaxOrbit.lean))
+- `SchubertGeometry.richardsonInclusion_orbitNatDim` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOrbitDimensions.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOrbitDimensions.lean))
+- `ReductiveGroups.rootCount_longest_mul_add` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/LongestOrder.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/LongestOrder.lean))
+- `ReductiveGroups.bruhat_longest_mul_iff` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/LongestOrder.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/LongestOrder.lean))
+- `GroupActions.Variety.dim_le_of_finite_image_cover` ([OrbitComplexity/GroupActions/Varieties/ImageCovers.lean](../OrbitComplexity/GroupActions/Varieties/ImageCovers.lean))
+- `SchubertGeometry.oppositeSchubert_points_cells` ([OrbitComplexity/SchubertGeometry/Cells/OppositeClosure.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeClosure.lean))
+- `SchubertGeometry.richardsonCell_order` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean))
+- `SchubertGeometry.richardsonVariety_cells_cover` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonStrata.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonStrata.lean))
+- `SchubertGeometry.richardsonVariety_cells_range` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonStrata.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonStrata.lean))
+- `SchubertGeometry.richardsonVariety_integral` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonCell_integral` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonVariety_nonempty_iff` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonCell_nonempty_iff` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonCell_dim_eq` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardsonVariety_orbit_stratum` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOrbitStrata.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOrbitStrata.lean))
+- `SchubertGeometry.richardsonVariety_dim` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonDimension.lean))
+- `SchubertGeometry.richardsonVariety_natDim` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonDimension.lean))
+- `SchubertOrbits.richardson_orbit_le` ([OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean](../OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean))
+- `SchubertOrbits.richardson_orbit_maximum` ([OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean](../OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean))
+- `SchubertOrbits.richardson_torus_complexity` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+- `SchubertOrbits.richardson_torus_complexity_complex` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+- `SchubertOrbits.richardson_zero_maximum` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.richardson_toric_maximum` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.richardson_toric_maximum_complex` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `GroupActions.Variety.dim` ([OrbitComplexity/GroupActions/Varieties/Dimension.lean](../OrbitComplexity/GroupActions/Varieties/Dimension.lean))
+
+### Corollary 1.3 (`cor:torus-complexity-Schubert`)
+
+Status: **formalized**
+
+- `SchubertOrbits.schubert_complexity_formula` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.lower_support_span` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.schubert_complexity_formula_complex` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `BruhatIntervals.labelSpan_one` ([OrbitComplexity/BruhatIntervals/Graph/Support.lean](../OrbitComplexity/BruhatIntervals/Graph/Support.lean))
+- `BruhatIntervals.algebraicDim_one` ([OrbitComplexity/BruhatIntervals/Graph/Support.lean](../OrbitComplexity/BruhatIntervals/Graph/Support.lean))
+- `BruhatIntervals.labelSpan_one_inversions` ([OrbitComplexity/BruhatIntervals/Graph/LowerSpans.lean](../OrbitComplexity/BruhatIntervals/Graph/LowerSpans.lean))
+- `SchubertGeometry.oppositeSchubertSupport_one` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean))
+- `SchubertGeometry.richardsonSchubertIso` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean))
+- `SchubertGeometry.richardsonSchubertIso_hom_comp` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean))
+- `SchubertGeometry.richardsonSchubertIso_torus` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean))
+- `SchubertGeometry.torus_richardson_one_complexity` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonSchubert.lean))
+- `SchubertOrbits.schubert_torus_complexity` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+- `SchubertOrbits.schubert_torus_complexity_complex` ([OrbitComplexity/Paper/RichardsonComplexity.lean](../OrbitComplexity/Paper/RichardsonComplexity.lean))
+
+### Theorem 1.4 (`thm:torus-dimension-richardson`)
+
+Status: **formalized**
+
+Here the weights of $T$ on $Tx$ are the characters $-\beta\_k$ by which $T$ scales the nonzero coordinates $g^{(k)}$ of the standard form of $x$; the theorem also proves that $\dim Tx$ is the dimension of their span.
+
+- `SchubertOrbits.deodharComponent_weights` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
+- `SchubertOrbits.subwordWeightSpan_interval` ([OrbitComplexity/Paper/Deodhar/Spans.lean](../OrbitComplexity/Paper/Deodhar/Spans.lean))
+- `SchubertOrbits.subwordWeightSpan_last` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightSpan_last_positive` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `GroupActions.finrank_realSpan_finsupp` ([OrbitComplexity/GroupActions/Tori/RealSpanRank.lean](../OrbitComplexity/GroupActions/Tori/RealSpanRank.lean))
+- `GroupActions.ringKrullDim_weighted_real` ([OrbitComplexity/GroupActions/Tori/SupportMaps.lean](../OrbitComplexity/GroupActions/Tori/SupportMaps.lean))
+- `GroupActions.torusWeightMap_image_dim` ([OrbitComplexity/GroupActions/Tori/OrbitRank.lean](../OrbitComplexity/GroupActions/Tori/OrbitRank.lean))
+- `GroupActions.torus_orbit_dim` ([OrbitComplexity/GroupActions/Tori/OrbitRank.lean](../OrbitComplexity/GroupActions/Tori/OrbitRank.lean))
+- `GroupActions.torus_orbit_dim_of_immersion` ([OrbitComplexity/GroupActions/Tori/ImmersedOrbitRank.lean](../OrbitComplexity/GroupActions/Tori/ImmersedOrbitRank.lean))
+- `GroupActions.torus_orbitNatDim_of_immersion` ([OrbitComplexity/GroupActions/Tori/ImmersedOrbitRank.lean](../OrbitComplexity/GroupActions/Tori/ImmersedOrbitRank.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacter_relation` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacter_independent` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacterMap` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacterMap_root` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacterMap_injective` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacterMap_span` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacter_span_rank` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+- `SchubertOrbits.rootCharacter_real_rank` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `BruhatIntervals.rootPairingForm` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `BruhatIntervals.rootPairingForm_single` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `BruhatIntervals.rootPairingForm_isSymm` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `BruhatIntervals.normalizedSimpleRoot` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `BruhatIntervals.normalizedSimpleRoot_independent` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `BruhatIntervals.normalizedSimpleRoot_pairing` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `SchubertOrbits.rootCharacter_normalized_rank` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.rootCoordinateAction` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.rootCoordinateAction_simple` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.realRoot` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.realRoot_apply` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.rootCoordinateAction_root` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.realRoot_simple` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.positive_subwordWeightSpan` ([OrbitComplexity/Paper/Deodhar/MaximalWeights.lean](../OrbitComplexity/Paper/Deodhar/MaximalWeights.lean))
+- `SchubertOrbits.subwordWeightDim_maximum` ([OrbitComplexity/Paper/Deodhar/MaximalWeights.lean](../OrbitComplexity/Paper/Deodhar/MaximalWeights.lean))
+- `BruhatIntervals.normalizedSimpleRoot_reflection` ([OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootForms.lean))
+- `SchubertOrbits.normalizedRoot` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.normalizedRoot_simple` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.rootCoordinateAction_normalized` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.normalizedRoot_apply` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.weylRealization` ([OrbitComplexity/Paper/Deodhar/Realization.lean](../OrbitComplexity/Paper/Deodhar/Realization.lean))
+- `SchubertOrbits.rootCharacter_root_rank` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.normalizedRoot_neg` ([OrbitComplexity/Paper/Deodhar/RootIndices.lean](../OrbitComplexity/Paper/Deodhar/RootIndices.lean))
+- `SchubertOrbits.subwordRootIndex` ([OrbitComplexity/Paper/Deodhar/RootIndices.lean](../OrbitComplexity/Paper/Deodhar/RootIndices.lean))
+- `SchubertOrbits.subwordRoot_eq_normalized` ([OrbitComplexity/Paper/Deodhar/RootIndices.lean](../OrbitComplexity/Paper/Deodhar/RootIndices.lean))
+- `SchubertOrbits.subwordCharacter` ([OrbitComplexity/Paper/Deodhar/WeightRank.lean](../OrbitComplexity/Paper/Deodhar/WeightRank.lean))
+- `SchubertOrbits.subwordCharacter_rank` ([OrbitComplexity/Paper/Deodhar/WeightRank.lean](../OrbitComplexity/Paper/Deodhar/WeightRank.lean))
+- `SchubertOrbits.subwordRootProduct_torus_points` ([OrbitComplexity/Paper/Deodhar/Products.lean](../OrbitComplexity/Paper/Deodhar/Products.lean))
+- `SchubertOrbits.subwordRootProduct_flag_action` ([OrbitComplexity/Paper/Deodhar/Products.lean](../OrbitComplexity/Paper/Deodhar/Products.lean))
+- `SchubertOrbits.deodharParameterAction` ([OrbitComplexity/Paper/Deodhar/Parameters.lean](../OrbitComplexity/Paper/Deodhar/Parameters.lean))
+- `SchubertOrbits.deodharParameterInclusion_isModHom` ([OrbitComplexity/Paper/Deodhar/Parameters.lean](../OrbitComplexity/Paper/Deodhar/Parameters.lean))
+- `SchubertOrbits.deodharParameter_smul` ([OrbitComplexity/Paper/Deodhar/Parameters.lean](../OrbitComplexity/Paper/Deodhar/Parameters.lean))
+- `SchubertOrbits.deodharParameter_orbit_rank` ([OrbitComplexity/Paper/Deodhar/ParameterOrbits.lean](../OrbitComplexity/Paper/Deodhar/ParameterOrbits.lean))
+- `SchubertOrbits.deodharParameter_orbit_le` ([OrbitComplexity/Paper/Deodhar/ParameterOrbits.lean](../OrbitComplexity/Paper/Deodhar/ParameterOrbits.lean))
+- `SchubertOrbits.subwordFlagMorphism_isModHom` ([OrbitComplexity/Paper/Deodhar/ProductActions.lean](../OrbitComplexity/Paper/Deodhar/ProductActions.lean))
+- `SchubertOrbits.deodharPrefixMorphism_isModHom` ([OrbitComplexity/Paper/Deodhar/ParameterMaps.lean](../OrbitComplexity/Paper/Deodhar/ParameterMaps.lean))
+- `SchubertGeometry.wordCellProjection_torus` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixActions.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixActions.lean))
+- `SchubertOrbits.deodharPrefixTorusAction` ([OrbitComplexity/Paper/Deodhar/ComponentActions.lean](../OrbitComplexity/Paper/Deodhar/ComponentActions.lean))
+- `SchubertOrbits.deodharPrefixInclusion_torus` ([OrbitComplexity/Paper/Deodhar/ComponentActions.lean](../OrbitComplexity/Paper/Deodhar/ComponentActions.lean))
+- `SchubertOrbits.deodharInclusion_torus` ([OrbitComplexity/Paper/Deodhar/ComponentActions.lean](../OrbitComplexity/Paper/Deodhar/ComponentActions.lean))
+- `SchubertOrbits.deodhar_orbitNatDim` ([OrbitComplexity/Paper/Deodhar/ComponentOrbitDimensions.lean](../OrbitComplexity/Paper/Deodhar/ComponentOrbitDimensions.lean))
+- `SchubertOrbits.deodharOrbitWeightSpan` ([OrbitComplexity/Paper/Deodhar/OrbitWeights.lean](../OrbitComplexity/Paper/Deodhar/OrbitWeights.lean))
+- `SchubertOrbits.deodharOrbitWeightSpan_le` ([OrbitComplexity/Paper/Deodhar/OrbitWeights.lean](../OrbitComplexity/Paper/Deodhar/OrbitWeights.lean))
+- `SchubertOrbits.deodharParameter_orbit_weightSpan` ([OrbitComplexity/Paper/Deodhar/OrbitWeights.lean](../OrbitComplexity/Paper/Deodhar/OrbitWeights.lean))
+- `SchubertOrbits.deodharGeneral_weightSpan` ([OrbitComplexity/Paper/Deodhar/OrbitWeights.lean](../OrbitComplexity/Paper/Deodhar/OrbitWeights.lean))
+- `SchubertOrbits.deodharGeneralPoints` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
+- `SchubertOrbits.deodharComponentWeightSpan` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
+- `SchubertOrbits.deodharComponent_orbit_le` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
+- `SchubertOrbits.deodharComponent_orbit_attains` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
+
+### Root systems, parabolic subgroups and Levi subgroups (Section 1)
+
+Status: **formalized**
+
+Here $L\_I$ is the centralizer of $\lbrace t\in T : \alpha\_i(t)=1\text{ for all }\alpha\_i\in I\rbrace$, the Levi factor of $P\_I$ that contains $T$.
+
+- `SchubertGeometry.parabolic_structure` ([OrbitComplexity/SchubertGeometry/Parabolics/Structure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Structure.lean))
+- `ReductiveGroups.HopfIdeals.baseChange_surjective` ([OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean](../OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean))
+- `ReductiveGroups.HopfIdeals.isBorel_of_algClosed` ([OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean](../OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean))
+- `ReductiveGroups.HopfIdeals.reductive_of_ground` ([OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean](../OrbitComplexity/ReductiveGroups/Groups/Borel/AlgClosed.lean))
+- `ReductiveGroups.ReductiveGroupData.leviBorel_mem_torus_of_conj` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviOpposite.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviOpposite.lean))
+- `ReductiveGroups.ReductiveGroupData.leviNormalPoints_le_torus` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviOpposite.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviOpposite.lean))
+- `SchubertGeometry.leviBorel_isBorelOverAlgClosed` ([OrbitComplexity/SchubertGeometry/Levi/BorelMaximal.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelMaximal.lean))
+- `SchubertGeometry.leviPoints_eq_generated` ([OrbitComplexity/SchubertGeometry/Levi/Generation.lean](../OrbitComplexity/SchubertGeometry/Levi/Generation.lean))
+- `SchubertGeometry.levi_geometricallyConnected` ([OrbitComplexity/SchubertGeometry/Levi/LeviConnected.lean](../OrbitComplexity/SchubertGeometry/Levi/LeviConnected.lean))
+- `SchubertGeometry.levi_connected` ([OrbitComplexity/SchubertGeometry/Levi/LeviConnected.lean](../OrbitComplexity/SchubertGeometry/Levi/LeviConnected.lean))
+- `SchubertGeometry.leviTorusIdeal` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviTorusQuotientIso` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviBorel_le_torus` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviTorus_isMaximal` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviTorusSplit` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviTorusSplit_surjective` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviTorusSplit_eq_zero` ([OrbitComplexity/SchubertGeometry/Levi/Torus.lean](../OrbitComplexity/SchubertGeometry/Levi/Torus.lean))
+- `SchubertGeometry.leviBorelLeviInclusion` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLeviInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLeviInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLeviInclusion_comp` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLeviInclusion_points` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLeviInclusion_smul` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.leviBorelLevi_schubert_smul` ([OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelInclusion.lean))
+- `SchubertGeometry.levi_unipotent_eq_of_le` ([OrbitComplexity/SchubertGeometry/Levi/UnipotentPoints.lean](../OrbitComplexity/SchubertGeometry/Levi/UnipotentPoints.lean))
+- `SchubertGeometry.borelParabolicInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean))
+- `SchubertGeometry.borelParabolic_isClosed` ([OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean))
+- `SchubertGeometry.borelParabolic_isMonHom` ([OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean))
+- `SchubertGeometry.borelParabolic_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean))
+- `SchubertGeometry.borelParabolic_points` ([OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BorelInclusion.lean))
+- `SchubertGeometry.standardParabolicVariety` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.standardParabolicVarietyGroup` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.standardParabolicInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.parabolicInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.parabolicInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.parabolicPointsMulEquiv` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.parabolicInclusion_points` ([OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Subgroup.lean))
+- `SchubertGeometry.leviBorel_restricted_orbit` ([OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean))
+- `SchubertGeometry.leviBorel_restricted_orbitCodim` ([OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean))
+- `SchubertGeometry.leviBorel_restricted_minOrbitCodim` ([OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelOrbits.lean))
+- `SchubertGeometry.levi_unipotent_eq_augmentation` ([OrbitComplexity/SchubertGeometry/Levi/Reductive.lean](../OrbitComplexity/SchubertGeometry/Levi/Reductive.lean))
+- `SchubertGeometry.leviBorel_isBorel` ([OrbitComplexity/SchubertGeometry/Levi/Reductive.lean](../OrbitComplexity/SchubertGeometry/Levi/Reductive.lean))
+- `SchubertGeometry.levi_reductive` ([OrbitComplexity/SchubertGeometry/Levi/Reductive.lean](../OrbitComplexity/SchubertGeometry/Levi/Reductive.lean))
+- `SchubertGeometry.leviGroupData` ([OrbitComplexity/SchubertGeometry/Levi/Reductive.lean](../OrbitComplexity/SchubertGeometry/Levi/Reductive.lean))
+- `SchubertGeometry.leviBorelIso` ([OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean))
+- `SchubertGeometry.leviBorelIso_isMonHom` ([OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean))
+- `SchubertGeometry.leviBorelIso_comp` ([OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean))
+- `SchubertGeometry.levi_schubert_complexity` ([OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelComparison.lean))
+- `ReductiveGroups.parabolicRadicalRoots` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean))
+- `ReductiveGroups.parabolicRadicalRoots_partition` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean))
+- `ReductiveGroups.parabolicRadicalRoots_mixed` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean))
+- `ReductiveGroups.parabolicRadicalRoots_closed` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean))
+- `ReductiveGroups.parabolicRadicalRoots_weyl` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/LeviComplement.lean))
+- `ReductiveGroups.ReductiveGroupData.rootSubsetPoints_le_of_maps` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootNormalizers.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootNormalizers.lean))
+- `ReductiveGroups.ReductiveGroupData.rootMap_mem_rootNormalizer` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootNormalizers.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootNormalizers.lean))
+- `ReductiveGroups.ReductiveGroupData.borel_le_parabolicNormalizer` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicNormalizer.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicNormalizer.lean))
+- `ReductiveGroups.ReductiveGroupData.weyl_mem_parabolicNormalizer` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicNormalizer.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicNormalizer.lean))
+- `ReductiveGroups.ReductiveGroupData.levi_disjoint_parabolicTangent` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicTangent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupParabolicTangent.lean))
+- `SchubertGeometry.parabolicUnipotentPoints` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.parabolicUnipotent_normalizer` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.parabolicUnipotent_normal` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.parabolic_eq_levi_sup_unipotent` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.levi_disjoint_parabolicUnipotent` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.parabolic_existsUnique_levi_mul` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionPoints.lean))
+- `SchubertGeometry.parabolicAlgebra` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentVariety` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.leviParabolicInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.leviParabolicInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.leviParabolicInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.leviParabolicInclusion_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.leviParabolicInclusion_points` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentInclusion_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.parabolicUnipotentInclusion_points` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionMaps.lean))
+- `SchubertGeometry.affineMulTangent_injective` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionIso.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionIso.lean))
+- `SchubertGeometry.affineMulMap_isIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionIso.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionIso.lean))
+- `SchubertGeometry.parabolicLeviProduct` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean))
+- `SchubertGeometry.parabolicMultiplication` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean))
+- `SchubertGeometry.parabolicMultiplication_points` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean))
+- `SchubertGeometry.parabolicMultiplication_bijective` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProduct.lean))
+- `ReductiveGroups.ReductiveGroupData.rootSubset_smoothUnipotent` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootUnipotent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootUnipotent.lean))
+- `ReductiveGroups.ReductiveGroupData.rootSubset_geometricallyConnected` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootUnipotent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootUnipotent.lean))
+- `SchubertGeometry.affineTensorIso_mul` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionCoordinates.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionCoordinates.lean))
+- `SchubertGeometry.leviInParabolic` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.unipotentInParabolic` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicComplement` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicPointProjection` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicPointProjection_levi` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicPointProjection_ker` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicPointProjection_factors` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `SchubertGeometry.parabolicSemidirectIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionGroups.lean))
+- `GroupActions.Variety.isMonHom_of_points` ([OrbitComplexity/GroupActions/Actions/MonHomPoints.lean](../OrbitComplexity/GroupActions/Actions/MonHomPoints.lean))
+- `SchubertGeometry.parabolicMultiplication_isIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionVariety.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionVariety.lean))
+- `SchubertGeometry.parabolicLeviIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionVariety.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionVariety.lean))
+- `SchubertGeometry.parabolicLeviProjection` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicLeviProjection_points` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicLeviProjection_isMonHom` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicLeviProjection_section` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicLeviProjection_kernel` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicLeviProjection_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionProjection.lean))
+- `SchubertGeometry.parabolicProjectionMap` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean))
+- `SchubertGeometry.parabolicProjectionMap_spec` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean))
+- `SchubertGeometry.parabolicProjectionMap_injective` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionHopf.lean))
+- `SchubertGeometry.parabolicUnipotentIdeal` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotentQuotientIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotentIdeal_reduced` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotentIdeal_points` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotentIdeal_isNormal` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotent_connected` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotent_smoothUnipotent` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadicalIdeal.lean))
+- `SchubertGeometry.parabolicUnipotent_image_trivial` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean))
+- `SchubertGeometry.parabolicUnipotentIdeal_le` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean))
+- `SchubertGeometry.parabolicUnipotent_isCandidate` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean))
+- `SchubertGeometry.parabolicUnipotent_isRadical` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionRadical.lean))
+- `SchubertGeometry.leviBorelMultiplication_isIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelVariety.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelVariety.lean))
+- `SchubertGeometry.leviBorelProductIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelVariety.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelVariety.lean))
+- `SchubertGeometry.torusInLeviBorel` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean))
+- `SchubertGeometry.rootsInLeviBorel` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean))
+- `SchubertGeometry.rootsInLeviBorel_normal` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean))
+- `SchubertGeometry.leviBorelComplement` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean))
+- `SchubertGeometry.leviBorelSemidirectIso` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviDecompositionBorelGroups.lean))
+- `SchubertGeometry.leviVariety` ([OrbitComplexity/SchubertGeometry/Levi/Subgroup.lean](../OrbitComplexity/SchubertGeometry/Levi/Subgroup.lean))
+- `ReductiveGroups.rootLatticeAction` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/RootLatticeAction.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/RootLatticeAction.lean))
+- `ReductiveGroups.rootLatticeAction_coe` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/RootLatticeAction.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/RootLatticeAction.lean))
+
+### Theorem 1.5 (`theorem:torusLeviBorelBijection`)
+
+Status: **formalized**
+
+- `SchubertOrbits.torus_levi_orbits` ([OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean](../OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean))
+- `SchubertOrbits.torus_levi_orbits_complex` ([OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean](../OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean))
+
+### The stabilizer of a Schubert variety (Section 1; Billey and Lakshmibai, Lemma 8.2.3)
+
+Status: **formalized**
+
+Cited in the paper and proved here: a closed subgroup containing $B$ is the standard parabolic subgroup generated by $B$ and the $\dot s\_i$ it contains, and $\dot s\_i$ preserves $X\_w$ exactly when $\alpha\_i\in\mathcal{D}\_L(w)$.
+
+- `SchubertGeometry.schubert_stabilizer_levi` ([OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean))
+- `SchubertOrbits.schubert_stabilizer_complex` ([OrbitComplexity/Paper/Complex/Stabilizer.lean](../OrbitComplexity/Paper/Complex/Stabilizer.lean))
+- `SchubertGeometry.levi_schubert_action_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean))
+- `SchubertGeometry.schubertLeviAction` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean))
+- `SchubertGeometry.schubertLeviEquivariant` ([OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeviStability.lean))
+- `SchubertGeometry.standardParabolicPoints` ([OrbitComplexity/SchubertGeometry/Parabolics/CellStability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellStability.lean))
+- `SchubertGeometry.parabolic_schubert_stable_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/CellStability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellStability.lean))
+- `SchubertGeometry.bruhat_doubleCoset_closure` ([OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean))
+- `SchubertGeometry.schubertVariety_points_cells` ([OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean))
+- `SchubertGeometry.weylFlag_mem_schubert_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/BruhatClosure.lean))
+- `SchubertGeometry.schubertStabilizer` ([OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean))
+- `SchubertGeometry.schubertStabilizer_eq` ([OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stabilizer.lean))
+- `SchubertGeometry.stabilizer_preimage_of_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean))
+- `SchubertGeometry.isClosed_set_stabilizer` ([OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean))
+- `SchubertGeometry.closed_borel_subgroup_eq` ([OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ClosedSubgroups.lean))
+- `SchubertGeometry.standardParabolicPoints_bruhat` ([OrbitComplexity/SchubertGeometry/Parabolics/DoubleCosets.lean](../OrbitComplexity/SchubertGeometry/Parabolics/DoubleCosets.lean))
+
+### Theorem 1.6 (`theorem:generalTypeLeviComplexity`)
+
+Status: **formalized**
+
+For the upper bound, the minimum orbit codimensions in $X\_w$ and in $X\_d$, $d={}^Iw$, are computed on the dense open cells $X^{\circ}\_w$ and $X^{\circ}\_d$, by Rosenlicht's theorem.
+
+- `SchubertOrbits.levi_complexity_properties` ([OrbitComplexity/Paper/Heart/LeviComplexityFormula.lean](../OrbitComplexity/Paper/Heart/LeviComplexityFormula.lean))
+- `BruhatIntervals.minimalLeftRep_mono` ([OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean))
+- `BruhatIntervals.supportCard_minimalLeftRep_mono` ([OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean))
+- `BruhatIntervals.minimalLeftRep_support_maximum` ([OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicOrder.lean))
+- `SchubertGeometry.schubertCellOfLE_self_isOpen` ([OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean](../OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean))
+- `SchubertGeometry.schubertCellOfLE_self_isDominant` ([OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean](../OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean))
+- `SchubertGeometry.levi_schubert_complexity_cell` ([OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean](../OrbitComplexity/SchubertGeometry/Levi/CellComplexity.lean))
+- `SchubertOrbits.levi_complexity_eq_torus` ([OrbitComplexity/Paper/Heart/LeviComplexity.lean](../OrbitComplexity/Paper/Heart/LeviComplexity.lean))
+- `SchubertOrbits.levi_complexity_eq_torus_complex` ([OrbitComplexity/Paper/Heart/LeviComplexity.lean](../OrbitComplexity/Paper/Heart/LeviComplexity.lean))
+- `SchubertGeometry.schubertCellOfLE_torus` ([OrbitComplexity/SchubertGeometry/Cells/TorusComplexity.lean](../OrbitComplexity/SchubertGeometry/Cells/TorusComplexity.lean))
+- `SchubertGeometry.torus_cell_complexity` ([OrbitComplexity/SchubertGeometry/Cells/TorusComplexity.lean](../OrbitComplexity/SchubertGeometry/Cells/TorusComplexity.lean))
+- `SchubertOrbits.levi_complexity_eq_minimal` ([OrbitComplexity/Paper/Heart/LeviClosureComplexity.lean](../OrbitComplexity/Paper/Heart/LeviClosureComplexity.lean))
+- `SchubertOrbits.levi_complexity_eq_minimal_complex` ([OrbitComplexity/Paper/Heart/LeviClosureComplexity.lean](../OrbitComplexity/Paper/Heart/LeviClosureComplexity.lean))
+- `SchubertOrbits.levi_complexity_properties_complex` ([OrbitComplexity/Paper/Heart/LeviComplexityFormula.lean](../OrbitComplexity/Paper/Heart/LeviComplexityFormula.lean))
+
+### Combinatorics of the Weyl group (Section 2.1)
+
+Status: **formalized**
+
+Stated for every Coxeter system with a realization; here $\mathrm{Supp}(w)$ is a set of simple reflections.
+
+- `BruhatIntervals.coxeter_combinatorics` ([OrbitComplexity/BruhatIntervals/Order/Combinatorics.lean](../OrbitComplexity/BruhatIntervals/Order/Combinatorics.lean))
+- `BruhatIntervals.support` ([OrbitComplexity/BruhatIntervals/Words/Support.lean](../OrbitComplexity/BruhatIntervals/Words/Support.lean))
+- `BruhatIntervals.supportCard` ([OrbitComplexity/BruhatIntervals/Words/Support.lean](../OrbitComplexity/BruhatIntervals/Words/Support.lean))
+- `BruhatIntervals.leftDescents` ([OrbitComplexity/BruhatIntervals/Order/Descents.lean](../OrbitComplexity/BruhatIntervals/Order/Descents.lean))
+- `BruhatIntervals.rightDescents` ([OrbitComplexity/BruhatIntervals/Order/Descents.lean](../OrbitComplexity/BruhatIntervals/Order/Descents.lean))
+- `BruhatIntervals.IsMinimalLeftRep` ([OrbitComplexity/BruhatIntervals/Words/Parabolic.lean](../OrbitComplexity/BruhatIntervals/Words/Parabolic.lean))
+- `BruhatIntervals.Realization.rightInversionRoots` ([OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean))
+- `BruhatIntervals.Realization.inversionRoots_eq_image` ([OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean))
+- `BruhatIntervals.Realization.inversionRoots_eq_reflections` ([OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootSets.lean))
+
+### Equation (1) (`eq:lengthaddinvset`)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for every Coxeter system with a realization and for the roots of $(G,T)$.
+
+- `BruhatIntervals.Realization.inversionRoots_mul_of_length_add` ([OrbitComplexity/BruhatIntervals/Realizations/Products.lean](../OrbitComplexity/BruhatIntervals/Realizations/Products.lean))
+- `ReductiveGroups.leftRootInversions_mul_of_count_add` ([OrbitComplexity/ReductiveGroups/Roots/Inversions/InversionProduct.lean](../OrbitComplexity/ReductiveGroups/Roots/Inversions/InversionProduct.lean))
+
+### Bruhat intervals of rank two (Section 2.1; Björner and Brenti, Lemma 2.7.3)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for every Coxeter system.
+
+- `BruhatIntervals.bruhatInterval_ncard_of_rank_two` ([OrbitComplexity/BruhatIntervals/Intervals/RankTwo.lean](../OrbitComplexity/BruhatIntervals/Intervals/RankTwo.lean))
+
+### Proposition 2.1 (`prop:subword-property`)
+
+Status: **formalized**
+
+Cited in the paper; stated for every Coxeter system and derived from the subword property of the Tau Ceti library.
+
+- `BruhatIntervals.subexpression_subword_property` ([OrbitComplexity/BruhatIntervals/Words/Subword.lean](../OrbitComplexity/BruhatIntervals/Words/Subword.lean))
+- `BruhatIntervals.subword_property` ([OrbitComplexity/BruhatIntervals/Order/Basic.lean](../OrbitComplexity/BruhatIntervals/Order/Basic.lean))
+- `BruhatIntervals.Subexpression.selectedWord` ([OrbitComplexity/BruhatIntervals/Words/Subword.lean](../OrbitComplexity/BruhatIntervals/Words/Subword.lean))
+- `BruhatIntervals.Subexpression.selectedWord_sublist` ([OrbitComplexity/BruhatIntervals/Words/Subword.lean](../OrbitComplexity/BruhatIntervals/Words/Subword.lean))
+- `BruhatIntervals.Subexpression.wordProd_selectedWord` ([OrbitComplexity/BruhatIntervals/Words/Subword.lean](../OrbitComplexity/BruhatIntervals/Words/Subword.lean))
+- `BruhatIntervals.exists_selectedWord_eq` ([OrbitComplexity/BruhatIntervals/Words/Subword.lean](../OrbitComplexity/BruhatIntervals/Words/Subword.lean))
+
+### Proposition 2.2 (`prop:lifting`)
+
+Status: **formalized**
+
+Cited in the paper and proved here for every Coxeter system, from the subword property.
+
+- `BruhatIntervals.lifting_property` ([OrbitComplexity/BruhatIntervals/Order/Basic.lean](../OrbitComplexity/BruhatIntervals/Order/Basic.lean))
+- `BruhatIntervals.bruhatLE_mul_of_ascent` ([OrbitComplexity/BruhatIntervals/Order/Basic.lean](../OrbitComplexity/BruhatIntervals/Order/Basic.lean))
+- `BruhatIntervals.bruhatLE_descent_iff` ([OrbitComplexity/BruhatIntervals/Order/Basic.lean](../OrbitComplexity/BruhatIntervals/Order/Basic.lean))
+
+### Root subgroups and the groups $U\_w$ (Section 2.2)
+
+Status: **formalized**
+
+The results cited from Borel and Jantzen are proved here, with the root subgroups of any closed set of positive roots multiplied in every order.
+
+- `SchubertOrbits.rootSubgroups_definition` ([OrbitComplexity/Paper/Roots/Definition.lean](../OrbitComplexity/Paper/Roots/Definition.lean))
+- `ReductiveGroups.gaParameterPoint_range_of_line` ([OrbitComplexity/ReductiveGroups/Groups/GaCoordinates/RootRanges.lean](../OrbitComplexity/ReductiveGroups/Groups/GaCoordinates/RootRanges.lean))
+- `SchubertGeometry.rootSubgroupPoints` ([OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean](../OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean))
+- `SchubertGeometry.rootParameterMorphism_isClosed` ([OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean](../OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean))
+- `SchubertGeometry.rootSubgroupPoints_eq_range` ([OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean](../OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean))
+- `SchubertGeometry.rootSubgroupPoints_eq_puncture` ([OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean](../OrbitComplexity/SchubertGeometry/Roots/Subgroups.lean))
+- `SchubertGeometry.parabolicRadical_ambient` ([OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean](../OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean))
+- `SchubertGeometry.borelRadical_ambient` ([OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean](../OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean))
+- `SchubertGeometry.borelUnipotent_isRadical` ([OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean](../OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean))
+- `SchubertGeometry.oppositeBorelRadical_ambient` ([OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean](../OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean))
+- `SchubertGeometry.oppositeUnipotent_isRadical` ([OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean](../OrbitComplexity/SchubertGeometry/Roots/BorelRadicals.lean))
+- `SchubertGeometry.rootSubgroup_le_support` ([OrbitComplexity/SchubertGeometry/Roots/Containment.lean](../OrbitComplexity/SchubertGeometry/Roots/Containment.lean))
+- `SchubertGeometry.rootSubgroup_le_schubert` ([OrbitComplexity/SchubertGeometry/Roots/Containment.lean](../OrbitComplexity/SchubertGeometry/Roots/Containment.lean))
+- `SchubertGeometry.rootSubgroup_le_unipotent` ([OrbitComplexity/SchubertGeometry/Roots/Containment.lean](../OrbitComplexity/SchubertGeometry/Roots/Containment.lean))
+- `SchubertGeometry.rootSubgroup_le_opposite` ([OrbitComplexity/SchubertGeometry/Roots/Containment.lean](../OrbitComplexity/SchubertGeometry/Roots/Containment.lean))
+- `SchubertGeometry.rootSubgroup_weyl_conjugate` ([OrbitComplexity/SchubertGeometry/Roots/Conjugation.lean](../OrbitComplexity/SchubertGeometry/Roots/Conjugation.lean))
+- `SchubertGeometry.rootSupport_directly_spanned` ([OrbitComplexity/SchubertGeometry/Roots/Products.lean](../OrbitComplexity/SchubertGeometry/Roots/Products.lean))
+- `SchubertGeometry.rootSupport_chart_factors` ([OrbitComplexity/SchubertGeometry/Roots/Products.lean](../OrbitComplexity/SchubertGeometry/Roots/Products.lean))
+- `SchubertGeometry.opposite_directly_spanned` ([OrbitComplexity/SchubertGeometry/Roots/Products.lean](../OrbitComplexity/SchubertGeometry/Roots/Products.lean))
+- `GroupActions.rootConjugationAction` ([OrbitComplexity/GroupActions/Tori/RootConjugation.lean](../OrbitComplexity/GroupActions/Tori/RootConjugation.lean))
+- `GroupActions.rootConjugationAction_isModHom` ([OrbitComplexity/GroupActions/Tori/RootConjugation.lean](../OrbitComplexity/GroupActions/Tori/RootConjugation.lean))
+- `GroupActions.unipotentInclusion` ([OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean](../OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean))
+- `GroupActions.unipotentInclusion_isMonHom` ([OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean](../OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean))
+- `GroupActions.unipotentVariety` ([OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean](../OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean))
+- `GroupActions.unipotentVarietyIntegral` ([OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean](../OrbitComplexity/GroupActions/Varieties/UnipotentVariety.lean))
+- `ReductiveGroups.ReductiveGroupData.inversionCharacters` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSets.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSets.lean))
+- `ReductiveGroups.ReductiveGroupData.inversionCharacters_closed` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSets.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSets.lean))
+- `ReductiveGroups.ReductiveGroupData.unipotentPoints` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupUnipotent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupUnipotent.lean))
+- `ReductiveGroups.ReductiveGroupData.mem_unipotentPoints` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupUnipotent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupUnipotent.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacter` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootData.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootData.lean))
+- `ReductiveGroups.ReductiveGroupData.rootCharacter_span_rank` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/CharacterRelations.lean))
+
+### Equation (2) (`eq:formofUw`)
+
+Status: **formalized**
+
+- `SchubertOrbits.schubertUnipotent_root_product` ([OrbitComplexity/Paper/Roots/Products.lean](../OrbitComplexity/Paper/Roots/Products.lean))
+- `GroupActions.rootSubsetProductChart` ([OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean](../OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean))
+- `GroupActions.rootSubsetProductChart_points` ([OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean](../OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean))
+- `GroupActions.rootSubset_ordered_product` ([OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean](../OrbitComplexity/GroupActions/Varieties/RootOrderedProduct.lean))
+- `SchubertOrbits.schubertUnipotent_root_complex` ([OrbitComplexity/Paper/Roots/Products.lean](../OrbitComplexity/Paper/Roots/Products.lean))
+- `SchubertGeometry.schubertUnipotentPoints` ([OrbitComplexity/SchubertGeometry/Cells/RootPoints.lean](../OrbitComplexity/SchubertGeometry/Cells/RootPoints.lean))
+
+### Lemma 2.3 (`lemma:directlyspannedUw`)
+
+Status: **formalized**
+
+- `SchubertOrbits.rootSubgroups_parabolic` ([OrbitComplexity/Paper/Roots/Definition.lean](../OrbitComplexity/Paper/Roots/Definition.lean))
+- `SchubertOrbits.directlySpannedUw` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.directlySpannedUw_complex` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.ideal` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.ideal_eq_rootSubset` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.coordinateConjugation` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.coordinateConjugation_mk` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.variety` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.inclusion` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.inclusion_isClosed` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.inclusion_isMonHom` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.inclusion_comp` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.multiplicationIso` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.reverseMultiplicationIso` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.multiplicationIso_hom_comp` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.Vd.reverseMultiplicationIso_hom_comp` ([OrbitComplexity/Paper/Heart/Decomposition.lean](../OrbitComplexity/Paper/Heart/Decomposition.lean))
+- `SchubertOrbits.heartRootIndices` ([OrbitComplexity/Paper/Heart/RootSets.lean](../OrbitComplexity/Paper/Heart/RootSets.lean))
+- `SchubertOrbits.heartRootIndices_closed` ([OrbitComplexity/Paper/Heart/RootSets.lean](../OrbitComplexity/Paper/Heart/RootSets.lean))
+- `SchubertOrbits.heartRootIndices_eq_image` ([OrbitComplexity/Paper/Heart/RootSets.lean](../OrbitComplexity/Paper/Heart/RootSets.lean))
+- `SchubertOrbits.inversionRoots_eq_union_heart` ([OrbitComplexity/Paper/Heart/RootSets.lean](../OrbitComplexity/Paper/Heart/RootSets.lean))
+- `SchubertOrbits.inversionRoots_disjoint_heart` ([OrbitComplexity/Paper/Heart/RootSets.lean](../OrbitComplexity/Paper/Heart/RootSets.lean))
+- `SchubertOrbits.Vd.points` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+- `SchubertOrbits.Vd.points_eq_rootSubset` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+- `SchubertOrbits.Vd.points_le_inversions` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+- `SchubertOrbits.Vd.torus_le_normalizer` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+- `SchubertOrbits.Vd.existsUnique_mul` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+- `SchubertOrbits.Vd.existsUnique_mul_rev` ([OrbitComplexity/Paper/Heart/VdPoints.lean](../OrbitComplexity/Paper/Heart/VdPoints.lean))
+
+### Definition 3.1 (`def:Bruhat-graph`)
+
+Status: **formalized**
+
+Stated for every Coxeter system with a realization, as are the results of Section 3.1 through Claim 3.13. For $W$ the label of an edge is its positive root, in simple-root coordinates, scaled to unit length; this leaves every span $\mathrm{AD}(u,v)$ unchanged.
+
+- `BruhatIntervals.bruhat_graph_definitions` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatGraph` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.intervalGraph` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.edgeLabel` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.edgeLabel_positive` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.edgeLabel_target` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.edgeLabel_symm` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatGraph_adj_iff` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.edgeLabel_unique` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatStep_iff_adj` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatGraph_adj_length_ne` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatInterval` ([OrbitComplexity/BruhatIntervals/Order/Interval.lean](../OrbitComplexity/BruhatIntervals/Order/Interval.lean))
+- `BruhatIntervals.mem_bruhatInterval` ([OrbitComplexity/BruhatIntervals/Order/Interval.lean](../OrbitComplexity/BruhatIntervals/Order/Interval.lean))
+- `BruhatIntervals.Realization.alternatingRoot_even` ([OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean](../OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean))
+- `BruhatIntervals.Realization.alternatingRoot_odd` ([OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean](../OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean))
+- `BruhatIntervals.Realization.alternatingRoot_nonneg` ([OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean](../OrbitComplexity/BruhatIntervals/Realizations/Alternating.lean))
+- `BruhatIntervals.Realization` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.simpleRoot_ne_zero` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.form_root_self` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.action_simple_root` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.roots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.mem_roots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.simpleRoot_mem_roots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.root_ne_zero` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.action_mem_roots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.neg_mem_roots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.positiveCone` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.positiveRoots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.mem_positiveRoots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.Realization.simpleRoot_mem_positiveRoots` ([OrbitComplexity/BruhatIntervals/Realizations/Basic.lean](../OrbitComplexity/BruhatIntervals/Realizations/Basic.lean))
+- `BruhatIntervals.geometricRoot` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricForm` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricForm_root` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricForm_root_self` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricForm_isSymm` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricCoroot` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricCoroot_root` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricCoroot_root_self` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_apply` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_root_self` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_sq` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricRoot_linearIndependent` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_form` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_commute` ([OrbitComplexity/BruhatIntervals/Realizations/Form.lean](../OrbitComplexity/BruhatIntervals/Realizations/Form.lean))
+- `BruhatIntervals.geometricReflection_relation` ([OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean](../OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean))
+- `BruhatIntervals.geometricAction` ([OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean](../OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean))
+- `BruhatIntervals.geometricAction_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean](../OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean))
+- `BruhatIntervals.geometricRealization` ([OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean](../OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean))
+- `BruhatIntervals.geometricRealization_spec` ([OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean](../OrbitComplexity/BruhatIntervals/Realizations/Geometric.lean))
+- `BruhatIntervals.Realization.action_simple_positive` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.action_inv_action` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.action_action_inv` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.inversionRoots` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.inversionRoots_one` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.action_root_not_inversions` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.inversionRoots_mul_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.inversionRoots_finite` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.inversionRoots_ncard` ([OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean](../OrbitComplexity/BruhatIntervals/Realizations/Inversions.lean))
+- `BruhatIntervals.Realization.action_conjugate_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_apply` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_injective` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_surjective` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflectionEquiv` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_translated_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_leftInversion_iff` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_length_iff` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.Realization.rootReflection_right_length` ([OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean](../OrbitComplexity/BruhatIntervals/Realizations/Reflections.lean))
+- `BruhatIntervals.simple_injective` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.positiveCone_add` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.positiveCone_smul` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.positiveCone_neg_eq_zero` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.positiveRoots_ne_neg` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.action_simple_form` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.action_form` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.form_root_eq_one` ([OrbitComplexity/BruhatIntervals/Realizations/Roots.lean](../OrbitComplexity/BruhatIntervals/Realizations/Roots.lean))
+- `BruhatIntervals.Realization.action_simpleRoot_positive` ([OrbitComplexity/BruhatIntervals/Realizations/Sign.lean](../OrbitComplexity/BruhatIntervals/Realizations/Sign.lean))
+- `BruhatIntervals.Realization.action_simpleRoot_negative` ([OrbitComplexity/BruhatIntervals/Realizations/Sign.lean](../OrbitComplexity/BruhatIntervals/Realizations/Sign.lean))
+- `BruhatIntervals.Realization.action_simpleRoot_positive_iff` ([OrbitComplexity/BruhatIntervals/Realizations/Sign.lean](../OrbitComplexity/BruhatIntervals/Realizations/Sign.lean))
+- `BruhatIntervals.Realization.root_sign` ([OrbitComplexity/BruhatIntervals/Realizations/Sign.lean](../OrbitComplexity/BruhatIntervals/Realizations/Sign.lean))
+- `BruhatIntervals.Realization.action_injective` ([OrbitComplexity/BruhatIntervals/Realizations/Sign.lean](../OrbitComplexity/BruhatIntervals/Realizations/Sign.lean))
+
+### Definition 3.2
+
+Status: **formalized**
+
+- `BruhatIntervals.algebraic_dim_definitions` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.labelSpan` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.algebraicDim` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.labelSpan_eq_ordered` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.labelSpan_finiteDimensional` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.bruhatInterval_finite` ([OrbitComplexity/BruhatIntervals/Order/Interval.lean](../OrbitComplexity/BruhatIntervals/Order/Interval.lean))
+
+### Bruhat interval polytopes (Section 3; Tsukerman and Williams, Definition 7.8)
+
+Status: **formalized**
+
+Here $Q\_{u,v}=\mathrm{Conv}\lbrace z\lambda : u\le z\le v\rbrace$ is defined for every Coxeter group with a realization and every weight $\lambda$.
+
+- `BruhatIntervals.intervalPolytope_definition` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `SchubertOrbits.interval_polytope_characters` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `SchubertOrbits.interval_polytope_character_dimension` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `BruhatIntervals.intervalPolytope` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_nonempty` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_smul` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+
+### Proposition 3.3 (`prop:AD-BIP`)
+
+Status: **formalized**
+
+Stated for every finite reduced crystallographic root system.
+
+- `SchubertOrbits.interval_polytope_span_dimension` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `SchubertOrbits.interval_polytope_half_sum` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `BruhatIntervals.labelSpan_eq_span_sub` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_direction` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_span_sub` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_finrank` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `BruhatIntervals.intervalPolytope_finDim` ([OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean](../OrbitComplexity/BruhatIntervals/Graph/Polytopes.lean))
+- `SchubertOrbits.realTwoRho` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.rootCoordinateAction_twoRho` ([OrbitComplexity/Paper/Deodhar/RootActions.lean](../OrbitComplexity/Paper/Deodhar/RootActions.lean))
+- `SchubertOrbits.realTwoRho_simple_pos` ([OrbitComplexity/Paper/Deodhar/Realization.lean](../OrbitComplexity/Paper/Deodhar/Realization.lean))
+- `SchubertOrbits.realTwoRho_regular` ([OrbitComplexity/Paper/Deodhar/Realization.lean](../OrbitComplexity/Paper/Deodhar/Realization.lean))
+- `SchubertOrbits.realCharacterMap` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.realCharacterMap_root` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.realCharacterMap_injective` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.realCharacterMap_twoRho` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.realCharacterMap_weyl_twoRho` ([OrbitComplexity/Paper/Deodhar/Characters.lean](../OrbitComplexity/Paper/Deodhar/Characters.lean))
+- `SchubertOrbits.interval_polytope_characters` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `SchubertOrbits.interval_polytope_character_dimension` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+
+### Corollary 3.4 (`cor:max-t-orbit-ad`)
+
+Status: **formalized**
+
+Over $\mathbb{C}$ the proof uses a point of $\mathcal{R}\_{u,v}$ with full weight support (Section 3) instead of a totally positive point. Also stated over $K$, with the proof through Theorem 1.4 described under Theorem 1.2.
+
+- `SchubertOrbits.richardson_orbit_maximum_complex` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+- `SchubertOrbits.richardson_orbit_maximum` ([OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean](../OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean))
+- `SchubertOrbits.richardson_max_orbit_complex` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
+
+### The moment map (Section 3; Tsukerman and Williams, Definition 6.18)
+
+Status: **formalized**
+
+Here the moment map is defined for a torus acting diagonally on a complex projective space. For $G/B$ the embedding determined by $2\rho$ is $gB\mapsto\[\wedge^n\mathrm{Ad}(g)\mathfrak{b}\]$ in $\mathbb{P}(\wedge^n\mathfrak{g})$, $n=\dim\mathfrak{b}$.
+
+- `GroupActions.momentMap_definition` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.momentMap` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.projectivizationTopology` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.sum_normSq_pos` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.centerMass_normSq_smul` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.momentMap_mk` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.weightPolytope` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.weightPolytope_mk` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.momentMap_mem_weightPolytope` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `GroupActions.momentMap_continuous` ([OrbitComplexity/GroupActions/MomentMaps/Basic.lean](../OrbitComplexity/GroupActions/MomentMaps/Basic.lean))
+- `SchubertGeometry.flagMomentMap` ([OrbitComplexity/SchubertGeometry/FlagVariety/MomentMap.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/MomentMap.lean))
+- `SchubertGeometry.exists_flag_moment_map` ([OrbitComplexity/SchubertGeometry/FlagVariety/MomentMap.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/MomentMap.lean))
+
+### A point of $\mathcal{R}\_{u,v}$ with full weight support (Section 3)
+
+Status: **formalized**
+
+Used in place of the totally positive point of Lemma 7.9 of Tsukerman–Williams: since $\mathcal{R}\_{u,v}$ is irreducible, some $x\in\mathcal{R}\_{u,v}$ has a nonzero coordinate of weight $z(2\rho)$ for every $z\in\[u,v\]$, so that $\mu(\overline{Tx})=Q\_{u,v}$.
+
+- `SchubertGeometry.exists_richardson_moment_map` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonMoment.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonMoment.lean))
+- `SchubertGeometry.richardson_full_coordinates` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.richardson_maximal_weightPolytope` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonIntegral.lean))
+- `SchubertGeometry.exists_adjoint_flag_embedding` ([OrbitComplexity/SchubertGeometry/FlagVariety/AdjointOrbit.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/AdjointOrbit.lean))
+- `SchubertGeometry.adjoint_weyl_torus` ([OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean))
+- `SchubertGeometry.adjointFlag_weyl_point` ([OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean))
+- `SchubertGeometry.adjoint_weyl_coordinate` ([OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean))
+- `SchubertGeometry.adjointFlag_weightPolytope` ([OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean](../OrbitComplexity/SchubertGeometry/FlagVariety/AdjointWeights.lean))
+- `SchubertGeometry.DeterminantWeights.borelTop_mem_weight` ([OrbitComplexity/SchubertGeometry/Frobenius/Determinant/ExteriorWeights.lean](../OrbitComplexity/SchubertGeometry/Frobenius/Determinant/ExteriorWeights.lean))
+- `SchubertGeometry.DeterminantSection.borelTorus_determinant` ([OrbitComplexity/SchubertGeometry/Frobenius/Determinant/Torus.lean](../OrbitComplexity/SchubertGeometry/Frobenius/Determinant/Torus.lean))
+- `SchubertGeometry.DeterminantSection.borelTop_torus` ([OrbitComplexity/SchubertGeometry/Frobenius/Determinant/Torus.lean](../OrbitComplexity/SchubertGeometry/Frobenius/Determinant/Torus.lean))
+- `SchubertGeometry.borelTangent_map_eq_iff` ([OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean](../OrbitComplexity/SchubertGeometry/Cells/Bruhat.lean))
+- `SchubertGeometry.torus_fixed_iff_weylFlag` ([OrbitComplexity/SchubertGeometry/Cells/Stability.lean](../OrbitComplexity/SchubertGeometry/Cells/Stability.lean))
+- `SchubertGeometry.weylFlag_mem_richardson_iff` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean))
+- `SchubertGeometry.richardson_torus_fixed_iff` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonOrder.lean))
+
+### Torus orbit closures and their moment polytopes (Section 3; Tsukerman and Williams, Theorem 6.19)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for a torus acting on a complex projective space by any finite family of integral weights, repeated weights included, through the binomial equations of the orbit closure.
+
+- `GroupActions.projective_moment_faces` ([OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean))
+- `GroupActions.exists_quotient_equiv` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.binomial_relations_restrict` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.binomial_relations_div` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.unitsDivisibleNat` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.unitsDivisibleInt` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.exists_character_extension` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.exists_character_of_relations` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.exists_homogeneous_character` ([OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean](../OrbitComplexity/GroupActions/MomentMaps/CharacterExtension.lean))
+- `GroupActions.projective_closure_equations` ([OrbitComplexity/GroupActions/MomentMaps/ClosureEquations.lean](../OrbitComplexity/GroupActions/MomentMaps/ClosureEquations.lean))
+- `GroupActions.projective_closure_face` ([OrbitComplexity/GroupActions/MomentMaps/ClosureEquations.lean](../OrbitComplexity/GroupActions/MomentMaps/ClosureEquations.lean))
+- `GroupActions.exists_integer_exposing` ([OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean](../OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean))
+- `GroupActions.cocharacter_face_point` ([OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean](../OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean))
+- `GroupActions.exposed_face_point` ([OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean](../OrbitComplexity/GroupActions/MomentMaps/Degenerations.lean))
+- `GroupActions.normSq_mul_exp_half` ([OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean](../OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean))
+- `GroupActions.support_mul_exp_half` ([OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean](../OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean))
+- `GroupActions.mul_exp_half_ne_zero` ([OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean](../OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean))
+- `GroupActions.momentMap_mem_intrinsicInterior` ([OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean](../OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean))
+- `GroupActions.exists_momentMap_exp_eq` ([OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean](../OrbitComplexity/GroupActions/MomentMaps/ExponentialImage.lean))
+- `GroupActions.exists_exposed_intrinsicInterior` ([OrbitComplexity/GroupActions/MomentMaps/FaceInteriors.lean](../OrbitComplexity/GroupActions/MomentMaps/FaceInteriors.lean))
+- `GroupActions.binomial_support_nonempty` ([OrbitComplexity/GroupActions/MomentMaps/Faces.lean](../OrbitComplexity/GroupActions/MomentMaps/Faces.lean))
+- `GroupActions.binomial_support_face` ([OrbitComplexity/GroupActions/MomentMaps/Faces.lean](../OrbitComplexity/GroupActions/MomentMaps/Faces.lean))
+- `GroupActions.hull_image_coefficients` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+- `GroupActions.exists_exposing_form` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+- `GroupActions.convexHull_eq_toExposed` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+- `GroupActions.exists_exposing_vertex` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+- `GroupActions.exposed_hull_eq` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+- `GroupActions.mem_orbit_of_weightPolytope_eq` ([OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean))
+- `GroupActions.exists_orbit_face_equiv` ([OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean))
+- `GroupActions.projective_weightPolytope_smul` ([OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean))
+- `GroupActions.projective_orbit_moment_image` ([OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean))
+- `GroupActions.projective_closure_moment_image` ([OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean))
+- `GroupActions.interior_convexHull_vsub` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.centerMass_mem_intrinsicInterior` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.exists_pos_inner_ge_norm` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.tendsto_sum_exp_inner_atTop` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.exists_min_sum_exp_inner` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.sum_exp_inner_eq_zero_of_min` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.exists_centerMass_exp_eq` ([OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean](../OrbitComplexity/GroupActions/MomentMaps/PositiveOrbit.lean))
+- `GroupActions.positiveCharacter` ([OrbitComplexity/GroupActions/MomentMaps/PositivePoints.lean](../OrbitComplexity/GroupActions/MomentMaps/PositivePoints.lean))
+- `GroupActions.positiveCharacter_apply` ([OrbitComplexity/GroupActions/MomentMaps/PositivePoints.lean](../OrbitComplexity/GroupActions/MomentMaps/PositivePoints.lean))
+- `GroupActions.exists_rat_kernel_open` ([OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean](../OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean))
+- `GroupActions.exists_rat_kernel_sign` ([OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean](../OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean))
+- `GroupActions.exists_pos_integer_multiple` ([OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean](../OrbitComplexity/GroupActions/MomentMaps/RationalSeparation.lean))
+- `GroupActions.latticeAlgebra_finiteType` ([OrbitComplexity/GroupActions/Tori/ProjectiveWeights.lean](../OrbitComplexity/GroupActions/Tori/ProjectiveWeights.lean))
+- `GroupActions.projective_weights_smul` ([OrbitComplexity/GroupActions/Tori/ProjectiveWeights.lean](../OrbitComplexity/GroupActions/Tori/ProjectiveWeights.lean))
+- `GroupActions.projective_orbit_dim` ([OrbitComplexity/GroupActions/Tori/ProjectiveOrbitRank.lean](../OrbitComplexity/GroupActions/Tori/ProjectiveOrbitRank.lean))
+- `GroupActions.projective_orbit_polytope_dim` ([OrbitComplexity/GroupActions/Tori/ProjectiveOrbitRank.lean](../OrbitComplexity/GroupActions/Tori/ProjectiveOrbitRank.lean))
+- `GroupActions.weightPolynomialMap_monomial` ([OrbitComplexity/GroupActions/Tori/MonomialMaps.lean](../OrbitComplexity/GroupActions/Tori/MonomialMaps.lean))
+- `GroupActions.weightPolynomialMap_ker` ([OrbitComplexity/GroupActions/Tori/MonomialMaps.lean](../OrbitComplexity/GroupActions/Tori/MonomialMaps.lean))
+- `GroupActions.orbitClosure_smul_mem` ([OrbitComplexity/GroupActions/Actions/Orbits.lean](../OrbitComplexity/GroupActions/Actions/Orbits.lean))
+- `GroupActions.projective_fixed_of_singleton` ([OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitImage.lean))
+- `GroupActions.weightPolytope_subset_of_fixed` ([OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean](../OrbitComplexity/GroupActions/MomentMaps/OrbitFaces.lean))
+
+### The moment image of $\mathcal{R}\_{u,v}$ (Section 3; Tsukerman and Williams, Remark 7.11)
+
+Status: **formalized**
+
+Cited in the paper and proved here: each vertex of the weight polytope of a point of $\mathcal{R}\_{u,v}$ is the weight $z(2\rho)$ of a $T$-fixed point $zB$ of its orbit closure, with $u\le z\le v$, and the point with full weight support attains $Q\_{u,v}$.
+
+- `SchubertGeometry.exists_richardson_moment_map` ([OrbitComplexity/SchubertGeometry/Cells/RichardsonMoment.lean](../OrbitComplexity/SchubertGeometry/Cells/RichardsonMoment.lean))
+- `GroupActions.orbitClosure_points_image` ([OrbitComplexity/GroupActions/Actions/EquivariantMono.lean](../OrbitComplexity/GroupActions/Actions/EquivariantMono.lean))
+- `GroupActions.Variety.exists_mapPoints_eq_mem` ([OrbitComplexity/GroupActions/Varieties/Morphisms.lean](../OrbitComplexity/GroupActions/Varieties/Morphisms.lean))
+- `GroupActions.finite_hull_subset_of_vertices` ([OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean](../OrbitComplexity/GroupActions/MomentMaps/FiniteHulls.lean))
+
+### Lemma 3.5 (`lem:Dyer-rank2`)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for every Coxeter system with a realization, following Dyer: the four reflections generate a dihedral reflection subgroup, and the two root planes coincide.
+
+- `BruhatIntervals.Realization.rootProduct_span` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SpanEquality.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SpanEquality.lean))
+- `BruhatIntervals.Realization.form_simple_linearCombination` ([OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean](../OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean))
+- `BruhatIntervals.Realization.map_geometricReflection` ([OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean](../OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean))
+- `BruhatIntervals.Realization.map_geometricAction` ([OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean](../OrbitComplexity/BruhatIntervals/Realizations/Comparison.lean))
+- `BruhatIntervals.matrixHom` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_injective` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_wordProd` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_range` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_length` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.matrixHom_geometricAction` ([OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/Embedding.lean))
+- `BruhatIntervals.pairExtensionMatrix` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtensionMatrix_old` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtensionMatrix_left` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtensionMatrix_right` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtension_form_left` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtension_form_right` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtension_pairing_det` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.pairExtension_embedding` ([OrbitComplexity/BruhatIntervals/Realizations/Extension.lean](../OrbitComplexity/BruhatIntervals/Realizations/Extension.lean))
+- `BruhatIntervals.Realization.action_conjugate_root` ([OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean](../OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean))
+- `BruhatIntervals.Realization.rootReflection_conj` ([OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean](../OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean))
+- `BruhatIntervals.Realization.rootReflection_conj_neg` ([OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean](../OrbitComplexity/BruhatIntervals/Realizations/Conjugation.lean))
+- `BruhatIntervals.Realization.positiveRoots_pair_independent` ([OrbitComplexity/BruhatIntervals/Realizations/Independence.lean](../OrbitComplexity/BruhatIntervals/Realizations/Independence.lean))
+- `BruhatIntervals.Realization.positiveRoots_pair_finrank` ([OrbitComplexity/BruhatIntervals/Realizations/Independence.lean](../OrbitComplexity/BruhatIntervals/Realizations/Independence.lean))
+- `BruhatIntervals.geometricCone_iff` ([OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean](../OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean))
+- `BruhatIntervals.Realization.map_geometric_root` ([OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean](../OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean))
+- `BruhatIntervals.Realization.map_geometric_positiveRoot` ([OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean](../OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean))
+- `BruhatIntervals.Realization.map_geometric_rootReflection` ([OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean](../OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean))
+- `BruhatIntervals.Realization.map_geometric_label` ([OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean](../OrbitComplexity/BruhatIntervals/Realizations/Coordinates.lean))
+- `BruhatIntervals.matrixHom_positiveRoot` ([OrbitComplexity/BruhatIntervals/Realizations/RootEmbedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootEmbedding.lean))
+- `BruhatIntervals.matrixHom_rootReflection` ([OrbitComplexity/BruhatIntervals/Realizations/RootEmbedding.lean](../OrbitComplexity/BruhatIntervals/Realizations/RootEmbedding.lean))
+- `BruhatIntervals.Realization.rootProduct_range` ([OrbitComplexity/BruhatIntervals/Realizations/Range.lean](../OrbitComplexity/BruhatIntervals/Realizations/Range.lean))
+- `BruhatIntervals.Realization.rootReflection_simple` ([OrbitComplexity/BruhatIntervals/Realizations/Translate.lean](../OrbitComplexity/BruhatIntervals/Realizations/Translate.lean))
+- `BruhatIntervals.Realization.exists_positive_translate` ([OrbitComplexity/BruhatIntervals/Realizations/Translate.lean](../OrbitComplexity/BruhatIntervals/Realizations/Translate.lean))
+- `BruhatIntervals.leftInversion_mul_iff` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cocycle.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cocycle.lean))
+- `BruhatIntervals.reflection_reduced_conj` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Length.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Length.lean))
+- `BruhatIntervals.reflection_simple_or_shorter` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Length.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Length.lean))
+- `BruhatIntervals.canonicalReflections` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.canonical_mem` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.canonical_simple` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.canonical_conjugate` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.canonical_reflection_conj` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.canonical_closure` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Canonical.lean))
+- `BruhatIntervals.Realization.canonical_pairing_nonpos` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Roots.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Roots.lean))
+- `BruhatIntervals.Realization.canonical_root_not_mem_span` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Roots.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Roots.lean))
+- `BruhatIntervals.canonical_generate` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Generation.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Generation.lean))
+- `BruhatIntervals.Realization.canonical_subset_pair` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Plane.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Plane.lean))
+- `BruhatIntervals.Realization.root_mem_of_reflection_closure` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Span.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Span.lean))
+- `BruhatIntervals.Realization.reflection_closure_pair` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Dihedral.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Dihedral.lean))
+- `BruhatIntervals.Realization.reflection_closure_dihedral` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Dihedral.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Dihedral.lean))
+- `BruhatIntervals.Realization.rootProduct_plane` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Product.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Product.lean))
+- `BruhatIntervals.rootProduct_simple` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SimpleProduct.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SimpleProduct.lean))
+- `BruhatIntervals.rootProduct_geometric` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/GeometricProduct.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/GeometricProduct.lean))
+- `BruhatIntervals.reflectionProduct_dihedral` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SpanEquality.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/SpanEquality.lean))
+
+### Lemma 3.6 (`lem:strong-weak-diamond`)
+
+Status: **formalized**
+
+- `BruhatIntervals.strong_weak_diamond` ([OrbitComplexity/BruhatIntervals/Graph/Diamonds.lean](../OrbitComplexity/BruhatIntervals/Graph/Diamonds.lean))
+
+### Lemma 3.7 (`lem:AD-spanned-by-covers`)
+
+Status: **formalized**
+
+- `BruhatIntervals.labelSpan_eq_covers` ([OrbitComplexity/BruhatIntervals/Graph/CoverSpans.lean](../OrbitComplexity/BruhatIntervals/Graph/CoverSpans.lean))
+- `BruhatIntervals.bruhat_covBy_step` ([OrbitComplexity/BruhatIntervals/Order/Covers.lean](../OrbitComplexity/BruhatIntervals/Order/Covers.lean))
+- `BruhatIntervals.bruhat_covBy_iff` ([OrbitComplexity/BruhatIntervals/Order/Covers.lean](../OrbitComplexity/BruhatIntervals/Order/Covers.lean))
+- `BruhatIntervals.exists_le_bruhat_covBy` ([OrbitComplexity/BruhatIntervals/Order/Covers.lean](../OrbitComplexity/BruhatIntervals/Order/Covers.lean))
+- `BruhatIntervals.exists_bruhat_covBy_le` ([OrbitComplexity/BruhatIntervals/Order/Covers.lean](../OrbitComplexity/BruhatIntervals/Order/Covers.lean))
+- `BruhatIntervals.labelSpan_eq_all_covers` ([OrbitComplexity/BruhatIntervals/Graph/Spans.lean](../OrbitComplexity/BruhatIntervals/Graph/Spans.lean))
+- `BruhatIntervals.edgeLabel_mem_of_diamond` ([OrbitComplexity/BruhatIntervals/Graph/Spans.lean](../OrbitComplexity/BruhatIntervals/Graph/Spans.lean))
+- `BruhatIntervals.bruhat_rank_two_diamond` ([OrbitComplexity/BruhatIntervals/Graph/ThinIntervals.lean](../OrbitComplexity/BruhatIntervals/Graph/ThinIntervals.lean))
+
+### Long edges of the Bruhat graph (Section 3.1; Dyer, Proposition 3.3)
+
+Status: **formalized**
+
+Cited in the paper and proved here, following Dyer, from the dihedral reflection subgroup generated by a path of three edges from $x\_1$ to $x\_6$, through a minimal coset representative.
+
+- `BruhatIntervals.long_edge_fork` ([OrbitComplexity/BruhatIntervals/Graph/Forks.lean](../OrbitComplexity/BruhatIntervals/Graph/Forks.lean))
+- `BruhatIntervals.long_edge_path` ([OrbitComplexity/BruhatIntervals/Graph/LongEdges.lean](../OrbitComplexity/BruhatIntervals/Graph/LongEdges.lean))
+- `BruhatIntervals.exists_minimal_coset` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean))
+- `BruhatIntervals.leftInversion_mul_of_coset` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean))
+- `BruhatIntervals.bruhatStep_iff_leftInversion` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean))
+- `BruhatIntervals.bruhatStep_mul_coset_iff` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Cosets.lean))
+- `BruhatIntervals.exists_pair_coxeter` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/PairSystem.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/PairSystem.lean))
+- `BruhatIntervals.canonical_inversion_iff` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Graphs.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Graphs.lean))
+- `BruhatIntervals.canonical_bruhatStep_iff` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Graphs.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Graphs.lean))
+- `BruhatIntervals.Realization.reflection_closure_system` ([OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Systems.lean](../OrbitComplexity/BruhatIntervals/ReflectionSubgroups/Systems.lean))
+- `BruhatIntervals.rankTwo_reflection_iff` ([OrbitComplexity/BruhatIntervals/Words/RankTwo.lean](../OrbitComplexity/BruhatIntervals/Words/RankTwo.lean))
+- `BruhatIntervals.rankTwo_adj_iff` ([OrbitComplexity/BruhatIntervals/Words/RankTwo.lean](../OrbitComplexity/BruhatIntervals/Words/RankTwo.lean))
+- `BruhatIntervals.rankTwo_long_edge_fork` ([OrbitComplexity/BruhatIntervals/Graph/RankTwo.lean](../OrbitComplexity/BruhatIntervals/Graph/RankTwo.lean))
+- `BruhatIntervals.long_edge_subsystem` ([OrbitComplexity/BruhatIntervals/Graph/PathSystem.lean](../OrbitComplexity/BruhatIntervals/Graph/PathSystem.lean))
+
+### Proposition 3.8 (`prop:AD-recursion`)
+
+Status: **formalized**
+
+- `BruhatIntervals.labelSpan_recursion` ([OrbitComplexity/BruhatIntervals/Graph/Recursion.lean](../OrbitComplexity/BruhatIntervals/Graph/Recursion.lean))
+- `BruhatIntervals.bruhatGraph_adj_mul_right` ([OrbitComplexity/BruhatIntervals/Graph/Labels.lean](../OrbitComplexity/BruhatIntervals/Graph/Labels.lean))
+- `BruhatIntervals.edgeLabel_mul_right` ([OrbitComplexity/BruhatIntervals/Graph/Labels.lean](../OrbitComplexity/BruhatIntervals/Graph/Labels.lean))
+- `BruhatIntervals.labelSpan_mono` ([OrbitComplexity/BruhatIntervals/Graph/Labels.lean](../OrbitComplexity/BruhatIntervals/Graph/Labels.lean))
+- `BruhatIntervals.labelSpan_self` ([OrbitComplexity/BruhatIntervals/Graph/Labels.lean](../OrbitComplexity/BruhatIntervals/Graph/Labels.lean))
+
+### Example 3.9 (`ex:AD-induction-example`)
+
+Status: **formalized**
+
+- `SchubertOrbits.BruhatExamples.ad_induction_example` ([OrbitComplexity/Paper/BruhatExamples/Induction.lean](../OrbitComplexity/Paper/BruhatExamples/Induction.lean))
+
+### Proposition 3.10 (`prop:AD-usual-recurrence`)
+
+Status: **formalized**
+
+- `BruhatIntervals.labelSpan_properties` ([OrbitComplexity/BruhatIntervals/Graph/Chains.lean](../OrbitComplexity/BruhatIntervals/Graph/Chains.lean))
+- `BruhatIntervals.labelSpan_split` ([OrbitComplexity/BruhatIntervals/Graph/Chains.lean](../OrbitComplexity/BruhatIntervals/Graph/Chains.lean))
+- `BruhatIntervals.exists_bruhat_chain` ([OrbitComplexity/BruhatIntervals/Order/Chains.lean](../OrbitComplexity/BruhatIntervals/Order/Chains.lean))
+- `BruhatIntervals.chainLabelSpan` ([OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean](../OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean))
+- `BruhatIntervals.chainLabelSpan_snoc` ([OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean](../OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean))
+- `BruhatIntervals.chainLabelSpan_overlap` ([OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean](../OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean))
+- `BruhatIntervals.chainLabelSpan_singleton` ([OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean](../OrbitComplexity/BruhatIntervals/Graph/ChainLabels.lean))
+
+### Definition 3.11 (`def:toric-interval`)
+
+Status: **formalized**
+
+- `BruhatIntervals.toric_interval_definition` ([OrbitComplexity/BruhatIntervals/Graph/Dimension.lean](../OrbitComplexity/BruhatIntervals/Graph/Dimension.lean))
+- `BruhatIntervals.IsToricInterval` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.isToricInterval_iff` ([OrbitComplexity/BruhatIntervals/Graph/Basic.lean](../OrbitComplexity/BruhatIntervals/Graph/Basic.lean))
+- `BruhatIntervals.algebraicDim_le_length` ([OrbitComplexity/BruhatIntervals/Graph/Dimension.lean](../OrbitComplexity/BruhatIntervals/Graph/Dimension.lean))
+
+### Toric intervals are not a combinatorial invariant (Section 3.1)
+
+Status: **formalized**
+
+The theorem of Can and Saha quoted at the end of the remark is not formalized; no proof uses it.
+
+- `SchubertOrbits.BruhatExamples.boolean_toric_intervals` ([OrbitComplexity/Paper/BruhatExamples/Boolean.lean](../OrbitComplexity/Paper/BruhatExamples/Boolean.lean))
+
+### Proposition 3.12 (`prop:toric-ad`)
+
+Status: **formalized**
+
+- `BruhatIntervals.toric_interval_maxima` ([OrbitComplexity/BruhatIntervals/Graph/ToricMaxima.lean](../OrbitComplexity/BruhatIntervals/Graph/ToricMaxima.lean))
+- `BruhatIntervals.exists_same_span_top_cover` ([OrbitComplexity/BruhatIntervals/Graph/ToricCovers.lean](../OrbitComplexity/BruhatIntervals/Graph/ToricCovers.lean))
+- `BruhatIntervals.exists_same_span_bottom_cover` ([OrbitComplexity/BruhatIntervals/Graph/ToricCovers.lean](../OrbitComplexity/BruhatIntervals/Graph/ToricCovers.lean))
+
+### Claim 3.13 (`claim:swap-0-1`)
+
+Status: **formalized**
+
+- `BruhatIntervals.swap_zero_one` ([OrbitComplexity/BruhatIntervals/Graph/Toric.lean](../OrbitComplexity/BruhatIntervals/Graph/Toric.lean))
+
+### Corollary 3.14 (`cor:toric-interval-richardson`)
+
+Status: **formalized**
+
+Over $\mathbb{C}$ the proof is the paper's. Over $K$ it uses the first formula of Theorem 1.2 and the normality of $\mathcal{R}\_{u,v}$ instead of Proposition 3.3 and Proposition 7.12 of Tsukerman–Williams.
+
+- `SchubertOrbits.richardson_toric_criterion` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.richardson_toric_criterion_complex` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.richardson_zero_iff_toric` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+
+### Toric Richardson varieties and $\dim Q\_{u,v}$ (Section 3.1; Tsukerman and Williams, Proposition 7.12)
+
+Status: **formalized**
+
+Cited in the paper and proved here over $\mathbb{C}$, from the first formula of Theorem 1.2, Proposition 3.3 and the normality of $\mathcal{R}\_{u,v}$.
+
+- `SchubertOrbits.richardson_toric_polytope` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+
+### The arguments of Section 3.1 for any Coxeter group (Section 3.1)
+
+Status: **formalized**
+
+- `BruhatIntervals.coxeter_interval_properties` ([OrbitComplexity/BruhatIntervals/Graph/Properties.lean](../OrbitComplexity/BruhatIntervals/Graph/Properties.lean))
+
+### Definition 3.15 (`def:subexpressions`)
+
+Status: **formalized**
+
+Here the positions in a word are numbered from $0$, and $w\_{(k)}$ is the product of the first $k$ factors.
+
+- `BruhatIntervals.subexpression_definitions` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `SchubertOrbits.subexpression_prefixes` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `BruhatIntervals.Subexpression` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.factors` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.prefixProd` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.length_factors` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.prefixProd_zero` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.prefixProd_length` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.prefixProd_succ` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.positiveSteps` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.equalSteps` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.negativeSteps` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.IsDistinguished` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.IsPositive` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.prefixProd_comparable` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.isDistinguished_iff_forced` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.isPositive_iff_negativeSteps_empty` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.mem_step_sets` ([OrbitComplexity/BruhatIntervals/Words/Subexpression.lean](../OrbitComplexity/BruhatIntervals/Words/Subexpression.lean))
+- `BruhatIntervals.Subexpression.take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.Subexpression.takePosition` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.Subexpression.factors_take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.Subexpression.prefixProd_take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.Subexpression.equalSteps_take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.Subexpression.negativeSteps_take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.IsDistinguished.take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+- `BruhatIntervals.IsPositive.take` ([OrbitComplexity/BruhatIntervals/Words/Prefix.lean](../OrbitComplexity/BruhatIntervals/Words/Prefix.lean))
+
+### Root elements and coset representatives (Section 3.2)
+
+Status: **formalized**
+
+Here $x\_\alpha$ is a fixed parametrization of $U\_\alpha$ for each root $\alpha$, and $\dot w\\,x\_{\alpha\_i}(m)\\,\dot w^{-1}=x\_{w(\alpha\_i)}(\pm m)$, with a sign that depends on $w$ and $i$.
+
+- `SchubertOrbits.root_elements` ([OrbitComplexity/Paper/Complex/RootElements.lean](../OrbitComplexity/Paper/Complex/RootElements.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2LieHom` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2LieHom_basis` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2LieHom_injective` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Lie.lean))
+- `ReductiveGroups.Sl2Square.square_on_weight` ([OrbitComplexity/ReductiveGroups/Lie/Roots/Sl2WeylSquare.lean](../OrbitComplexity/ReductiveGroups/Lie/Roots/Sl2WeylSquare.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleReflection_square_weight` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReflectionSquare.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReflectionSquare.lean))
+- `SchubertGeometry.simpleSquare_root_parameter` ([OrbitComplexity/SchubertGeometry/Roots/SquareAction.lean](../OrbitComplexity/SchubertGeometry/Roots/SquareAction.lean))
+- `ReductiveGroups.BinaryForms.exponent` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.basis` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.basis_coe` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.substitution` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.substitution_mul` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.action` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.matrix` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.matrix_mul` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.matrix_one` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.basis_repr` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.matrix_apply` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.matrix_map` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryForms.lean))
+- `ReductiveGroups.BinaryForms.standardMatrix` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean))
+- `ReductiveGroups.BinaryForms.comodule` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean))
+- `ReductiveGroups.BinaryForms.coordinateMap` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean))
+- `ReductiveGroups.BinaryForms.coordinateMap_matrix` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean))
+- `ReductiveGroups.BinaryForms.coordinateMap_points` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryComodule.lean))
+- `ReductiveGroups.BinaryForms.matrix_upper` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryUpper.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryUpper.lean))
+- `ReductiveGroups.BinaryForms.rootCoordinateMap` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean))
+- `ReductiveGroups.BinaryForms.rootCoordinateMap_matrix` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean))
+- `ReductiveGroups.BinaryForms.rootCoordinateMap_polynomial` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryParameters.lean))
+- `ReductiveGroups.BinaryForms.matrix_exchange` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryExchange.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryExchange.lean))
+- `ReductiveGroups.BinaryForms.matrix_exchange_conjugate` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryExchange.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryExchange.lean))
+- `ReductiveGroups.BinaryForms.root_tangent` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean))
+- `ReductiveGroups.BinaryForms.upper_differential` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean))
+- `ReductiveGroups.BinaryForms.lower_differential` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryDerivative.lean))
+- `ReductiveGroups.BinaryForms.coordinateMap_differential` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryStandard.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryStandard.lean))
+- `ReductiveGroups.BinaryForms.exists_coordinateMap_differential` ([OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryBlocks.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/BinaryBlocks.lean))
+- `ReductiveGroups.exists_sl2_matrixMap` ([OrbitComplexity/ReductiveGroups/Groups/SL2/MatrixIntegration.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/MatrixIntegration.lean))
+- `ReductiveGroups.existsUnique_sl2_factor` ([OrbitComplexity/ReductiveGroups/Groups/SL2/ClosedSubgroup.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/ClosedSubgroup.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_simpleSl2Map` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2.lean))
+- `ReductiveGroups.sl2Weyl` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Map` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Map_upper` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Map_lower` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Map_differential` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points_upper` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points_lower` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points_weyl` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points_square` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Points.lean))
+- `ReductiveGroups.Coroot.finiteComoduleLie` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.finiteComoduleLie_weight_image` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.finiteComodulePoints` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.finiteComodulePoints_weight` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.finiteComoduleLie_ga_nilpotent` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.finiteComodulePoints_ga` ([OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean](../OrbitComplexity/ReductiveGroups/Groups/Representations/FiniteComoduleActions.lean))
+- `ReductiveGroups.Coroot.simpleCartan` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootFunctional` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootFunctional_cast` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootCharacter` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootMap` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootTorusPoint` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootPoint` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootTorusPoint_eval` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootPoint_map` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.multiplicativeTangent` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simpleCorootMap_differential` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.square_character_value` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCoroots.lean))
+- `ReductiveGroups.Coroot.simple_square_eq_coroot` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCorootSquare.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCorootSquare.lean))
+- `ReductiveGroups.Coroot.simple_coroot_exists` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCorootSquare.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCorootSquare.lean))
+- `GroupActions.specialLinearVariety` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `GroupActions.specialLinearVarietyGroup` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `GroupActions.specialLinearPointsMulEquiv` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `GroupActions.simpleSl2Morphism` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `GroupActions.simpleSl2Morphism_isMonHom` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `GroupActions.simpleSl2Morphism_points` ([OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean](../OrbitComplexity/GroupActions/Varieties/SpecialLinear.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleRoot_interchange` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Relations.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Relations.lean))
+- `ReductiveGroups.centerQuotientEquiv` ([OrbitComplexity/ReductiveGroups/Lie/Cartan/CenterQuotientAutomorphisms.lean](../OrbitComplexity/ReductiveGroups/Lie/Cartan/CenterQuotientAutomorphisms.lean))
+- `ReductiveGroups.centerQuotientEquiv_apply` ([OrbitComplexity/ReductiveGroups/Lie/Cartan/CenterQuotientAutomorphisms.lean](../OrbitComplexity/ReductiveGroups/Lie/Cartan/CenterQuotientAutomorphisms.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_simple_scaling` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_simple_adjoint` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_simple_quotient_scaling` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSimpleScaling.lean))
+- `ReductiveGroups.lieIdeal_eq_bot_of_cartan_inf` ([OrbitComplexity/ReductiveGroups/Lie/Cartan/IdealDetection.lean](../OrbitComplexity/ReductiveGroups/Lie/Cartan/IdealDetection.lean))
+- `ReductiveGroups.LieBasis.equivOfKilling` ([OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean))
+- `ReductiveGroups.LieBasis.equivOfKilling_h` ([OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean))
+- `ReductiveGroups.LieBasis.equivOfKilling_e` ([OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean))
+- `ReductiveGroups.LieBasis.equivOfKilling_f` ([OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/Equivalence.lean))
+- `ReductiveGroups.LieBasis.exists_cartan_involution` ([OrbitComplexity/ReductiveGroups/Lie/Basis/Involution.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/Involution.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_cartanInvolution` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupInvolution.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupInvolution.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_chevalleySystem` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupChevalley.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupChevalley.lean))
+- `ReductiveGroups.chevalleySystem_conjugate` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedRoots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedRoots.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_pinnedChevalleySystem` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedRoots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedRoots.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_reflectionChevalleySystem` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedReflections.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedReflections.lean))
+- `ReductiveGroups.gmMorphism_ext_of_tangent_eq` ([OrbitComplexity/ReductiveGroups/Groups/Tangents/MultiplicativeMorphisms.lean](../OrbitComplexity/ReductiveGroups/Groups/Tangents/MultiplicativeMorphisms.lean))
+- `ReductiveGroups.SimpleDiagonal.coordinateMap` ([OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean))
+- `ReductiveGroups.SimpleDiagonal.coordinateMap_differential` ([OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean))
+- `ReductiveGroups.SimpleDiagonal.coordinateMap_point` ([OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean](../OrbitComplexity/ReductiveGroups/Groups/SL2/Diagonal.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Map_diagonal` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Coroot.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Coroot.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleSl2Points_diagonal` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Coroot.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSl2Coroot.lean))
+- `ReductiveGroups.ReductiveGroupData.rootWeightQuotientEquiv` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootQuotient.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootQuotient.lean))
+- `ReductiveGroups.ReductiveGroupData.rootWeightQuotientEquiv_apply` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootQuotient.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootQuotient.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_simpleRootSigns` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSigns.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootSigns.lean))
+- `ReductiveGroups.ReductiveGroupData.existsUnique_rootParameter` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupRootParameters.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_rootParameterFamily` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupPinnedParameters.lean))
+- `ReductiveGroups.ReductiveGroupData.reflectionPoints_commute` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCommutingBraid.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCommutingBraid.lean))
+- `ReductiveGroups.ReductiveGroupData.reflectionPoints_commute_of_order_two` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCommutingBraid.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupCommutingBraid.lean))
+- `ReductiveGroups.order_three_simple_root_strings` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/SimpleOrderThreeStrings.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/SimpleOrderThreeStrings.lean))
+- `ReductiveGroups.gaSl2Product_adjoint_lower` ([OrbitComplexity/ReductiveGroups/Groups/Additive/GaAdjointStrings.lean](../OrbitComplexity/ReductiveGroups/Groups/Additive/GaAdjointStrings.lean))
+- `ReductiveGroups.gaSl2Product_adjoint_upper` ([OrbitComplexity/ReductiveGroups/Groups/Additive/GaAdjointStrings.lean](../OrbitComplexity/ReductiveGroups/Groups/Additive/GaAdjointStrings.lean))
+- `ReductiveGroups.ReductiveGroupData.simple_root_a2_tangent_strings` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupA2Tangents.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupA2Tangents.lean))
+- `ReductiveGroups.ReductiveGroupData.reflectionPoints_braid_three` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidThree.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidThree.lean))
+- `ReductiveGroups.ReductiveGroupData.orderFour_root_sums` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourRoots.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourRoots.lean))
+- `ReductiveGroups.ReductiveGroupData.reflection_conjugate_commute` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourCommute.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourCommute.lean))
+- `ReductiveGroups.ReductiveGroupData.reflection_square_commute` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourSquare.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFourSquare.lean))
+- `ReductiveGroups.ReductiveGroupData.reflection_braid_four_of_pairing` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFour.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFour.lean))
+- `ReductiveGroups.ReductiveGroupData.reflection_braid_of_order_four` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFour.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupBraidFour.lean))
+- `ReductiveGroups.OrderSix.order_six_simple_sums` ([OrbitComplexity/ReductiveGroups/Roots/OrderSix.lean](../OrbitComplexity/ReductiveGroups/Roots/OrderSix.lean))
+- `ReductiveGroups.ReductiveGroupData.reflectionPoints_braid_six` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSixBraid.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupSixBraid.lean))
+- `ReductiveGroups.reduced_word_product_eq` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/WordProducts.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/WordProducts.lean))
+- `ReductiveGroups.reduced_word_inv_product_eq` ([OrbitComplexity/ReductiveGroups/Roots/Coxeter/WordProducts.lean](../OrbitComplexity/ReductiveGroups/Roots/Coxeter/WordProducts.lean))
+- `ReductiveGroups.ReductiveGroupData.reflectionPoints_braid` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean))
+- `ReductiveGroups.ReductiveGroupData.simpleWordPoint_eq_of_reduced` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean))
+- `ReductiveGroups.ReductiveGroupData.invSimpleWordPoint_eq_of_reduced` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupReducedWords.lean))
+- `ReductiveGroups.opposite_signs_equal` ([OrbitComplexity/ReductiveGroups/Lie/Basis/OppositeSigns.lean](../OrbitComplexity/ReductiveGroups/Lie/Basis/OppositeSigns.lean))
+- `ReductiveGroups.ReductiveGroupData.root_parameter_signs_equal` ([OrbitComplexity/ReductiveGroups/Groups/GaCoordinates/RootParameterSigns.lean](../OrbitComplexity/ReductiveGroups/Groups/GaCoordinates/RootParameterSigns.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_pairedRootParameters` ([OrbitComplexity/ReductiveGroups/Groups/Representatives/RootParameters.lean](../OrbitComplexity/ReductiveGroups/Groups/Representatives/RootParameters.lean))
+- `ReductiveGroups.ReductiveGroupData.inverseRepresentative_properties` ([OrbitComplexity/ReductiveGroups/Groups/Representatives/Inverse.lean](../OrbitComplexity/ReductiveGroups/Groups/Representatives/Inverse.lean))
+- `SchubertGeometry.IsRootElementSystem` ([OrbitComplexity/SchubertGeometry/Roots/ElementSystem.lean](../OrbitComplexity/SchubertGeometry/Roots/ElementSystem.lean))
+- `SchubertGeometry.root_elements_and_torus` ([OrbitComplexity/SchubertGeometry/Roots/Elements.lean](../OrbitComplexity/SchubertGeometry/Roots/Elements.lean))
+- `SchubertOrbits.RootElements.rootElementsAndTorus` ([OrbitComplexity/Paper/Complex/RootElements.lean](../OrbitComplexity/Paper/Complex/RootElements.lean))
+- `SchubertOrbits.root_elements_complex` ([OrbitComplexity/Paper/Complex/RootElements.lean](../OrbitComplexity/Paper/Complex/RootElements.lean))
+
+### Equation (3) (`eq:tactionrootsubgroup`)
+
+Status: **formalized**
+
+- `SchubertGeometry.rootParameter_torus_mul` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
+- `SchubertGeometry.rootParameterMap` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
+- `SchubertOrbits.root_parameter_torus_complex` ([OrbitComplexity/Paper/Complex/RootParameters.lean](../OrbitComplexity/Paper/Complex/RootParameters.lean))
+
+### Definition 3.16 (`def:deodhar-component`)
+
+Status: **formalized**
+
+Here $D\_{\mathbf{u},\mathbf{v}}$ is the set of points of $X^{\circ}\_v$ whose projection to the cell of each prefix $v\_{(k)}$ lies in $B^-u\_{(k)}B/B$, as in Deodhar, and its isomorphism with $G\_{\mathbf{u},\mathbf{v}}$, cited from Marsh and Rietsch, is proved here.
+
+- `SchubertOrbits.deodharStandardForm_definition` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.deodharParameter_variety` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.deodharParameter_product` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertGeometry.deodharIndex` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameterOpen` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameters` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameterInclusion` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameterInclusion_isOpen` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameter_points` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameters_irreducible` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharParameters_dim` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.deodharIndex_card` ([OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Parameters.lean))
+- `SchubertGeometry.subwordFlagMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordFlagMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.deodharPrefixMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean))
+- `SchubertGeometry.deodharPrefixMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean))
+- `SchubertGeometry.subwordRepresentative_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepFlags.lean))
+- `SchubertGeometry.deodharTakeIndex` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharParameterProjection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharParameterProjection_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharEqualPositions` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.deodharParameterProductIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.deodharParameterProduct_counts` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.prefixFibre_zero` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_descent` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent_zero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent_nonzero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.deodharStepIndexPositive` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexSelected` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexPositive_val` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexSelected_val` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharEqualPositions_positive` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharEqualPositions_selected` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharInitialIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterInitial.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterInitial.lean))
+- `SchubertGeometry.initialCellIso` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialCell.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialCell.lean))
+- `SchubertGeometry.initialCellIso_points` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialCell.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialCell.lean))
+- `SchubertGeometry.wordCell` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellStep` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellProjection` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellProjection_self` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellProjection_succ` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellProjection_trans` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.deodharPrefixSupport` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.deodharPrefixComponent` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.deodharPrefixInclusion` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.deodharPrefixInclusion_range` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.mem_deodharPrefix_points` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.deodharComponent` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.deodharInclusion` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `SchubertGeometry.mem_deodharPrefix_succ` ([OrbitComplexity/SchubertGeometry/Deodhar/Components.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Components.lean))
+- `GroupActions.puncturedAdditiveInvIso` ([OrbitComplexity/GroupActions/Varieties/CoordinateInversion.lean](../OrbitComplexity/GroupActions/Varieties/CoordinateInversion.lean))
+- `GroupActions.puncturedAdditiveInvIso_points` ([OrbitComplexity/GroupActions/Varieties/CoordinateInversion.lean](../OrbitComplexity/GroupActions/Varieties/CoordinateInversion.lean))
+- `GroupActions.Variety.pullback_points_range` ([OrbitComplexity/GroupActions/Varieties/PullbackImages.lean](../OrbitComplexity/GroupActions/Varieties/PullbackImages.lean))
+- `SchubertGeometry.deodharPositiveStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.deodharNegativeStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.deodharEqualStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.initialComponentIso` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.initialComponentIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.deodharBaseIso` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.deodharBaseIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.wordCellExtensionIso` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.wordCellStep_eq` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProjections.lean))
+- `SchubertGeometry.deodharPositiveStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean))
+- `SchubertGeometry.deodharPositiveStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean))
+- `SchubertGeometry.deodharPrefixLift` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.deodharPrefixLift_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.deodharPrefixLift_points` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.deodharNegativeStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharNegativeStep_last` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharEqualStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharEqualStep_last` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharNegativeStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean))
+- `SchubertGeometry.deodharEqualStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean))
+- `SchubertGeometry.exists_deodharPrefix_frame` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharPositiveStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharNegativeStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharEqualStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharFibreMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharPositiveStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharNegativeStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharEqualStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.positiveStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.negativeStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.equalStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.positiveStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.negativeStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.equalStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.positiveStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.negativeStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.equalStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.deodharAllIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean))
+- `SchubertGeometry.deodharAllIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean))
+- `SchubertGeometry.Deodhar.wordChartExists` ([OrbitComplexity/SchubertGeometry/Deodhar/WordCharts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/WordCharts.lean))
+- `SchubertGeometry.Deodhar.positiveRange` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean))
+- `SchubertGeometry.Deodhar.negativeRange` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean))
+- `SchubertGeometry.Deodhar.equalRange` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRanges.lean))
+- `SchubertGeometry.Deodhar.additiveProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean))
+- `SchubertGeometry.Deodhar.additiveProductIso` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean))
+- `SchubertGeometry.Deodhar.positiveIsoData` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean))
+- `SchubertGeometry.Deodhar.negativeIsoData` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean))
+- `SchubertGeometry.Deodhar.equalIsoData` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsoData.lean))
+- `SchubertGeometry.Deodhar.stepCases` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIsomorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIsomorphisms.lean))
+- `SchubertGeometry.Deodhar.successorNatExists` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentSuccessor.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentSuccessor.lean))
+- `SchubertGeometry.deodharComponentIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentIsomorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentIsomorphisms.lean))
+- `SchubertGeometry.deodharComponentIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentIsomorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentIsomorphisms.lean))
+- `SchubertGeometry.deodharStandardVariety` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardInclusion` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardParamIso` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardParamIso_lift` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardComponentIso` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardComponentIso_quotient` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardProductIso` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandard_points` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardFormMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandardFormMap_quotient` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `GroupActions.mixedCoordinateIso` ([OrbitComplexity/GroupActions/Varieties/MixedCoordinates.lean](../OrbitComplexity/GroupActions/Varieties/MixedCoordinates.lean))
+- `GroupActions.mixedCoordinateIso_points` ([OrbitComplexity/GroupActions/Varieties/MixedCoordinates.lean](../OrbitComplexity/GroupActions/Varieties/MixedCoordinates.lean))
+
+### Positive distinguished subwords (Section 3.2; Marsh and Rietsch, Lemma 3.5)
+
+Status: **formalized**
+
+Cited in the paper and proved here.
+
+- `SchubertGeometry.positive_distinguished_component` ([OrbitComplexity/SchubertGeometry/Deodhar/PositiveComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PositiveComponent.lean))
+- `BruhatIntervals.positive_subexpression_unique` ([OrbitComplexity/BruhatIntervals/Words/Positive.lean](../OrbitComplexity/BruhatIntervals/Words/Positive.lean))
+
+### Theorem 3.17
+
+Status: **formalized**
+
+Cited in the paper and proved here: the opposite cells containing the projections of a point of $\mathcal{R}^{\circ}\_{u,v}$ to the cells of the prefixes of $\mathbf{v}$ form a distinguished subword for $u$.
+
+- `SchubertOrbits.deodharStandard_partition` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertGeometry.rankOneLiftMap_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ChartTransport.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ChartTransport.lean))
+- `SchubertGeometry.lift_rankOneLiftMap_action` ([OrbitComplexity/SchubertGeometry/Deodhar/ChartTransport.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ChartTransport.lean))
+- `SchubertGeometry.wordCell_ascent` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean))
+- `SchubertGeometry.wordCellExtensionIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean))
+- `SchubertGeometry.wordCellExtensionIso_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixCharts.lean))
+- `SchubertGeometry.rankOneLiftMap_isPreimmersion` ([OrbitComplexity/SchubertGeometry/Deodhar/ChartImages.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ChartImages.lean))
+- `SchubertGeometry.rankOneLiftMap_points_range` ([OrbitComplexity/SchubertGeometry/Deodhar/ChartImages.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ChartImages.lean))
+- `SchubertGeometry.wordLiftMap_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixMaps.lean))
+- `SchubertGeometry.wordLiftMap_points` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixMaps.lean))
+- `SchubertGeometry.rankOneLiftMap_range_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ChartRange.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ChartRange.lean))
+- `SchubertGeometry.deodharRichardsonMap` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean))
+- `SchubertGeometry.deodharRichardsonMap_comp` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean))
+- `SchubertOrbits.deodharRichardsonMap_torus` ([OrbitComplexity/Paper/Deodhar/ComponentRichardson.lean](../OrbitComplexity/Paper/Deodhar/ComponentRichardson.lean))
+- `SchubertGeometry.deodharRichardsonMap_isImmersion` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentRichardson.lean))
+- `SchubertOrbits.deodharRichardsonMap_orbitNatDim` ([OrbitComplexity/Paper/Deodhar/ComponentRichardson.lean](../OrbitComplexity/Paper/Deodhar/ComponentRichardson.lean))
+- `BruhatIntervals.Subexpression.finite` ([OrbitComplexity/BruhatIntervals/SubexpressionPaths.lean](../OrbitComplexity/BruhatIntervals/SubexpressionPaths.lean))
+- `BruhatIntervals.exists_distinguished_prefix` ([OrbitComplexity/BruhatIntervals/SubexpressionPaths.lean](../OrbitComplexity/BruhatIntervals/SubexpressionPaths.lean))
+- `SchubertGeometry.oppositeBorelFactorization` ([OrbitComplexity/SchubertGeometry/Cells/OppositeFrames.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeFrames.lean))
+- `SchubertGeometry.oppositeCell_unipotent_form` ([OrbitComplexity/SchubertGeometry/Cells/OppositeFrames.lean](../OrbitComplexity/SchubertGeometry/Cells/OppositeFrames.lean))
+- `SchubertGeometry.oppositeFibre_zero` ([OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean))
+- `SchubertGeometry.oppositeFibre_ascent` ([OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean))
+- `SchubertGeometry.oppositeFibre_descent` ([OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean))
+- `SchubertGeometry.oppositeFibre_ascent_zero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean))
+- `SchubertGeometry.oppositeFibre_ascent_nonzero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/OppositeFibrePoints.lean))
+- `SchubertGeometry.rankOneCellFibre_frame` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFrames.lean))
+- `BruhatIntervals.Subexpression.eq_of_prefixProd` ([OrbitComplexity/BruhatIntervals/Words/PrefixInjective.lean](../OrbitComplexity/BruhatIntervals/Words/PrefixInjective.lean))
+- `SchubertGeometry.deodharInclusion_disjoint` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentDisjoint.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentDisjoint.lean))
+- `SchubertGeometry.deodharPrefix_points_cover` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean))
+- `SchubertGeometry.deodharPrefix_supports_cover` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean))
+- `SchubertGeometry.deodharInclusions_cover` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean))
+- `SchubertGeometry.deodharRichardson_cover` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentCover.lean))
+- `SchubertGeometry.deodharRootElement` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.simpleRepresentative` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordStepPoint` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.deodharStep` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordRepresentative` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.deodharPrefix` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordRepresentative_transport` ([OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean))
+- `SchubertGeometry.subwordRepresentative_mem_normalizer` ([OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean))
+- `SchubertGeometry.subwordRootMap` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootMap_point` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootMap_tangent_ne_zero` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/Products.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Products.lean))
+- `SchubertGeometry.deodharPrefix_rootProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/Products.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Products.lean))
+- `SchubertGeometry.subwordProductMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordProductMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordFlagMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordFlagMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.deodharPrefixMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean))
+- `SchubertGeometry.deodharPrefixMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterMaps.lean))
+- `SchubertGeometry.deodharEqualPositions` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.deodharParameterProductIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.deodharParameterProduct_counts` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterProduct.lean))
+- `SchubertGeometry.deodharTakeIndex` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharParameterProjection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharParameterProjection_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterPrefixes.lean))
+- `SchubertGeometry.deodharInitialIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterInitial.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterInitial.lean))
+- `SchubertGeometry.deodharStepIndexPositive` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexSelected` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexPositive_val` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharStepIndexSelected_val` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharEqualPositions_positive` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharEqualPositions_selected` ([OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepIndices.lean))
+- `SchubertGeometry.deodharPositiveStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.deodharNegativeStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.deodharEqualStepIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSteps.lean))
+- `SchubertGeometry.deodharPositiveStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean))
+- `SchubertGeometry.deodharPositiveStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterStepPoints.lean))
+- `SchubertGeometry.deodharNegativeStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharNegativeStep_last` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharEqualStep_coord` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharEqualStep_last` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedCoordinates.lean))
+- `SchubertGeometry.deodharNegativeStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean))
+- `SchubertGeometry.deodharEqualStep_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterSelectedPoints.lean))
+- `SchubertGeometry.deodharPrefix_mem_doubleCoset` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixBruhat.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixBruhat.lean))
+- `SchubertGeometry.deodharPrefixLift` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.deodharPrefixLift_projection` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.deodharPrefixLift_points` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixLifts.lean))
+- `SchubertGeometry.subwordRepresentative_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.deodharPrefix_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.subwordRootProduct_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.deodharPrefixMorphism_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.exists_deodharPrefix_frame` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharPositiveStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharNegativeStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharEqualStep_frames` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterFrames.lean))
+- `SchubertGeometry.deodharFibreMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharPositiveStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharNegativeStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.deodharEqualStepMap` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMaps.lean))
+- `SchubertGeometry.positiveStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.negativeStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.equalStep_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFlags.lean))
+- `SchubertGeometry.positiveStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.negativeStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.equalStep_root` ([OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepRoots.lean))
+- `SchubertGeometry.subwordRootMap_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.subwordRootProduct_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.deodharPrefix_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.subwordRepresentative_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/StepFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepFlags.lean))
+- `SchubertGeometry.prefixFibre_zero` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_descent` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent_zero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.prefixFibre_ascent_nonzero_iff` ([OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean](../OrbitComplexity/SchubertGeometry/Deodhar/FibreFlags.lean))
+- `SchubertGeometry.positiveStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.negativeStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.equalStep_fibre` ([OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StepMapFibres.lean))
+- `SchubertGeometry.initialComponentIso` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.initialComponentIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.deodharBaseIso` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.deodharBaseIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean](../OrbitComplexity/SchubertGeometry/Deodhar/InitialComponent.lean))
+- `SchubertGeometry.deodharAllIso` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean))
+- `SchubertGeometry.deodharAllIso_flag` ([OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ParameterAll.lean))
+- `SchubertGeometry.deodharStandard_decomposition` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean))
+- `SchubertGeometry.deodharStandard_unique` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean))
+- `SchubertGeometry.rankOneLiftIso` ([OrbitComplexity/SchubertGeometry/Deodhar/RelativeChart.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RelativeChart.lean))
+- `SchubertGeometry.rankOneCellProjection` ([OrbitComplexity/SchubertGeometry/Deodhar/CellProjection.lean](../OrbitComplexity/SchubertGeometry/Deodhar/CellProjection.lean))
+- `SchubertGeometry.rankOneProjectionEquivariant` ([OrbitComplexity/SchubertGeometry/Deodhar/ProjectionActions.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProjectionActions.lean))
+- `SchubertGeometry.simpleRoot_flag_injective` ([OrbitComplexity/SchubertGeometry/Deodhar/RankOnePoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RankOnePoints.lean))
+
+### Example 3.18
+
+Status: **formalized**
+
+- `SchubertOrbits.deodhar_example` ([OrbitComplexity/Paper/Deodhar/RankThreeExample.lean](../OrbitComplexity/Paper/Deodhar/RankThreeExample.lean))
+- `SchubertOrbits.deodhar_example_complex` ([OrbitComplexity/Paper/Complex/DeodharExample.lean](../OrbitComplexity/Paper/Complex/DeodharExample.lean))
+- `SchubertOrbits.deodhar_product_decreasing` ([OrbitComplexity/Paper/Deodhar/Matrices.lean](../OrbitComplexity/Paper/Deodhar/Matrices.lean))
+- `SchubertOrbits.deodhar_product_positive` ([OrbitComplexity/Paper/Deodhar/Matrices.lean](../OrbitComplexity/Paper/Deodhar/Matrices.lean))
+- `SchubertOrbits.deodhar_scaling_decreasing` ([OrbitComplexity/Paper/Deodhar/Scaling.lean](../OrbitComplexity/Paper/Deodhar/Scaling.lean))
+- `SchubertOrbits.deodhar_scaling_positive` ([OrbitComplexity/Paper/Deodhar/Scaling.lean](../OrbitComplexity/Paper/Deodhar/Scaling.lean))
+- `ReductiveGroups.GLn.matrixRoot` ([OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean](../OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean))
+- `ReductiveGroups.GLn.rootCharacter_matrixRoot` ([OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean](../OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean))
+- `ReductiveGroups.GLn.rootCharacter_pair` ([OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean](../OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean))
+- `ReductiveGroups.GLn.matrixRoot_positive` ([OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean](../OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean))
+- `ReductiveGroups.GLn.rootMap_matrix` ([OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean](../OrbitComplexity/ReductiveGroups/GLn/RootCoordinates.lean))
+- `SchubertOrbits.GL3.root01` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.root12` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.root02` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.root01_simple` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.root12_simple` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.reflection01_root12` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.reflection12_root01` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.reflection01_root02` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.simple01` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.simple12` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.matrixRoot_swap` ([OrbitComplexity/Paper/Deodhar/GL3Roots.lean](../OrbitComplexity/Paper/Deodhar/GL3Roots.lean))
+- `SchubertOrbits.GL3.matrixWord` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.matrixWord_reduced` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.allfalse_positive` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasing_prefix` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasingExpression` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.positiveExpression` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.identity_expressions` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasing_distinguished` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.positive_distinguished` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.positive_isPositive` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasing_equal` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasing_negative` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.positive_equal` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.positive_negative` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.matrixWord_neZero` ([OrbitComplexity/Paper/Deodhar/GL3Subwords.lean](../OrbitComplexity/Paper/Deodhar/GL3Subwords.lean))
+- `SchubertOrbits.GL3.decreasingJ1` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.decreasingJ2` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.positiveJ` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.decreasing_character1` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.decreasing_character2` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.positive_character` ([OrbitComplexity/Paper/Deodhar/GL3Weights.lean](../OrbitComplexity/Paper/Deodhar/GL3Weights.lean))
+- `SchubertOrbits.GL3.decreasingMatrix` ([OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean](../OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean))
+- `SchubertOrbits.GL3.positiveMatrix` ([OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean](../OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean))
+- `SchubertOrbits.GL3.matrixPoints` ([OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean](../OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean))
+- `SchubertOrbits.GL3.decreasing_prefix_matrix` ([OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean](../OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean))
+- `SchubertOrbits.GL3.positive_prefix_matrix` ([OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean](../OrbitComplexity/Paper/Deodhar/GL3RootProducts.lean))
+- `SchubertOrbits.GL3.decreasing_standard_matrices` ([OrbitComplexity/Paper/Deodhar/GL3StandardMatrices.lean](../OrbitComplexity/Paper/Deodhar/GL3StandardMatrices.lean))
+- `SchubertOrbits.GL3.positive_standard_matrices` ([OrbitComplexity/Paper/Deodhar/GL3StandardMatrices.lean](../OrbitComplexity/Paper/Deodhar/GL3StandardMatrices.lean))
+- `SchubertOrbits.GL3.decreasingWeights` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.positiveWeights` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.decreasing_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.positive_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.parameterCoordinate` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.parameterWeight` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.decreasing_parameter_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.positive_parameter_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.decreasing_character_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.positive_character_rank` ([OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean](../OrbitComplexity/Paper/Deodhar/GL3ParameterRanks.lean))
+- `SchubertOrbits.GL3.decreasingGL` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.positiveGL` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.action_admissible` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.schemeMatrixFlag` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.schemeDiagonalPoint` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.decreasing_scheme_action` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.positive_scheme_action` ([OrbitComplexity/Paper/Deodhar/GL3Flags.lean](../OrbitComplexity/Paper/Deodhar/GL3Flags.lean))
+- `SchubertOrbits.GL3.decreasing_matrix_flag_rank` ([OrbitComplexity/Paper/Deodhar/GL3OrbitDimensions.lean](../OrbitComplexity/Paper/Deodhar/GL3OrbitDimensions.lean))
+- `SchubertOrbits.GL3.positive_matrix_flag_rank` ([OrbitComplexity/Paper/Deodhar/GL3OrbitDimensions.lean](../OrbitComplexity/Paper/Deodhar/GL3OrbitDimensions.lean))
+- `SchubertOrbits.GL3.matrixWord_permutation` ([OrbitComplexity/Paper/Deodhar/GL3Weyl.lean](../OrbitComplexity/Paper/Deodhar/GL3Weyl.lean))
+
+### Definition 3.19 (`def:root-for-subword`)
+
+Status: **formalized**
+
+- `SchubertOrbits.deodharRoot_definition` ([OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean](../OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean))
+- `SchubertOrbits.subwordRoot_labels` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.subwordWeight_definitions` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.subwordWeight_recurrence` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.subwordRoot` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_of_equal` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_of_negative` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_positive` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_reflection` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_eq_edgeLabel` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_negative_edge` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightSpan` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightSpan_finiteDimensional` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightDim` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightSpan_eq_neg` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordRoot_take` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.subwordWeightSpan_take_le` ([OrbitComplexity/Paper/Deodhar/Roots.lean](../OrbitComplexity/Paper/Deodhar/Roots.lean))
+- `SchubertOrbits.deodharGeneralParameters` ([OrbitComplexity/Paper/Deodhar/GeneralParameters.lean](../OrbitComplexity/Paper/Deodhar/GeneralParameters.lean))
+- `SchubertOrbits.deodharGeneral_properties` ([OrbitComplexity/Paper/Deodhar/GeneralParameters.lean](../OrbitComplexity/Paper/Deodhar/GeneralParameters.lean))
+- `SchubertGeometry.rootParameterMap_tangent_mem` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
+- `SchubertGeometry.rootParameterMap_tangent_ne_zero` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
+- `SchubertOrbits.deodharRootFactors` ([OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean](../OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean))
+
+### Lemma 3.20 (`lemma:DeodharcomponentUnipotentSubgroup`)
+
+Status: **formalized**
+
+- `SchubertOrbits.deodharComponent_standardForm` ([OrbitComplexity/Paper/Deodhar/ComponentStandardForms.lean](../OrbitComplexity/Paper/Deodhar/ComponentStandardForms.lean))
+- `SchubertGeometry.subwordRepresentative_eq_weylElement` ([OrbitComplexity/SchubertGeometry/Deodhar/SubwordWeylPoints.lean](../OrbitComplexity/SchubertGeometry/Deodhar/SubwordWeylPoints.lean))
+- `SchubertGeometry.deodharRootElement` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.simpleRepresentative` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordStepPoint` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.deodharStep` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordRepresentative` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.deodharPrefix` ([OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Elements.lean))
+- `SchubertGeometry.subwordRepresentative_transport` ([OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean))
+- `SchubertGeometry.subwordRepresentative_mem_normalizer` ([OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Representatives.lean))
+- `SchubertGeometry.subwordRootMap` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootMap_point` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootMap_tangent_ne_zero` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertOrbits.subwordRootMap_tangent_mem` ([OrbitComplexity/Paper/Deodhar/RootMaps.lean](../OrbitComplexity/Paper/Deodhar/RootMaps.lean))
+- `SchubertOrbits.subwordRootMap_torus_conj` ([OrbitComplexity/Paper/Deodhar/RootMaps.lean](../OrbitComplexity/Paper/Deodhar/RootMaps.lean))
+- `SchubertOrbits.subwordRootMap_torus_points` ([OrbitComplexity/Paper/Deodhar/RootMaps.lean](../OrbitComplexity/Paper/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/Products.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Products.lean))
+- `SchubertGeometry.subwordProductMorphism` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordProductMorphism_points` ([OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ProductMorphisms.lean))
+- `SchubertGeometry.subwordRootMap_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.subwordRootProduct_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.deodharPrefix_mem_opposite` ([OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/NegativeProducts.lean))
+- `SchubertGeometry.deodharPrefixLift_image` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardForms.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardForms.lean))
+- `SchubertGeometry.deodharStandardFormMap_rootProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharRootFactorSet` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharRootProductSet` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharStandard_products` ([OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean](../OrbitComplexity/SchubertGeometry/Deodhar/StandardFormVariety.lean))
+- `SchubertGeometry.deodharComponent_products` ([OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean](../OrbitComplexity/SchubertGeometry/Deodhar/ComponentDecomposition.lean))
+
+### Equation (4) (`eq:inductiveg`)
+
+Status: **formalized**
+
+- `SchubertGeometry.deodharPrefix_rootProduct` ([OrbitComplexity/SchubertGeometry/Deodhar/Products.lean](../OrbitComplexity/SchubertGeometry/Deodhar/Products.lean))
+- `SchubertGeometry.subwordRepresentative_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.deodharPrefix_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.subwordRootProduct_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertGeometry.deodharPrefixMorphism_take` ([OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean](../OrbitComplexity/SchubertGeometry/Deodhar/PrefixProducts.lean))
+- `SchubertOrbits.deodhar_inductive_complex` ([OrbitComplexity/Paper/Complex/Products.lean](../OrbitComplexity/Paper/Complex/Products.lean))
+
+### Twisted torus actions (Section 4.1; Gao, Hodges and Yong, Lemmas 3.1 and 3.2)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for every $T$-variety: conjugation by a representative of $u$ is an automorphism of $T$, independent of the representative, so the two actions have the same orbits.
+
+- `SchubertOrbits.twistedActions_schubert` ([OrbitComplexity/Paper/Complex/TwistedCells.lean](../OrbitComplexity/Paper/Complex/TwistedCells.lean))
+- `SchubertOrbits.twistedActions_schubert_complex` ([OrbitComplexity/Paper/Complex/TwistedCells.lean](../OrbitComplexity/Paper/Complex/TwistedCells.lean))
+- `SchubertOrbits.twistedAction_properties` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.twistedAction` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.conjugation_torus_factor` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.torusConjugation_representative` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.twistedAction_smul` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.twistedAction_orbit` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+- `SchubertOrbits.twistedAction_open_dense` ([OrbitComplexity/Paper/Heart/TwistedActions.lean](../OrbitComplexity/Paper/Heart/TwistedActions.lean))
+
+### Equation (5) (`eq:SchubertcellAffine`)
+
+Status: **formalized**
+
+Cited in the paper and proved here.
+
+- `SchubertOrbits.schubert_cell_affine` ([OrbitComplexity/Paper/Heart/CellAffine.lean](../OrbitComplexity/Paper/Heart/CellAffine.lean))
+- `SchubertGeometry.schubertCellAffineIso` ([OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean](../OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean))
+- `SchubertGeometry.schubertCell_scheme_unipotent` ([OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean](../OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean))
+- `SchubertGeometry.schubertCell_points_unipotent` ([OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean](../OrbitComplexity/SchubertGeometry/Cells/CellAffine.lean))
+- `SchubertOrbits.schubert_cell_affine_complex` ([OrbitComplexity/Paper/Heart/CellAffine.lean](../OrbitComplexity/Paper/Heart/CellAffine.lean))
+- `SchubertGeometry.schubertCell` ([OrbitComplexity/SchubertGeometry/Cells/Schubert.lean](../OrbitComplexity/SchubertGeometry/Cells/Schubert.lean))
+
+### Definition 4.1
+
+Status: **formalized**
+
+- `SchubertOrbits.heart_definition` ([OrbitComplexity/Paper/Heart/DefinitionStatements.lean](../OrbitComplexity/Paper/Heart/DefinitionStatements.lean))
+- `SchubertOrbits.heart_definition_complex` ([OrbitComplexity/Paper/Heart/DefinitionStatements.lean](../OrbitComplexity/Paper/Heart/DefinitionStatements.lean))
+- `SchubertOrbits.heart` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartInclusion` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartInclusion_isPreimmersion` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartRootMorphism` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartRootMorphism_isPreimmersion` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartRootMorphism_eq` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartRootMorphism_points` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartRootMorphism_orbit` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartIso` ([OrbitComplexity/Paper/Heart/Definition.lean](../OrbitComplexity/Paper/Heart/Definition.lean))
+- `SchubertOrbits.heartIso_hom_comp` ([OrbitComplexity/Paper/Heart/Embedding.lean](../OrbitComplexity/Paper/Heart/Embedding.lean))
+- `SchubertOrbits.heartCellInclusion` ([OrbitComplexity/Paper/Heart/Embedding.lean](../OrbitComplexity/Paper/Heart/Embedding.lean))
+- `SchubertOrbits.heartCellInclusion_isClosed` ([OrbitComplexity/Paper/Heart/Embedding.lean](../OrbitComplexity/Paper/Heart/Embedding.lean))
+- `SchubertOrbits.heartCellInclusion_comp` ([OrbitComplexity/Paper/Heart/Embedding.lean](../OrbitComplexity/Paper/Heart/Embedding.lean))
+- `SchubertOrbits.mem_heart_iff` ([OrbitComplexity/Paper/Heart/Embedding.lean](../OrbitComplexity/Paper/Heart/Embedding.lean))
+
+### Proposition 4.2 (`proposition:tStableHeartIso`)
+
+Status: **formalized**
+
+- `SchubertOrbits.heart_equivariant_iso` ([OrbitComplexity/Paper/Heart/Isomorphism.lean](../OrbitComplexity/Paper/Heart/Isomorphism.lean))
+- `SchubertOrbits.heart_equivariant_iso_complex` ([OrbitComplexity/Paper/Heart/Isomorphism.lean](../OrbitComplexity/Paper/Heart/Isomorphism.lean))
+- `SchubertOrbits.minimalToVdIso` ([OrbitComplexity/Paper/Heart/Conjugation.lean](../OrbitComplexity/Paper/Heart/Conjugation.lean))
+- `SchubertOrbits.minimalToVdIso_comp` ([OrbitComplexity/Paper/Heart/Conjugation.lean](../OrbitComplexity/Paper/Heart/Conjugation.lean))
+- `SchubertOrbits.minimalToVdIso_points` ([OrbitComplexity/Paper/Heart/Conjugation.lean](../OrbitComplexity/Paper/Heart/Conjugation.lean))
+- `SchubertOrbits.heartFlag_translate` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.heartRoot_translate` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.heartTranslationIso` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.heartTranslationIso_hom_comp` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.heartMinimalIso` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.heartMinimalIso_hom_comp` ([OrbitComplexity/Paper/Heart/Translation.lean](../OrbitComplexity/Paper/Heart/Translation.lean))
+- `SchubertOrbits.torusConjugation_inverse` ([OrbitComplexity/Paper/Heart/Equivariance.lean](../OrbitComplexity/Paper/Heart/Equivariance.lean))
+- `SchubertOrbits.heartMinimalIso_points` ([OrbitComplexity/Paper/Heart/Equivariance.lean](../OrbitComplexity/Paper/Heart/Equivariance.lean))
+- `SchubertOrbits.heartMinimalIso_smul` ([OrbitComplexity/Paper/Heart/Equivariance.lean](../OrbitComplexity/Paper/Heart/Equivariance.lean))
+- `SchubertOrbits.heartMinimalIso_isModHom` ([OrbitComplexity/Paper/Heart/Equivariance.lean](../OrbitComplexity/Paper/Heart/Equivariance.lean))
+- `SchubertOrbits.heart_torus_stable` ([OrbitComplexity/Paper/Heart/Actions.lean](../OrbitComplexity/Paper/Heart/Actions.lean))
+- `SchubertOrbits.heartTorusAction` ([OrbitComplexity/Paper/Heart/Actions.lean](../OrbitComplexity/Paper/Heart/Actions.lean))
+- `SchubertOrbits.heartInclusion_isModHom` ([OrbitComplexity/Paper/Heart/Actions.lean](../OrbitComplexity/Paper/Heart/Actions.lean))
+- `SchubertOrbits.heart_torus_smul` ([OrbitComplexity/Paper/Heart/Actions.lean](../OrbitComplexity/Paper/Heart/Actions.lean))
+
+### Levi–Borel subgroups and $U\_{\bar a}$ (Section 4.1)
+
+Status: **formalized**
+
+The facts cited from Borel are proved here, with the root subgroups of $\Phi^+(I)$ multiplied in every order.
+
+- `SchubertOrbits.leviBorel_definition` ([OrbitComplexity/Paper/Heart/LeviBorel.lean](../OrbitComplexity/Paper/Heart/LeviBorel.lean))
+- `SchubertOrbits.leviBorel_complement` ([OrbitComplexity/Paper/Heart/LeviBorelComplement.lean](../OrbitComplexity/Paper/Heart/LeviBorelComplement.lean))
+- `ReductiveGroups.ReductiveGroupData.leviTangent_fixed` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean))
+- `ReductiveGroups.ReductiveGroupData.leviTangent_eq_zero_of_weight` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean))
+- `ReductiveGroups.ReductiveGroupData.exists_leviCenter_root_two` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean))
+- `ReductiveGroups.ReductiveGroupData.leviTangent_eq_zero_of_root` ([OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean](../OrbitComplexity/ReductiveGroups/Groups/Reductive/GroupLeviTangent.lean))
+- `SchubertGeometry.leviBorel_integral` ([OrbitComplexity/SchubertGeometry/Levi/Connected.lean](../OrbitComplexity/SchubertGeometry/Levi/Connected.lean))
+- `SchubertGeometry.leviBorelIdealInLevi` ([OrbitComplexity/SchubertGeometry/Levi/Connected.lean](../OrbitComplexity/SchubertGeometry/Levi/Connected.lean))
+- `SchubertGeometry.leviBorelQuotientIso` ([OrbitComplexity/SchubertGeometry/Levi/Connected.lean](../OrbitComplexity/SchubertGeometry/Levi/Connected.lean))
+- `SchubertGeometry.leviBorel_candidate` ([OrbitComplexity/SchubertGeometry/Levi/Connected.lean](../OrbitComplexity/SchubertGeometry/Levi/Connected.lean))
+- `SchubertGeometry.leviBorelRadical_ambient` ([OrbitComplexity/SchubertGeometry/Levi/BorelRadical.lean](../OrbitComplexity/SchubertGeometry/Levi/BorelRadical.lean))
+- `SchubertOrbits.leviBorel_definition_complex` ([OrbitComplexity/Paper/Heart/LeviBorel.lean](../OrbitComplexity/Paper/Heart/LeviBorel.lean))
+- `SchubertOrbits.leviBorel_complement_complex` ([OrbitComplexity/Paper/Heart/LeviBorelComplement.lean](../OrbitComplexity/Paper/Heart/LeviBorelComplement.lean))
+- `SchubertGeometry.leviBorelVariety` ([OrbitComplexity/SchubertGeometry/Levi/Borel.lean](../OrbitComplexity/SchubertGeometry/Levi/Borel.lean))
+
+### Lemma 4.3 (`lemma:equivalentCharUbara`)
+
+Status: **formalized**
+
+- `SchubertOrbits.complement_equivalences` ([OrbitComplexity/Paper/Heart/ComplementEquivalences.lean](../OrbitComplexity/Paper/Heart/ComplementEquivalences.lean))
+- `SchubertOrbits.complement_equivalences_complex` ([OrbitComplexity/Paper/Heart/ComplementEquivalences.lean](../OrbitComplexity/Paper/Heart/ComplementEquivalences.lean))
+- `BruhatIntervals.isLeftDescent_parabolic_iff` ([OrbitComplexity/BruhatIntervals/Words/ParabolicDescents.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicDescents.lean))
+- `BruhatIntervals.parabolic_greatest_iff_descents` ([OrbitComplexity/BruhatIntervals/Words/ParabolicDescents.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicDescents.lean))
+- `SchubertOrbits.complement_trivial_iff` ([OrbitComplexity/Paper/Heart/TrivialComplement.lean](../OrbitComplexity/Paper/Heart/TrivialComplement.lean))
+- `SchubertOrbits.complement_trivial_iff_complex` ([OrbitComplexity/Paper/Heart/TrivialComplement.lean](../OrbitComplexity/Paper/Heart/TrivialComplement.lean))
+
+### Lemma 4.4 (`lemma:uBarStableHeart`)
+
+Status: **formalized**
+
+- `SchubertOrbits.complement_stable_heart` ([OrbitComplexity/Paper/Heart/ComplementStatements.lean](../OrbitComplexity/Paper/Heart/ComplementStatements.lean))
+- `SchubertOrbits.complement_stable_heart_complex` ([OrbitComplexity/Paper/Heart/ComplementStatements.lean](../OrbitComplexity/Paper/Heart/ComplementStatements.lean))
+- `SchubertOrbits.complementRootIndices` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.complementRootIndices_closed` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.complement_heart_stable` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.complementUnipotent` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.complementHeartAction` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.heartInclusion_complement` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+- `SchubertOrbits.complement_heart_smul` ([OrbitComplexity/Paper/Heart/Complement.lean](../OrbitComplexity/Paper/Heart/Complement.lean))
+
+### Lemma 4.5 (`lemma:orbitDynamicsRevisited`)
+
+Status: **formalized**
+
+- `SchubertOrbits.heart_orbit_dynamics` ([OrbitComplexity/Paper/Heart/DynamicsStatements.lean](../OrbitComplexity/Paper/Heart/DynamicsStatements.lean))
+- `SchubertOrbits.heart_orbit_dynamics_complex` ([OrbitComplexity/Paper/Heart/DynamicsStatements.lean](../OrbitComplexity/Paper/Heart/DynamicsStatements.lean))
+- `SchubertOrbits.parabolic_mul_vd_mem_iff` ([OrbitComplexity/Paper/Heart/Dynamics.lean](../OrbitComplexity/Paper/Heart/Dynamics.lean))
+- `SchubertOrbits.parabolic_smul_not_mem_heart` ([OrbitComplexity/Paper/Heart/Dynamics.lean](../OrbitComplexity/Paper/Heart/Dynamics.lean))
+- `SchubertOrbits.torus_complement_not_mem_heart` ([OrbitComplexity/Paper/Heart/Dynamics.lean](../OrbitComplexity/Paper/Heart/Dynamics.lean))
+- `SchubertOrbits.heart_factor_eq_one` ([OrbitComplexity/Paper/Heart/Dynamics.lean](../OrbitComplexity/Paper/Heart/Dynamics.lean))
+
+### Lemma 4.6 (`lemma:orbitStabilizer`)
+
+Status: **formalized**
+
+- `SchubertOrbits.leviBorel_orbit_meets_heart` ([OrbitComplexity/Paper/Heart/Meeting.lean](../OrbitComplexity/Paper/Heart/Meeting.lean))
+- `SchubertOrbits.leviBorel_orbit_meets_heart_complex` ([OrbitComplexity/Paper/Heart/Meeting.lean](../OrbitComplexity/Paper/Heart/Meeting.lean))
+- `SchubertGeometry.leviBorel_cell_stable` ([OrbitComplexity/SchubertGeometry/Levi/Cells.lean](../OrbitComplexity/SchubertGeometry/Levi/Cells.lean))
+- `SchubertGeometry.leviBorelCellAction` ([OrbitComplexity/SchubertGeometry/Levi/Cells.lean](../OrbitComplexity/SchubertGeometry/Levi/Cells.lean))
+- `SchubertGeometry.leviBorelCellEquivariant` ([OrbitComplexity/SchubertGeometry/Levi/Cells.lean](../OrbitComplexity/SchubertGeometry/Levi/Cells.lean))
+- `SchubertGeometry.leviBorelCell_smul` ([OrbitComplexity/SchubertGeometry/Levi/Cells.lean](../OrbitComplexity/SchubertGeometry/Levi/Cells.lean))
+- `SchubertOrbits.exists_parabolic_smul_heart` ([OrbitComplexity/Paper/Heart/Dynamics.lean](../OrbitComplexity/Paper/Heart/Dynamics.lean))
+- `SchubertGeometry.schubertCellInclusion` ([OrbitComplexity/SchubertGeometry/Cells/Schubert.lean](../OrbitComplexity/SchubertGeometry/Cells/Schubert.lean))
+
+### Theorem 4.7 (`theorem:codimensionPreservingOrbitBijection`)
+
+Status: **formalized**
+
+- `SchubertOrbits.heart_levi_orbits` ([OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean](../OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean))
+- `SchubertOrbits.heart_stabilizer_dimension` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.heart_levi_orbits_complex` ([OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean](../OrbitComplexity/Paper/Heart/LeviOrbitStatements.lean))
+- `SchubertOrbits.cellHeartOrbitEquiv` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.cellHeartOrbitEquiv_mk` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.heartTranslationIso_points` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.cellHeartOrbitCodim` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.heart_orbitCodim` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.heart_minOrbitCodim` ([OrbitComplexity/Paper/Heart/OrbitTransport.lean](../OrbitComplexity/Paper/Heart/OrbitTransport.lean))
+- `SchubertOrbits.heart_torus_orbit_iff` ([OrbitComplexity/Paper/Heart/LeviOrbits.lean](../OrbitComplexity/Paper/Heart/LeviOrbits.lean))
+- `SchubertOrbits.heartLeviOrbitEquiv` ([OrbitComplexity/Paper/Heart/LeviOrbits.lean](../OrbitComplexity/Paper/Heart/LeviOrbits.lean))
+- `SchubertOrbits.heartLeviOrbitEquiv_mk` ([OrbitComplexity/Paper/Heart/LeviOrbits.lean](../OrbitComplexity/Paper/Heart/LeviOrbits.lean))
+- `SchubertOrbits.cellLeviOrbitEquiv` ([OrbitComplexity/Paper/Heart/LeviOrbits.lean](../OrbitComplexity/Paper/Heart/LeviOrbits.lean))
+- `SchubertOrbits.cellLeviOrbitEquiv_mk` ([OrbitComplexity/Paper/Heart/LeviOrbits.lean](../OrbitComplexity/Paper/Heart/LeviOrbits.lean))
+- `SchubertOrbits.heartLeviOrbitMap` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.heartLeviOrbitMap_mk` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.heartLeviOrbitMap_surjective` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.cellLeviOrbitMap` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.cellLeviOrbitMap_mk` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.cellLeviOrbitMap_surjective` ([OrbitComplexity/Paper/Heart/LeviSurjection.lean](../OrbitComplexity/Paper/Heart/LeviSurjection.lean))
+- `SchubertOrbits.heartStabilizer_range` ([OrbitComplexity/Paper/Heart/LeviStabilizer.lean](../OrbitComplexity/Paper/Heart/LeviStabilizer.lean))
+- `SchubertOrbits.heartStabilizerIso` ([OrbitComplexity/Paper/Heart/LeviStabilizer.lean](../OrbitComplexity/Paper/Heart/LeviStabilizer.lean))
+- `SchubertOrbits.heartLeviOrbitCodim` ([OrbitComplexity/Paper/Heart/LeviCodimension.lean](../OrbitComplexity/Paper/Heart/LeviCodimension.lean))
+- `SchubertOrbits.cellLeviOrbitCodim` ([OrbitComplexity/Paper/Heart/LeviCodimension.lean](../OrbitComplexity/Paper/Heart/LeviCodimension.lean))
+- `SchubertGeometry.torusLeviBorelInclusion` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.torusLeviBorelInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.torusLeviBorelInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.torusLeviBorelInclusion_comp` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.torusLeviBorelInclusion_points` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviRootBorelInclusion` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviRootBorelInclusion_isClosed` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviRootBorelInclusion_isMonHom` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviRootBorelInclusion_comp` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviRootBorelInclusion_points` ([OrbitComplexity/SchubertGeometry/Levi/Maps.lean](../OrbitComplexity/SchubertGeometry/Levi/Maps.lean))
+- `SchubertGeometry.leviBorelProduct` ([OrbitComplexity/SchubertGeometry/Levi/Dimension.lean](../OrbitComplexity/SchubertGeometry/Levi/Dimension.lean))
+- `SchubertGeometry.leviBorelMultiplication` ([OrbitComplexity/SchubertGeometry/Levi/Dimension.lean](../OrbitComplexity/SchubertGeometry/Levi/Dimension.lean))
+- `SchubertGeometry.leviBorelMultiplication_points` ([OrbitComplexity/SchubertGeometry/Levi/Dimension.lean](../OrbitComplexity/SchubertGeometry/Levi/Dimension.lean))
+- `SchubertGeometry.leviBorelMultiplication_bijective` ([OrbitComplexity/SchubertGeometry/Levi/Dimension.lean](../OrbitComplexity/SchubertGeometry/Levi/Dimension.lean))
+- `SchubertGeometry.leviBorelVariety_dim` ([OrbitComplexity/SchubertGeometry/Levi/Dimension.lean](../OrbitComplexity/SchubertGeometry/Levi/Dimension.lean))
+- `SchubertOrbits.heartLeviOrbitDim` ([OrbitComplexity/Paper/Heart/LeviOrbitDimension.lean](../OrbitComplexity/Paper/Heart/LeviOrbitDimension.lean))
+- `SchubertOrbits.heartLeviOrbitDim_complex` ([OrbitComplexity/Paper/Heart/LeviOrbitDimension.lean](../OrbitComplexity/Paper/Heart/LeviOrbitDimension.lean))
+
+### Dimensions of orbits (Section 4.1; Brion, Proposition 1.11)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for every algebraic group over every algebraically closed field, from the dimension of the generic fibres of the orbit map.
+
+- `GroupActions.orbit_dimension_formula` ([OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean](../OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean))
+- `SchubertOrbits.orbit_dimension_irreducible` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `GroupActions.groupNatDim_eq_orbit_add` ([OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean](../OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean))
+- `GroupActions.dim_orbit` ([OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean](../OrbitComplexity/GroupActions/Actions/OrbitDimensionGeneral.lean))
+- `SchubertOrbits.orbit_dimension_complex` ([OrbitComplexity/Paper/Complex/OrbitDimension.lean](../OrbitComplexity/Paper/Complex/OrbitDimension.lean))
+- `GroupActions.orbit_dimension_add` ([OrbitComplexity/GroupActions/Actions/OrbitDimension.lean](../OrbitComplexity/GroupActions/Actions/OrbitDimension.lean))
+- `GroupActions.orbitNatDim_add_stabilizer` ([OrbitComplexity/GroupActions/Actions/OrbitDimension.lean](../OrbitComplexity/GroupActions/Actions/OrbitDimension.lean))
+- `GroupActions.orbitNatDim` ([OrbitComplexity/GroupActions/Actions/Orbits.lean](../OrbitComplexity/GroupActions/Actions/Orbits.lean))
+- `GroupActions.orbitVariety` ([OrbitComplexity/GroupActions/Actions/OrbitVariety.lean](../OrbitComplexity/GroupActions/Actions/OrbitVariety.lean))
+- `GroupActions.orbitVariety_smooth` ([OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean](../OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean))
+- `GroupActions.orbitDim` ([OrbitComplexity/GroupActions/Actions/Orbits.lean](../OrbitComplexity/GroupActions/Actions/Orbits.lean))
+- `GroupActions.torus_orbit_dim` ([OrbitComplexity/GroupActions/Tori/OrbitRank.lean](../OrbitComplexity/GroupActions/Tori/OrbitRank.lean))
+
+### Corollary 4.8 (`corollary:bigCellBIComplexity`)
+
+Status: **formalized**
+
+- `SchubertOrbits.levi_cell_minOrbitCodim` ([OrbitComplexity/Paper/Heart/LeviMinimum.lean](../OrbitComplexity/Paper/Heart/LeviMinimum.lean))
+- `SchubertOrbits.levi_cell_minOrbitCodim_complex` ([OrbitComplexity/Paper/Heart/LeviMinimum.lean](../OrbitComplexity/Paper/Heart/LeviMinimum.lean))
+
+### Proposition 4.9 (`proposition:BLICodim`)
+
+Status: **formalized**
+
+- `SchubertOrbits.levi_orbit_codimension_bounds` ([OrbitComplexity/Paper/Heart/CodimensionBounds.lean](../OrbitComplexity/Paper/Heart/CodimensionBounds.lean))
+- `SchubertGeometry.leviBorelSchubertAction` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.leviBorelSchubertEquivariant` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.leviBorelSchubert_smul` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.schubertCellOfLE` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.schubertCellOfLE_comp` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.schubertCellOfLE_isImmersion` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.schubertCellOfLE_isModHom` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertGeometry.schubertCellOfLE_orbitNatDim` ([OrbitComplexity/SchubertGeometry/Levi/Schubert.lean](../OrbitComplexity/SchubertGeometry/Levi/Schubert.lean))
+- `SchubertOrbits.heartLevi_stabilizer_le` ([OrbitComplexity/Paper/Heart/OrbitBounds.lean](../OrbitComplexity/Paper/Heart/OrbitBounds.lean))
+- `SchubertOrbits.heartLevi_stabilizer_dim_le` ([OrbitComplexity/Paper/Heart/OrbitBounds.lean](../OrbitComplexity/Paper/Heart/OrbitBounds.lean))
+- `SchubertOrbits.heartLeviOrbitDim_le` ([OrbitComplexity/Paper/Heart/OrbitBounds.lean](../OrbitComplexity/Paper/Heart/OrbitBounds.lean))
+- `SchubertOrbits.levi_orbit_codimension_complex` ([OrbitComplexity/Paper/Heart/CodimensionBounds.lean](../OrbitComplexity/Paper/Heart/CodimensionBounds.lean))
+
+### Equation (6) (`eq:codimlb1`)
+
+Status: **formalized**
+
+- `SchubertOrbits.levi_orbit_codimension_chain` ([OrbitComplexity/Paper/Heart/OrbitCodimension.lean](../OrbitComplexity/Paper/Heart/OrbitCodimension.lean))
+
+### Equation (7) (`eq:codimlb2`)
+
+Status: **formalized**
+
+- `SchubertOrbits.heart_torus_codimension` ([OrbitComplexity/Paper/Heart/TorusCodimension.lean](../OrbitComplexity/Paper/Heart/TorusCodimension.lean))
+- `SchubertOrbits.heart_torus_codimension_complex` ([OrbitComplexity/Paper/Heart/TorusCodimension.lean](../OrbitComplexity/Paper/Heart/TorusCodimension.lean))
+
+### The Bruhat decomposition of a Schubert variety (Section 4.2)
+
+Status: **formalized**
+
+- `SchubertOrbits.schubert_orbit_decomposition` ([OrbitComplexity/Paper/Heart/SchubertOrbits.lean](../OrbitComplexity/Paper/Heart/SchubertOrbits.lean))
+- `SchubertGeometry.leftParabolicRepresentative_mono` ([OrbitComplexity/SchubertGeometry/Parabolics/LeftOrder.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeftOrder.lean))
+- `SchubertGeometry.leftParabolic_supportCard_mono` ([OrbitComplexity/SchubertGeometry/Parabolics/LeftOrder.lean](../OrbitComplexity/SchubertGeometry/Parabolics/LeftOrder.lean))
+- `SchubertGeometry.schubertLowerCells_partition` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean))
+- `SchubertGeometry.schubertOrbitDecomposition` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean))
+- `SchubertGeometry.schubertOrbitDecomposition_symm_mk` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecomposition.lean))
+- `SchubertGeometry.schubertLowerCell_subsetDim` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean))
+- `SchubertGeometry.schubertLowerCellCodim` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean))
+- `SchubertGeometry.schubertLowerCellCodim_eq` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean))
+- `SchubertGeometry.schubertLowerOrbitCodim` ([OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean](../OrbitComplexity/SchubertGeometry/Cells/OrbitDecompositionDimension.lean))
+- `SchubertOrbits.schubert_orbit_decomposition_complex` ([OrbitComplexity/Paper/Heart/SchubertOrbits.lean](../OrbitComplexity/Paper/Heart/SchubertOrbits.lean))
+- `SchubertGeometry.schubertVariety` ([OrbitComplexity/SchubertGeometry/Cells/Schubert.lean](../OrbitComplexity/SchubertGeometry/Cells/Schubert.lean))
+
+### Partial flag varieties (Section 4.3)
+
+Status: **formalized**
+
+Here $G/P\_J$ is the $G$-orbit of a point of a projective space whose stabilizer is $P\_J$; it is projective, and its points are the cosets $gP\_J$.
+
+- `SchubertGeometry.partialFlag_properties` ([OrbitComplexity/SchubertGeometry/Parabolics/Geometry.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Geometry.lean))
+- `SchubertOrbits.partialSchubert_torus` ([OrbitComplexity/Paper/StatementForms.lean](../OrbitComplexity/Paper/StatementForms.lean))
+- `SchubertOrbits.partial_flags_complex` ([OrbitComplexity/Paper/Complex/PartialFlags.lean](../OrbitComplexity/Paper/Complex/PartialFlags.lean))
+- `SchubertGeometry.partialFlagPoints` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_eq` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_smul` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_continuous` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_isOpenMap` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialWeylFlag_eq_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialWeylFlag_injOn` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialPoints.lean))
+- `SchubertGeometry.partialFlagProjection_cell` ([OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean))
+- `SchubertGeometry.partialFlagProjection_injOn` ([OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean))
+- `SchubertGeometry.partialSchubert_image` ([OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellProjection.lean))
+- `GroupActions.exists_finite_subspace_stabilizer` ([OrbitComplexity/GroupActions/Representations/ChevalleySubspace.lean](../OrbitComplexity/GroupActions/Representations/ChevalleySubspace.lean))
+- `GroupActions.exists_exterior_line_stabilizer` ([OrbitComplexity/GroupActions/Representations/ExteriorLine.lean](../OrbitComplexity/GroupActions/Representations/ExteriorLine.lean))
+- `GroupActions.exists_comodule_line_stabilizer` ([OrbitComplexity/GroupActions/Representations/ChevalleyLine.lean](../OrbitComplexity/GroupActions/Representations/ChevalleyLine.lean))
+- `GroupActions.exteriorCoact` ([OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean](../OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean))
+- `GroupActions.exteriorCoact_ι` ([OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean](../OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean))
+- `GroupActions.exteriorAlgebraComodule` ([OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean](../OrbitComplexity/GroupActions/Representations/ExteriorCoaction.lean))
+- `GroupActions.exteriorPowerComodule` ([OrbitComplexity/GroupActions/Representations/ExteriorDegrees.lean](../OrbitComplexity/GroupActions/Representations/ExteriorDegrees.lean))
+- `GroupActions.exteriorPower_coact` ([OrbitComplexity/GroupActions/Representations/ExteriorDegrees.lean](../OrbitComplexity/GroupActions/Representations/ExteriorDegrees.lean))
+- `GroupActions.exteriorPower_basePoints` ([OrbitComplexity/GroupActions/Representations/ExteriorActions.lean](../OrbitComplexity/GroupActions/Representations/ExteriorActions.lean))
+- `GroupActions.exists_finite_line_stabilizer` ([OrbitComplexity/GroupActions/Representations/ChevalleyExterior.lean](../OrbitComplexity/GroupActions/Representations/ChevalleyExterior.lean))
+- `SchubertGeometry.flagQuotient_desc` ([OrbitComplexity/SchubertGeometry/Parabolics/FlagDescent.lean](../OrbitComplexity/SchubertGeometry/Parabolics/FlagDescent.lean))
+- `GroupActions.projectiveVectorPoint` ([OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean))
+- `GroupActions.projectiveVectorPoint_mem` ([OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean))
+- `GroupActions.projectiveVectorPoint_scale` ([OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean))
+- `GroupActions.projectiveVectorPoint_chart` ([OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveVectors.lean))
+- `GroupActions.projectivePointsEquiv` ([OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean](../OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean))
+- `GroupActions.projectivePointsEquiv_mk` ([OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean](../OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean))
+- `GroupActions.projectivePointsEquiv_mk_chart` ([OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean](../OrbitComplexity/GroupActions/Representations/ProjectivePoints.lean))
+- `GroupActions.projectiveMatrixHom` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixHom_X` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixHom_C` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixMap` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixMap_mem` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixMap_toSpec` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrix.lean))
+- `GroupActions.projectiveMatrixMorphism` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrixPoints.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrixPoints.lean))
+- `GroupActions.projectiveMatrixMorphism_points` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrixPoints.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrixPoints.lean))
+- `GroupActions.projectiveMatrixFamily` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrixFamily.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrixFamily.lean))
+- `GroupActions.projectiveMatrixFamily_points` ([OrbitComplexity/GroupActions/Representations/ProjectiveMatrixFamily.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveMatrixFamily.lean))
+- `GroupActions.comoduleProjectiveMorphism` ([OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean))
+- `GroupActions.comoduleProjectiveAction` ([OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean))
+- `GroupActions.comoduleProjectivePoint` ([OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean))
+- `GroupActions.comoduleProjective_smul` ([OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean))
+- `GroupActions.comoduleProjective_stabilizer` ([OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean](../OrbitComplexity/GroupActions/Representations/ProjectiveAction.lean))
+- `GroupActions.exists_projective_stabilizer` ([OrbitComplexity/GroupActions/Representations/ChevalleyOrbit.lean](../OrbitComplexity/GroupActions/Representations/ChevalleyOrbit.lean))
+- `SchubertGeometry.partialFlagVariety` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagQuotient` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagQuotient_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagPointsEquiv` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagQuotient_points` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlag_quasiprojective` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagAction` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlag_smul` ([OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean](../OrbitComplexity/SchubertGeometry/Parabolics/PartialFlag.lean))
+- `SchubertGeometry.partialFlagMorphism` ([OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean))
+- `SchubertGeometry.partialFlagMorphism_quotient` ([OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean))
+- `SchubertGeometry.partialFlagMorphism_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean))
+- `SchubertGeometry.partialFlagMorphism_points` ([OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean))
+- `SchubertGeometry.partialFlagMorphism_isModHom` ([OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Projection.lean))
+- `SchubertGeometry.partialFlagMorphism_isProper` ([OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean))
+- `SchubertGeometry.partialFlagVariety_isProper` ([OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean))
+- `SchubertGeometry.partialFlag_projective` ([OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean))
+- `SchubertGeometry.partialFlagPointsHomeomorph` ([OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Proper.lean))
+- `GroupActions.orbitProjection_smooth` ([OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean](../OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean))
+- `GroupActions.orbitVariety_smooth` ([OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean](../OrbitComplexity/GroupActions/Actions/OrbitSmooth.lean))
+- `GroupActions.smooth_of_transitive` ([OrbitComplexity/GroupActions/Actions/HomogeneousSmooth.lean](../OrbitComplexity/GroupActions/Actions/HomogeneousSmooth.lean))
+- `SchubertGeometry.partialWeylFlagPoint` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialFlagBorelAction` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.borelPartialFlag_smul` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertCell` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertCellInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertSupport` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertVariety` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertInclusion` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertInclusion_range` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertCellIntegral` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertVarietyIntegral` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertCell_points_range` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialCellProjection` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialCellProjection_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialCellProjection_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Schubert.lean))
+- `SchubertGeometry.partialSchubertCellBorelAction` ([OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean))
+- `SchubertGeometry.partialSchubertCellEquivariant` ([OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean))
+- `SchubertGeometry.partialCellProjection_isModHom` ([OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean))
+- `SchubertGeometry.partialCellProjection_smooth` ([OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellActions.lean))
+- `SchubertGeometry.partialCellProjection_isIso` ([OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean))
+- `SchubertGeometry.partialCellIso` ([OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean))
+- `SchubertGeometry.partialCellIso_hom` ([OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellIso.lean))
+- `SchubertGeometry.partialFlagVarietyIntegral` ([OrbitComplexity/SchubertGeometry/Parabolics/ProjectionSmooth.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ProjectionSmooth.lean))
+- `SchubertGeometry.partialFlagMorphism_smooth` ([OrbitComplexity/SchubertGeometry/Parabolics/ProjectionSmooth.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ProjectionSmooth.lean))
+- `SchubertGeometry.partialCellInClosure` ([OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean))
+- `SchubertGeometry.partialCellInClosure_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean))
+- `SchubertGeometry.partialCellInClosure_isOpen` ([OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean))
+- `SchubertGeometry.partialCellInClosure_dominant` ([OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellClosure.lean))
+- `SchubertGeometry.partialSchubertProjection` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean))
+- `SchubertGeometry.partialSchubertProjection_comp` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean))
+- `SchubertGeometry.partialSchubertProjection_surjective` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean))
+- `SchubertGeometry.partialSchubertProjection_isProper` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertProjection.lean))
+- `SchubertGeometry.partialSchubertProjection_properties` ([OrbitComplexity/SchubertGeometry/Parabolics/Birational.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Birational.lean))
+- `SchubertGeometry.partialSchubert_points` ([OrbitComplexity/SchubertGeometry/Parabolics/Preimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Preimage.lean))
+- `SchubertGeometry.partialSchubert_pullback` ([OrbitComplexity/SchubertGeometry/Parabolics/Preimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Preimage.lean))
+- `ReductiveGroups.longestParabolicElement` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean))
+- `ReductiveGroups.eq_longestParabolic_of_max` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean))
+- `ReductiveGroups.longestParabolicElement_sq` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean))
+- `ReductiveGroups.rootCount_longestParabolic` ([OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean](../OrbitComplexity/ReductiveGroups/Roots/Parabolic/Longest.lean))
+
+### Lemma 4.10 (`lemma:stabilizer`)
+
+Status: **formalized**
+
+- `SchubertGeometry.partialSchubertStabilizer_eq` ([OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean))
+- `SchubertOrbits.partial_schubert_stabilizer_complex` ([OrbitComplexity/Paper/Complex/PartialSchubert.lean](../OrbitComplexity/Paper/Complex/PartialSchubert.lean))
+- `BruhatIntervals.minimalRightRep_mono` ([OrbitComplexity/BruhatIntervals/Words/ParabolicRightOrder.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicRightOrder.lean))
+- `BruhatIntervals.bruhatLE_parabolic_maximum_iff` ([OrbitComplexity/BruhatIntervals/Words/ParabolicRightOrder.lean](../OrbitComplexity/BruhatIntervals/Words/ParabolicRightOrder.lean))
+- `SchubertGeometry.weyl_bruhat_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/Order.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Order.lean))
+- `SchubertGeometry.weylParabolic_bruhat_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/Order.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Order.lean))
+- `SchubertGeometry.weylParabolic_saturation` ([OrbitComplexity/SchubertGeometry/Parabolics/Order.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Order.lean))
+- `SchubertGeometry.minimal_parabolic_cell_mul` ([OrbitComplexity/SchubertGeometry/Parabolics/CellProducts.lean](../OrbitComplexity/SchubertGeometry/Parabolics/CellProducts.lean))
+- `SchubertGeometry.partialSchubertPoints` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean))
+- `SchubertGeometry.partialSchubert_preimage` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean))
+- `SchubertGeometry.partialSchubert_weyl_iff` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean))
+- `SchubertGeometry.partialSchubert_stabilizer` ([OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean](../OrbitComplexity/SchubertGeometry/Parabolics/SchubertPreimage.lean))
+- `SchubertGeometry.leviPartialFlagAction` ([OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean))
+- `SchubertGeometry.leviPartialFlag_smul` ([OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean))
+- `SchubertGeometry.partialSchubertLeviAction` ([OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean))
+- `SchubertGeometry.partialSchubertLeviEquivariant` ([OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean](../OrbitComplexity/SchubertGeometry/Parabolics/Stability.lean))
+
+### Theorem 4.11 (`thm:sphericalityTransfer`)
+
+Status: **formalized**
+
+- `SchubertOrbits.partial_schubert_levi` ([OrbitComplexity/Paper/Complex/PartialSchubert.lean](../OrbitComplexity/Paper/Complex/PartialSchubert.lean))
+- `SchubertOrbits.partial_schubert_levi_complex` ([OrbitComplexity/Paper/Complex/PartialSchubert.lean](../OrbitComplexity/Paper/Complex/PartialSchubert.lean))
+- `SchubertGeometry.partialSchubertProjection_isModHom` ([OrbitComplexity/SchubertGeometry/Parabolics/ProjectionActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ProjectionActions.lean))
+- `SchubertGeometry.partial_schubert_complexity` ([OrbitComplexity/SchubertGeometry/Parabolics/ProjectionActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/ProjectionActions.lean))
+- `SchubertGeometry.emptyLevi_isTorus` ([OrbitComplexity/SchubertGeometry/Parabolics/EmptyLevi.lean](../OrbitComplexity/SchubertGeometry/Parabolics/EmptyLevi.lean))
+- `SchubertGeometry.schubertStabilizer_le_partial` ([OrbitComplexity/SchubertGeometry/Parabolics/StabilizerOrder.lean](../OrbitComplexity/SchubertGeometry/Parabolics/StabilizerOrder.lean))
+
+### Birational invariance of complexity (Section 4.3; Pezzini, §2)
+
+Status: **formalized**
+
+Cited in the paper and proved here, for irreducible varieties, through Rosenlicht's theorem: the minimum codimension of a $B\_H$-orbit is the transcendence degree of the field of $B\_H$-invariant rational functions.
+
+- `GroupActions.complexity_eq_of_birational` ([OrbitComplexity/GroupActions/Rosenlicht/ReductiveComplexity.lean](../OrbitComplexity/GroupActions/Rosenlicht/ReductiveComplexity.lean))
+- `SchubertOrbits.complexity_birational_complex` ([OrbitComplexity/Paper/Complex/Birational.lean](../OrbitComplexity/Paper/Complex/Birational.lean))
+- `GroupActions.Variety.invariantFieldBirationalEquiv` ([OrbitComplexity/GroupActions/Rosenlicht/BirationalInvariants.lean](../OrbitComplexity/GroupActions/Rosenlicht/BirationalInvariants.lean))
+- `GroupActions.Variety.minOrbitCodim_eq_of_birational` ([OrbitComplexity/GroupActions/Rosenlicht/BirationalInvariants.lean](../OrbitComplexity/GroupActions/Rosenlicht/BirationalInvariants.lean))
+- `GroupActions.Variety.orbitNatDim_le_relativeTrdeg` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean))
+- `GroupActions.Variety.exists_open_max_orbitDim` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean))
+- `GroupActions.Variety.minOrbitCodim_eq_trdeg` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitMaximum.lean))
+- `SchubertOrbits.invariantComplexity_complex` ([OrbitComplexity/Paper/Complex/InvariantFunctions.lean](../OrbitComplexity/Paper/Complex/InvariantFunctions.lean))
+- `GroupActions.Variety.invariantFieldOpenEquiv` ([OrbitComplexity/GroupActions/Rosenlicht/OpenInvariants.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenInvariants.lean))
+- `GroupActions.Variety.minOrbitCodim_eq_of_openImmersion` ([OrbitComplexity/GroupActions/Rosenlicht/OpenComplexity.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenComplexity.lean))
+- `GroupActions.Variety.minOrbitCodim_eq_of_commonOpen` ([OrbitComplexity/GroupActions/Rosenlicht/OpenComplexity.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenComplexity.lean))
+- `GroupActions.partialMap_coordinate_germ` ([OrbitComplexity/GroupActions/Rosenlicht/PartialCoordinates.lean](../OrbitComplexity/GroupActions/Rosenlicht/PartialCoordinates.lean))
+- `GroupActions.Variety.openPointEval` ([OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean))
+- `GroupActions.Variety.affineOpenPointEval_eq_open` ([OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean))
+- `GroupActions.Variety.openPointEval_comp` ([OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean))
+- `GroupActions.Variety.openPointEval_res` ([OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean))
+- `GroupActions.Variety.regularValue_res` ([OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/OpenPointValues.lean))
+- `GroupActions.exists_fraction_value_tests` ([OrbitComplexity/GroupActions/Rosenlicht/FractionValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/FractionValues.lean))
+- `GroupActions.Variety.invariantCoordinate_germ` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinates.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinates.lean))
+- `GroupActions.Variety.invariantCoordinates` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinateValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinateValues.lean))
+- `GroupActions.Variety.invariantCoordinates_values` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinateValues.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantCoordinateValues.lean))
+- `GroupActions.Variety.exists_open_invariantMap_fibres` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantFibres.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantFibres.lean))
+- `GroupActions.Variety.exists_saturated_invariant_fibres` ([OrbitComplexity/GroupActions/Rosenlicht/SaturatedFibres.lean](../OrbitComplexity/GroupActions/Rosenlicht/SaturatedFibres.lean))
+- `GroupActions.Variety.invariantMorphismOn` ([OrbitComplexity/GroupActions/Rosenlicht/RestrictedInvariants.lean](../OrbitComplexity/GroupActions/Rosenlicht/RestrictedInvariants.lean))
+- `GroupActions.Variety.invariantMorphismOn_dominant` ([OrbitComplexity/GroupActions/Rosenlicht/RestrictedInvariants.lean](../OrbitComplexity/GroupActions/Rosenlicht/RestrictedInvariants.lean))
+- `GroupActions.Variety.invariantMorphism_fieldMap` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPullback.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPullback.lean))
+- `GroupActions.Variety.exists_surjective_restrict` ([OrbitComplexity/GroupActions/Rosenlicht/SurjectiveRestriction.lean](../OrbitComplexity/GroupActions/Rosenlicht/SurjectiveRestriction.lean))
+- `GroupActions.Variety.exists_saturated_orbit_morphism` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitMorphism.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitMorphism.lean))
+- `GroupActions.Variety.restrictHom_comp_inclusion` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean))
+- `GroupActions.Variety.restrictHom_fibres` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean))
+- `GroupActions.Variety.invariantPreimageAction` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean))
+- `GroupActions.Variety.invariantPreimage_isModHom` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean))
+- `GroupActions.Variety.invariantPreimage_smul` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantPreimages.lean))
+- `GroupActions.Variety.invariantDomainLift` ([OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean](../OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean))
+- `GroupActions.Variety.invariantDomainLift_inclusion` ([OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean](../OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean))
+- `GroupActions.Variety.invariantDomainLift_morphism` ([OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean](../OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean))
+- `GroupActions.Variety.invariantDomainLift_dominant` ([OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean](../OrbitComplexity/GroupActions/Rosenlicht/DomainLifts.lean))
+- `GroupActions.Variety.exists_surjective_orbit_morphism` ([OrbitComplexity/GroupActions/Rosenlicht/SurjectiveOrbitMorphism.lean](../OrbitComplexity/GroupActions/Rosenlicht/SurjectiveOrbitMorphism.lean))
+- `GroupActions.Variety.invariantOpenFieldEquiv` ([OrbitComplexity/GroupActions/Rosenlicht/QuotientFields.lean](../OrbitComplexity/GroupActions/Rosenlicht/QuotientFields.lean))
+- `GroupActions.Variety.invariantOpenFieldEquiv_apply` ([OrbitComplexity/GroupActions/Rosenlicht/QuotientFields.lean](../OrbitComplexity/GroupActions/Rosenlicht/QuotientFields.lean))
+- `GroupActions.Variety.exists_orbit_quotient` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitQuotient.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitQuotient.lean))
+- `GroupActions.Variety.partialIso_rationalEquivariant` ([OrbitComplexity/GroupActions/Rosenlicht/RegularEquivariance.lean](../OrbitComplexity/GroupActions/Rosenlicht/RegularEquivariance.lean))
+- `GroupActions.Variety.invariantModel` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean))
+- `GroupActions.Variety.invariantField` ([OrbitComplexity/GroupActions/Rosenlicht/GenericOrbit.lean](../OrbitComplexity/GroupActions/Rosenlicht/GenericOrbit.lean))
+- `GroupActions.Variety.invariantField_baseChange_domain` ([OrbitComplexity/GroupActions/Rosenlicht/GeometricFields.lean](../OrbitComplexity/GroupActions/Rosenlicht/GeometricFields.lean))
+- `GroupActions.Variety.invariantMap` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean))
+- `GroupActions.Variety.invariantMap_relation_field` ([OrbitComplexity/GroupActions/Rosenlicht/RelationEqualizer.lean](../OrbitComplexity/GroupActions/Rosenlicht/RelationEqualizer.lean))
+- `GroupActions.Variety.invariantModel_natDim` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantMaps.lean))
+- `GroupActions.Variety.relationChart` ([OrbitComplexity/GroupActions/Rosenlicht/AffineRelations.lean](../OrbitComplexity/GroupActions/Rosenlicht/AffineRelations.lean))
+- `GroupActions.Variety.relationChart_isAffine` ([OrbitComplexity/GroupActions/Rosenlicht/AffineRelations.lean](../OrbitComplexity/GroupActions/Rosenlicht/AffineRelations.lean))
+- `GroupActions.Variety.invariantDomain_dim` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantDomains.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantDomains.lean))
+- `GroupActions.Variety.invariantDomain` ([OrbitComplexity/GroupActions/Rosenlicht/InvariantDomains.lean](../OrbitComplexity/GroupActions/Rosenlicht/InvariantDomains.lean))
+- `GroupActions.Variety.relationTensorMap` ([OrbitComplexity/GroupActions/Rosenlicht/RelationTensor.lean](../OrbitComplexity/GroupActions/Rosenlicht/RelationTensor.lean))
+- `GroupActions.Variety.orbitRelationVariety` ([OrbitComplexity/GroupActions/Rosenlicht/RelationVarieties.lean](../OrbitComplexity/GroupActions/Rosenlicht/RelationVarieties.lean))
+- `GroupActions.exists_finite_orbit_tests` ([OrbitComplexity/GroupActions/Rosenlicht/FiniteTests.lean](../OrbitComplexity/GroupActions/Rosenlicht/FiniteTests.lean))
+- `GroupActions.orbitIdeal` ([OrbitComplexity/GroupActions/Rosenlicht/OrbitIdeals.lean](../OrbitComplexity/GroupActions/Rosenlicht/OrbitIdeals.lean))
+- `GroupActions.tensor_eq_zero_of_eval_on_domain` ([OrbitComplexity/GroupActions/Rosenlicht/TensorDomains.lean](../OrbitComplexity/GroupActions/Rosenlicht/TensorDomains.lean))
+- `GroupActions.tensorPointEval` ([OrbitComplexity/GroupActions/Rosenlicht/TensorPoints.lean](../OrbitComplexity/GroupActions/Rosenlicht/TensorPoints.lean))
+
+### Corollary 4.12 (`cor:toricClassification`)
+
+Status: **formalized**
+
+- `SchubertOrbits.partial_schubert_toric` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))
+- `SchubertOrbits.partial_schubert_toric_complex` ([OrbitComplexity/Paper/Complex/PartialSchubert.lean](../OrbitComplexity/Paper/Complex/PartialSchubert.lean))
+- `BruhatIntervals.distinct_reduced_words` ([OrbitComplexity/BruhatIntervals/Words/Distinct.lean](../OrbitComplexity/BruhatIntervals/Words/Distinct.lean))
+- `SchubertGeometry.partialSchubertTorusAction` ([OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean))
+- `SchubertGeometry.partialSchubertTorusEquivariant` ([OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean))
+- `SchubertGeometry.partial_torus_complexity` ([OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean](../OrbitComplexity/SchubertGeometry/Parabolics/TorusActions.lean))
+- `SchubertOrbits.partial_torus_zero_iff` ([OrbitComplexity/Paper/ToricComplexity.lean](../OrbitComplexity/Paper/ToricComplexity.lean))

@@ -1,0 +1,40 @@
+import OrbitComplexity.SchubertGeometry.FlagVariety.AdjointWeights
+import OrbitComplexity.SchubertGeometry.FlagVariety.MomentMap
+import OrbitComplexity.SchubertGeometry.Cells.RichardsonMoment
+import OrbitComplexity.SchubertGeometry.Normality.Coordinates.InitialNormalityModels
+import OrbitComplexity.SchubertGeometry.Normality.PositiveResolutionFibres
+import OrbitComplexity.SchubertGeometry.BSDH.Birational
+import OrbitComplexity.SchubertGeometry.BSDH.EndpointCoordinates
+import OrbitComplexity.SchubertGeometry.BSDH.NormalSource
+import OrbitComplexity.SchubertGeometry.Cells.OrbitDecompositionDimension
+import OrbitComplexity.SchubertGeometry.Cells.RichardsonOrbitStrata
+import OrbitComplexity.SchubertGeometry.Cells.RichardsonStructure
+import OrbitComplexity.SchubertGeometry.Cells.TorusComplexity
+import OrbitComplexity.SchubertGeometry.Deodhar.ChartRange
+import OrbitComplexity.SchubertGeometry.Deodhar.ComponentDecomposition
+import OrbitComplexity.SchubertGeometry.Deodhar.PositiveComponent
+import OrbitComplexity.SchubertGeometry.Deodhar.PrefixActions
+import OrbitComplexity.SchubertGeometry.Deodhar.PrefixBruhat
+import OrbitComplexity.SchubertGeometry.Deodhar.StepMaps
+import OrbitComplexity.SchubertGeometry.Frobenius.Main
+import OrbitComplexity.SchubertGeometry.Groups.WeylQuotient
+import OrbitComplexity.SchubertGeometry.IntegralProjectiveLine.ImageEvaluation
+import OrbitComplexity.SchubertGeometry.IntegralProjectiveLine.ModelMaps
+import OrbitComplexity.SchubertGeometry.Levi.BorelRadical
+import OrbitComplexity.SchubertGeometry.LineBundles.Main
+import OrbitComplexity.SchubertGeometry.Normality.Main
+import OrbitComplexity.SchubertGeometry.Parabolics.Geometry
+import OrbitComplexity.SchubertGeometry.Parabolics.LeftOrder
+import OrbitComplexity.SchubertGeometry.Parabolics.LeviDecompositionBorelGroups
+import OrbitComplexity.SchubertGeometry.Parabolics.StabilizerOrder
+import OrbitComplexity.SchubertGeometry.Parabolics.Structure
+import OrbitComplexity.SchubertGeometry.Parabolics.TorusActions
+import OrbitComplexity.SchubertGeometry.Roots.Elements
+import OrbitComplexity.SchubertGeometry.Roots.Products
+import OrbitComplexity.SchubertGeometry.Roots.SquareAction
+import OrbitComplexity.SchubertGeometry.Deodhar.SubwordWeylPoints
+
+/-! # Schubert geometry
+
+This library develops affine charts, flag varieties and their subvarieties.
+-/

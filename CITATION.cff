@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use or adapt this code, please cite this repository."
+type: software
+title: "orbit-complexity: Lean verification of Orbit structures and complexity in Schubert and Richardson Varieties"
+abstract: >-
+  A Lean 4 formalization of Y. Gao and R. Hodges, "Orbit structures and
+  complexity in Schubert and Richardson Varieties": the torus complexity of a
+  Richardson variety is the length difference minus the algebraic dimension of
+  its Bruhat interval, which is also the largest toric subinterval drop
+  (Theorem 1.2), and of a Schubert variety the length minus the support
+  (Corollary 1.3); the torus weights on each Deodhar component (Theorem 1.4);
+  a codimension-preserving correspondence between Levi-Borel orbits of a
+  Schubert cell and torus orbits of a smaller cell (Theorem 1.5); and the
+  Levi complexity of a Schubert variety stable under a Levi subgroup
+  (Theorem 1.6), together with every other statement of the paper. The
+  accompanying libraries develop flag varieties, reductive groups and their
+  root data, Bruhat intervals, algebraic group actions with Rosenlicht's
+  theorem, Frobenius splitting, and the geometry of Schubert and Richardson
+  varieties, including their normality.
+authors:
+  - family-names: Hodges
+    given-names: Reuven
+version: "1.0.0"
+repository-code: "https://github.com/rhodges-math/orbit-complexity"
+license: Apache-2.0
+keywords:
+  - Lean 4
+  - Mathlib
+  - formalization
+  - Schubert varieties
+  - Richardson varieties
+  - complexity of group actions
+  - Bruhat interval polytopes
+  - Levi subgroups
+references:
+  - type: article
+    title: "Orbit structures and complexity in Schubert and Richardson Varieties"
+    authors:
+      - family-names: Gao
+        given-names: Yibo
+      - family-names: Hodges
+        given-names: Reuven
+    year: 2024
+    identifiers:
+      - type: other
+        value: "arXiv:2405.13774"
+        description: "arXiv identifier"
+      - type: url
+        value: "https://arxiv.org/abs/2405.13774"

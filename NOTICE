@@ -1,0 +1,12 @@
+orbit-complexity: Lean verification of Orbit structures and complexity in Schubert and Richardson Varieties
+Copyright 2026 Reuven Hodges
+
+This formalization accompanies Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert
+and Richardson Varieties* (arXiv:2405.13774). If you use or adapt this code, please cite this
+repository.
+
+Three Lean files are adapted from Tau Ceti and Mathlib, under the Apache License 2.0, and keep the
+copyright notices of their sources. Mathlib, Tau Ceti and their dependencies are downloaded by Lake
+at pinned revisions and keep their own licenses.
+
+See THIRD_PARTY_NOTICES.md.

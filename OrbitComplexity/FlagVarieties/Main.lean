@@ -1,0 +1,19 @@
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecomposition
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionBlockAssembly
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionBlockInsert
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionBottom
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionElementary
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionIndex
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionIsolate
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionLeftClear
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionLift
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionMinor
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionPermutation
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionPivot
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.MatrixBruhatDecompositionRightClear
+import OrbitComplexity.FlagVarieties.Foundations.TypeA.PivotMatrix
+
+/-! # FlagVarieties
+
+General constructions and results.
+-/

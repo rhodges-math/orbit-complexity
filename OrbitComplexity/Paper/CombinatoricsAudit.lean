@@ -1,0 +1,351 @@
+import OrbitComplexity.BruhatIntervals.Graph.Basic
+import OrbitComplexity.BruhatIntervals.Graph.ChainLabels
+import OrbitComplexity.BruhatIntervals.Graph.Chains
+import OrbitComplexity.BruhatIntervals.Graph.CoverSpans
+import OrbitComplexity.BruhatIntervals.Graph.Diamonds
+import OrbitComplexity.BruhatIntervals.Graph.Dimension
+import OrbitComplexity.BruhatIntervals.Graph.Forks
+import OrbitComplexity.BruhatIntervals.Graph.Labels
+import OrbitComplexity.BruhatIntervals.Graph.LongEdges
+import OrbitComplexity.BruhatIntervals.Graph.LowerSpans
+import OrbitComplexity.BruhatIntervals.Graph.PathSystem
+import OrbitComplexity.BruhatIntervals.Graph.Polytopes
+import OrbitComplexity.BruhatIntervals.Graph.Properties
+import OrbitComplexity.BruhatIntervals.Graph.RankTwo
+import OrbitComplexity.BruhatIntervals.Graph.Recursion
+import OrbitComplexity.BruhatIntervals.Graph.Spans
+import OrbitComplexity.BruhatIntervals.Graph.Support
+import OrbitComplexity.BruhatIntervals.Graph.ThinIntervals
+import OrbitComplexity.BruhatIntervals.Graph.Toric
+import OrbitComplexity.BruhatIntervals.Graph.ToricCovers
+import OrbitComplexity.BruhatIntervals.Graph.ToricMaxima
+import OrbitComplexity.BruhatIntervals.Intervals.RankTwo
+import OrbitComplexity.BruhatIntervals.Intervals.TwoCovers
+import OrbitComplexity.BruhatIntervals.Order.Basic
+import OrbitComplexity.BruhatIntervals.Order.Chains
+import OrbitComplexity.BruhatIntervals.Order.Combinatorics
+import OrbitComplexity.BruhatIntervals.Order.Covers
+import OrbitComplexity.BruhatIntervals.Order.Descents
+import OrbitComplexity.BruhatIntervals.Order.Interval
+import OrbitComplexity.BruhatIntervals.Realizations.Alternating
+import OrbitComplexity.BruhatIntervals.Realizations.Basic
+import OrbitComplexity.BruhatIntervals.Realizations.Comparison
+import OrbitComplexity.BruhatIntervals.Realizations.Conjugation
+import OrbitComplexity.BruhatIntervals.Realizations.Coordinates
+import OrbitComplexity.BruhatIntervals.Realizations.Embedding
+import OrbitComplexity.BruhatIntervals.Realizations.Extension
+import OrbitComplexity.BruhatIntervals.Realizations.Form
+import OrbitComplexity.BruhatIntervals.Realizations.Geometric
+import OrbitComplexity.BruhatIntervals.Realizations.Independence
+import OrbitComplexity.BruhatIntervals.Realizations.Inversions
+import OrbitComplexity.BruhatIntervals.Realizations.Products
+import OrbitComplexity.BruhatIntervals.Realizations.Range
+import OrbitComplexity.BruhatIntervals.Realizations.Reflections
+import OrbitComplexity.BruhatIntervals.Realizations.RootEmbedding
+import OrbitComplexity.BruhatIntervals.Realizations.RootForms
+import OrbitComplexity.BruhatIntervals.Realizations.RootSets
+import OrbitComplexity.BruhatIntervals.Realizations.Roots
+import OrbitComplexity.BruhatIntervals.Realizations.Sign
+import OrbitComplexity.BruhatIntervals.Realizations.Translate
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Canonical
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Cocycle
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Cosets
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Dihedral
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Generation
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.GeometricProduct
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Graphs
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Length
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.PairSystem
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Plane
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Product
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Roots
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.SimpleProduct
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Span
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.SpanEquality
+import OrbitComplexity.BruhatIntervals.ReflectionSubgroups.Systems
+import OrbitComplexity.BruhatIntervals.SubexpressionPaths
+import OrbitComplexity.BruhatIntervals.Words.Distinct
+import OrbitComplexity.BruhatIntervals.Words.Parabolic
+import OrbitComplexity.BruhatIntervals.Words.ParabolicDescents
+import OrbitComplexity.BruhatIntervals.Words.ParabolicOrder
+import OrbitComplexity.BruhatIntervals.Words.ParabolicRightOrder
+import OrbitComplexity.BruhatIntervals.Words.Positive
+import OrbitComplexity.BruhatIntervals.Words.Prefix
+import OrbitComplexity.BruhatIntervals.Words.PrefixInjective
+import OrbitComplexity.BruhatIntervals.Words.RankTwo
+import OrbitComplexity.BruhatIntervals.Words.StepCount
+import OrbitComplexity.BruhatIntervals.Words.Subexpression
+import OrbitComplexity.BruhatIntervals.Words.Subword
+import OrbitComplexity.BruhatIntervals.Words.Support
+import OrbitComplexity.SchubertGeometry.Parabolics.LeviDecompositionBorelGroups
+
+/-! # Axioms of the combinatorial statement declarations
+
+Every combinatorial declaration of the statement index, with the axioms it depends on.
+-/
+
+#print axioms BruhatIntervals.subexpression_step_count
+#print axioms BruhatIntervals.labelSpan_one
+#print axioms BruhatIntervals.algebraicDim_one
+#print axioms BruhatIntervals.labelSpan_one_inversions
+#print axioms BruhatIntervals.rootPairingForm
+#print axioms BruhatIntervals.rootPairingForm_single
+#print axioms BruhatIntervals.rootPairingForm_isSymm
+#print axioms BruhatIntervals.normalizedSimpleRoot
+#print axioms BruhatIntervals.normalizedSimpleRoot_independent
+#print axioms BruhatIntervals.normalizedSimpleRoot_pairing
+#print axioms BruhatIntervals.normalizedSimpleRoot_reflection
+#print axioms BruhatIntervals.minimalLeftRep_mono
+#print axioms BruhatIntervals.supportCard_minimalLeftRep_mono
+#print axioms BruhatIntervals.minimalLeftRep_support_maximum
+#print axioms BruhatIntervals.coxeter_combinatorics
+#print axioms BruhatIntervals.support
+#print axioms BruhatIntervals.supportCard
+#print axioms BruhatIntervals.leftDescents
+#print axioms BruhatIntervals.rightDescents
+#print axioms BruhatIntervals.IsMinimalLeftRep
+#print axioms BruhatIntervals.Realization.rightInversionRoots
+#print axioms BruhatIntervals.Realization.inversionRoots_eq_image
+#print axioms BruhatIntervals.Realization.inversionRoots_eq_reflections
+#print axioms BruhatIntervals.Realization.inversionRoots_mul_of_length_add
+#print axioms BruhatIntervals.bruhatInterval_ncard_of_rank_two
+#print axioms BruhatIntervals.subexpression_subword_property
+#print axioms BruhatIntervals.subword_property
+#print axioms BruhatIntervals.Subexpression.selectedWord
+#print axioms BruhatIntervals.Subexpression.selectedWord_sublist
+#print axioms BruhatIntervals.Subexpression.wordProd_selectedWord
+#print axioms BruhatIntervals.exists_selectedWord_eq
+#print axioms BruhatIntervals.lifting_property
+#print axioms BruhatIntervals.bruhatLE_mul_of_ascent
+#print axioms BruhatIntervals.bruhatLE_descent_iff
+#print axioms BruhatIntervals.bruhat_graph_definitions
+#print axioms BruhatIntervals.bruhatGraph
+#print axioms BruhatIntervals.intervalGraph
+#print axioms BruhatIntervals.edgeLabel
+#print axioms BruhatIntervals.edgeLabel_positive
+#print axioms BruhatIntervals.edgeLabel_target
+#print axioms BruhatIntervals.edgeLabel_symm
+#print axioms BruhatIntervals.bruhatGraph_adj_iff
+#print axioms BruhatIntervals.edgeLabel_unique
+#print axioms BruhatIntervals.bruhatStep_iff_adj
+#print axioms BruhatIntervals.bruhatGraph_adj_length_ne
+#print axioms BruhatIntervals.bruhatInterval
+#print axioms BruhatIntervals.mem_bruhatInterval
+#print axioms BruhatIntervals.Realization.alternatingRoot_even
+#print axioms BruhatIntervals.Realization.alternatingRoot_odd
+#print axioms BruhatIntervals.Realization.alternatingRoot_nonneg
+#print axioms BruhatIntervals.Realization
+#print axioms BruhatIntervals.Realization.simpleRoot_ne_zero
+#print axioms BruhatIntervals.Realization.form_root_self
+#print axioms BruhatIntervals.Realization.action_simple_root
+#print axioms BruhatIntervals.Realization.roots
+#print axioms BruhatIntervals.Realization.mem_roots
+#print axioms BruhatIntervals.Realization.simpleRoot_mem_roots
+#print axioms BruhatIntervals.Realization.root_ne_zero
+#print axioms BruhatIntervals.Realization.action_mem_roots
+#print axioms BruhatIntervals.Realization.neg_mem_roots
+#print axioms BruhatIntervals.Realization.positiveCone
+#print axioms BruhatIntervals.Realization.positiveRoots
+#print axioms BruhatIntervals.Realization.mem_positiveRoots
+#print axioms BruhatIntervals.Realization.simpleRoot_mem_positiveRoots
+#print axioms BruhatIntervals.geometricRoot
+#print axioms BruhatIntervals.geometricForm
+#print axioms BruhatIntervals.geometricForm_root
+#print axioms BruhatIntervals.geometricForm_root_self
+#print axioms BruhatIntervals.geometricForm_isSymm
+#print axioms BruhatIntervals.geometricCoroot
+#print axioms BruhatIntervals.geometricCoroot_root
+#print axioms BruhatIntervals.geometricCoroot_root_self
+#print axioms BruhatIntervals.geometricReflection
+#print axioms BruhatIntervals.geometricReflection_apply
+#print axioms BruhatIntervals.geometricReflection_root_self
+#print axioms BruhatIntervals.geometricReflection_sq
+#print axioms BruhatIntervals.geometricRoot_linearIndependent
+#print axioms BruhatIntervals.geometricReflection_form
+#print axioms BruhatIntervals.geometricReflection_commute
+#print axioms BruhatIntervals.geometricReflection_relation
+#print axioms BruhatIntervals.geometricAction
+#print axioms BruhatIntervals.geometricAction_simple
+#print axioms BruhatIntervals.geometricRealization
+#print axioms BruhatIntervals.geometricRealization_spec
+#print axioms BruhatIntervals.Realization.action_simple_positive
+#print axioms BruhatIntervals.Realization.action_inv_action
+#print axioms BruhatIntervals.Realization.action_action_inv
+#print axioms BruhatIntervals.Realization.inversionRoots
+#print axioms BruhatIntervals.Realization.inversionRoots_one
+#print axioms BruhatIntervals.Realization.action_root_not_inversions
+#print axioms BruhatIntervals.Realization.inversionRoots_mul_simple
+#print axioms BruhatIntervals.Realization.inversionRoots_finite
+#print axioms BruhatIntervals.Realization.inversionRoots_ncard
+#print axioms BruhatIntervals.Realization.action_conjugate_simple
+#print axioms BruhatIntervals.Realization.rootReflection
+#print axioms BruhatIntervals.Realization.rootReflection_apply
+#print axioms BruhatIntervals.Realization.rootReflection_injective
+#print axioms BruhatIntervals.Realization.rootReflection_surjective
+#print axioms BruhatIntervals.Realization.rootReflectionEquiv
+#print axioms BruhatIntervals.Realization.rootReflection_translated_simple
+#print axioms BruhatIntervals.Realization.rootReflection_leftInversion_iff
+#print axioms BruhatIntervals.Realization.rootReflection_length_iff
+#print axioms BruhatIntervals.Realization.rootReflection_right_length
+#print axioms BruhatIntervals.simple_injective
+#print axioms BruhatIntervals.Realization.positiveCone_add
+#print axioms BruhatIntervals.Realization.positiveCone_smul
+#print axioms BruhatIntervals.Realization.positiveCone_neg_eq_zero
+#print axioms BruhatIntervals.Realization.positiveRoots_ne_neg
+#print axioms BruhatIntervals.Realization.action_simple_form
+#print axioms BruhatIntervals.Realization.action_form
+#print axioms BruhatIntervals.Realization.form_root_eq_one
+#print axioms BruhatIntervals.Realization.action_simpleRoot_positive
+#print axioms BruhatIntervals.Realization.action_simpleRoot_negative
+#print axioms BruhatIntervals.Realization.action_simpleRoot_positive_iff
+#print axioms BruhatIntervals.Realization.root_sign
+#print axioms BruhatIntervals.Realization.action_injective
+#print axioms BruhatIntervals.algebraic_dim_definitions
+#print axioms BruhatIntervals.labelSpan
+#print axioms BruhatIntervals.algebraicDim
+#print axioms BruhatIntervals.labelSpan_eq_ordered
+#print axioms BruhatIntervals.labelSpan_finiteDimensional
+#print axioms BruhatIntervals.bruhatInterval_finite
+#print axioms BruhatIntervals.intervalPolytope_definition
+#print axioms BruhatIntervals.intervalPolytope
+#print axioms BruhatIntervals.intervalPolytope_nonempty
+#print axioms BruhatIntervals.intervalPolytope_smul
+#print axioms BruhatIntervals.labelSpan_eq_span_sub
+#print axioms BruhatIntervals.intervalPolytope_direction
+#print axioms BruhatIntervals.intervalPolytope_span_sub
+#print axioms BruhatIntervals.intervalPolytope_finrank
+#print axioms BruhatIntervals.intervalPolytope_finDim
+#print axioms BruhatIntervals.Realization.rootProduct_span
+#print axioms BruhatIntervals.Realization.form_simple_linearCombination
+#print axioms BruhatIntervals.Realization.map_geometricReflection
+#print axioms BruhatIntervals.Realization.map_geometricAction
+#print axioms BruhatIntervals.matrixHom
+#print axioms BruhatIntervals.matrixHom_simple
+#print axioms BruhatIntervals.matrixHom_injective
+#print axioms BruhatIntervals.matrixHom_wordProd
+#print axioms BruhatIntervals.matrixHom_range
+#print axioms BruhatIntervals.matrixHom_length
+#print axioms BruhatIntervals.matrixHom_geometricAction
+#print axioms BruhatIntervals.pairExtensionMatrix
+#print axioms BruhatIntervals.pairExtensionMatrix_old
+#print axioms BruhatIntervals.pairExtensionMatrix_left
+#print axioms BruhatIntervals.pairExtensionMatrix_right
+#print axioms BruhatIntervals.pairExtension_form_left
+#print axioms BruhatIntervals.pairExtension_form_right
+#print axioms BruhatIntervals.pairExtension_pairing_det
+#print axioms BruhatIntervals.pairExtension_embedding
+#print axioms BruhatIntervals.Realization.action_conjugate_root
+#print axioms BruhatIntervals.Realization.rootReflection_conj
+#print axioms BruhatIntervals.Realization.rootReflection_conj_neg
+#print axioms BruhatIntervals.Realization.positiveRoots_pair_independent
+#print axioms BruhatIntervals.Realization.positiveRoots_pair_finrank
+#print axioms BruhatIntervals.geometricCone_iff
+#print axioms BruhatIntervals.Realization.map_geometric_root
+#print axioms BruhatIntervals.Realization.map_geometric_positiveRoot
+#print axioms BruhatIntervals.Realization.map_geometric_rootReflection
+#print axioms BruhatIntervals.Realization.map_geometric_label
+#print axioms BruhatIntervals.matrixHom_positiveRoot
+#print axioms BruhatIntervals.matrixHom_rootReflection
+#print axioms BruhatIntervals.Realization.rootProduct_range
+#print axioms BruhatIntervals.Realization.rootReflection_simple
+#print axioms BruhatIntervals.Realization.exists_positive_translate
+#print axioms BruhatIntervals.leftInversion_mul_iff
+#print axioms BruhatIntervals.reflection_reduced_conj
+#print axioms BruhatIntervals.reflection_simple_or_shorter
+#print axioms BruhatIntervals.canonicalReflections
+#print axioms BruhatIntervals.canonical_mem
+#print axioms BruhatIntervals.canonical_simple
+#print axioms BruhatIntervals.canonical_conjugate
+#print axioms BruhatIntervals.canonical_reflection_conj
+#print axioms BruhatIntervals.canonical_closure
+#print axioms BruhatIntervals.Realization.canonical_pairing_nonpos
+#print axioms BruhatIntervals.Realization.canonical_root_not_mem_span
+#print axioms BruhatIntervals.canonical_generate
+#print axioms BruhatIntervals.Realization.canonical_subset_pair
+#print axioms BruhatIntervals.Realization.root_mem_of_reflection_closure
+#print axioms BruhatIntervals.Realization.reflection_closure_pair
+#print axioms BruhatIntervals.Realization.reflection_closure_dihedral
+#print axioms BruhatIntervals.Realization.rootProduct_plane
+#print axioms BruhatIntervals.rootProduct_simple
+#print axioms BruhatIntervals.rootProduct_geometric
+#print axioms BruhatIntervals.reflectionProduct_dihedral
+#print axioms BruhatIntervals.long_edge_fork
+#print axioms BruhatIntervals.long_edge_path
+#print axioms BruhatIntervals.exists_minimal_coset
+#print axioms BruhatIntervals.leftInversion_mul_of_coset
+#print axioms BruhatIntervals.bruhatStep_iff_leftInversion
+#print axioms BruhatIntervals.bruhatStep_mul_coset_iff
+#print axioms BruhatIntervals.exists_pair_coxeter
+#print axioms BruhatIntervals.canonical_inversion_iff
+#print axioms BruhatIntervals.canonical_bruhatStep_iff
+#print axioms BruhatIntervals.Realization.reflection_closure_system
+#print axioms BruhatIntervals.rankTwo_reflection_iff
+#print axioms BruhatIntervals.rankTwo_adj_iff
+#print axioms BruhatIntervals.rankTwo_long_edge_fork
+#print axioms BruhatIntervals.long_edge_subsystem
+#print axioms BruhatIntervals.strong_weak_diamond
+#print axioms BruhatIntervals.labelSpan_eq_covers
+#print axioms BruhatIntervals.bruhat_covBy_step
+#print axioms BruhatIntervals.bruhat_covBy_iff
+#print axioms BruhatIntervals.exists_le_bruhat_covBy
+#print axioms BruhatIntervals.exists_bruhat_covBy_le
+#print axioms BruhatIntervals.labelSpan_eq_all_covers
+#print axioms BruhatIntervals.edgeLabel_mem_of_diamond
+#print axioms BruhatIntervals.bruhat_rank_two_diamond
+#print axioms BruhatIntervals.labelSpan_recursion
+#print axioms BruhatIntervals.bruhatGraph_adj_mul_right
+#print axioms BruhatIntervals.edgeLabel_mul_right
+#print axioms BruhatIntervals.labelSpan_mono
+#print axioms BruhatIntervals.labelSpan_self
+#print axioms BruhatIntervals.labelSpan_properties
+#print axioms BruhatIntervals.labelSpan_split
+#print axioms BruhatIntervals.exists_bruhat_chain
+#print axioms BruhatIntervals.chainLabelSpan
+#print axioms BruhatIntervals.chainLabelSpan_snoc
+#print axioms BruhatIntervals.chainLabelSpan_overlap
+#print axioms BruhatIntervals.chainLabelSpan_singleton
+#print axioms BruhatIntervals.toric_interval_definition
+#print axioms BruhatIntervals.IsToricInterval
+#print axioms BruhatIntervals.isToricInterval_iff
+#print axioms BruhatIntervals.algebraicDim_le_length
+#print axioms BruhatIntervals.toric_interval_maxima
+#print axioms BruhatIntervals.exists_same_span_top_cover
+#print axioms BruhatIntervals.exists_same_span_bottom_cover
+#print axioms BruhatIntervals.swap_zero_one
+#print axioms BruhatIntervals.coxeter_interval_properties
+#print axioms BruhatIntervals.subexpression_definitions
+#print axioms BruhatIntervals.Subexpression
+#print axioms BruhatIntervals.Subexpression.factors
+#print axioms BruhatIntervals.Subexpression.prefixProd
+#print axioms BruhatIntervals.Subexpression.length_factors
+#print axioms BruhatIntervals.Subexpression.prefixProd_zero
+#print axioms BruhatIntervals.Subexpression.prefixProd_length
+#print axioms BruhatIntervals.Subexpression.prefixProd_succ
+#print axioms BruhatIntervals.positiveSteps
+#print axioms BruhatIntervals.equalSteps
+#print axioms BruhatIntervals.negativeSteps
+#print axioms BruhatIntervals.IsDistinguished
+#print axioms BruhatIntervals.IsPositive
+#print axioms BruhatIntervals.prefixProd_comparable
+#print axioms BruhatIntervals.isDistinguished_iff_forced
+#print axioms BruhatIntervals.isPositive_iff_negativeSteps_empty
+#print axioms BruhatIntervals.mem_step_sets
+#print axioms BruhatIntervals.Subexpression.take
+#print axioms BruhatIntervals.Subexpression.takePosition
+#print axioms BruhatIntervals.Subexpression.factors_take
+#print axioms BruhatIntervals.Subexpression.prefixProd_take
+#print axioms BruhatIntervals.Subexpression.equalSteps_take
+#print axioms BruhatIntervals.Subexpression.negativeSteps_take
+#print axioms BruhatIntervals.IsDistinguished.take
+#print axioms BruhatIntervals.IsPositive.take
+#print axioms BruhatIntervals.positive_subexpression_unique
+#print axioms BruhatIntervals.Subexpression.finite
+#print axioms BruhatIntervals.exists_distinguished_prefix
+#print axioms BruhatIntervals.Subexpression.eq_of_prefixProd
+#print axioms BruhatIntervals.isLeftDescent_parabolic_iff
+#print axioms BruhatIntervals.parabolic_greatest_iff_descents
+#print axioms BruhatIntervals.minimalRightRep_mono
+#print axioms BruhatIntervals.bruhatLE_parabolic_maximum_iff
+#print axioms BruhatIntervals.distinct_reduced_words
+#print axioms BruhatIntervals.exists_two_bruhat_covBy
+#print axioms BruhatIntervals.bruhat_cover_minimal_upper

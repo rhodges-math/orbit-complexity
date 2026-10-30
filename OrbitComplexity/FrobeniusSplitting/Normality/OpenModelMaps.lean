@@ -1,0 +1,255 @@
+import Batteries.Tactic.Lint
+import OrbitComplexity.FrobeniusSplitting.Normality.PrincipalImages
+import OrbitComplexity.FrobeniusSplitting.Normality.DiagramCovers
+import OrbitComplexity.FrobeniusSplitting.Normality.ImageGenerators
+import OrbitComplexity.FrobeniusSplitting.Normality.SubalgebraSquares
+import OrbitComplexity.FrobeniusSplitting.Normality.PushoutFactors
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
+
+/-!
+# Open diagrams with algebra maps
+
+Finite affine open diagrams descend together with finitely many additional algebra maps.
+-/
+
+open CategoryTheory
+open scoped TensorProduct
+
+namespace FrobeniusSplitting
+
+universe u v w z
+
+open PrincipalDiagram
+
+variable {C : Type v} [Category.{w} C] {K : Type u} [CommRing K]
+    {S : Subalgebra ℤ K} (D₀ : C ⥤ CommAlgCat.{u} S) (D : C ⥤ CommAlgCat.{u} K)
+    (L : DiagramArrow C → Type u)
+    (g : ∀ b, L b → D₀.obj b.1) (a : ∀ b, L b → D.obj b.1)
+
+private theorem imageSquare_pushout {R : Subalgebra ℤ K}
+    [Algebra S R] [IsScalarTower S R K]
+    (models : ∀ n, Subalgebra R (genericAt D L a n))
+    (maps : ∀ b : PrincipalEdge L,
+      genericAt D L a (edgeSrc L b) →ₐ[K] genericAt D L a (edgeTgt L b))
+    (preserve : ∀ (b : PrincipalEdge L) (x : models (edgeSrc L b)),
+      maps b (x : genericAt D L a (edgeSrc L b)) ∈ models (edgeTgt L b))
+    (hbase : ∀ b, maps (.inl b) = (D.map b.2.2).hom)
+    (comparison : ∀ i, K ⊗[R] models (.inl i) ≃ₐ[K] D.obj i)
+    (heval : ∀ i (x : models (.inl i)), comparison i ((1 : K) ⊗ₜ[R] x) = x.val)
+    (hopen : ∀ b : DiagramArrow C, AlgebraicGeometry.IsOpenImmersion
+      (AlgebraicGeometry.Spec.map
+        (CommRingCat.ofHom (imageMap D L a models maps preserve (.inl b)).toRingHom)))
+    {i j k l : C} (f : i ⟶ j) (g : i ⟶ k) (p : j ⟶ l) (q : k ⟶ l)
+    (hpush : CategoryTheory.IsPushout
+      (CommRingCat.ofHom (D.map f).hom.toRingHom)
+      (CommRingCat.ofHom (D.map g).hom.toRingHom)
+      (CommRingCat.ofHom (D.map p).hom.toRingHom)
+      (CommRingCat.ofHom (D.map q).hom.toRingHom))
+    {T ι : Type*} [CommRing T] [Algebra S T]
+    (eT : K ⊗[S] T ≃ₐ[K] D.obj l) (Pgen : Algebra.Generators S T ι)
+    (hZ : (show Subalgebra R (D.obj l) from models (.inl l)) =
+      (scalarImageHom (R := R) eT).range)
+    (n : ι → ℕ) (x : ∀ v, Fin (n v) → D.obj j) (y : ∀ v, Fin (n v) → D.obj k)
+    (hfactor : ∀ v, eT ((1 : K) ⊗ₜ[S] Pgen.val v) =
+      ∑ z, (D.map p).hom (x v z) * (D.map q).hom (y v z))
+    (hx : ∀ v z, x v z ∈ models (.inl j))
+    (hy : ∀ v z, y v z ∈ models (.inl k)) :
+    CategoryTheory.IsPushout
+      (CommRingCat.ofHom (imageMap D L a models maps preserve (.inl ⟨i, j, f⟩)).toRingHom)
+      (CommRingCat.ofHom (imageMap D L a models maps preserve (.inl ⟨i, k, g⟩)).toRingHom)
+      (CommRingCat.ofHom (imageMap D L a models maps preserve (.inl ⟨j, l, p⟩)).toRingHom)
+      (CommRingCat.ofHom (imageMap D L a models maps preserve (.inl ⟨k, l, q⟩)).toRingHom) := by
+  let M : Subalgebra R (D.obj i) := models (.inl i)
+  let N : Subalgebra R (D.obj j) := models (.inl j)
+  let P : Subalgebra R (D.obj k) := models (.inl k)
+  let Z : Subalgebra R (D.obj l) := models (.inl l)
+  let f₀ : M →ₐ[R] N := imageMap D L a models maps preserve (.inl ⟨i, j, f⟩)
+  let g₀ : M →ₐ[R] P := imageMap D L a models maps preserve (.inl ⟨i, k, g⟩)
+  let p₀ : N →ₐ[R] Z := imageMap D L a models maps preserve (.inl ⟨j, l, p⟩)
+  let q₀ : P →ₐ[R] Z := imageMap D L a models maps preserve (.inl ⟨k, l, q⟩)
+  have hf₀ (z : M) : (f₀ z).val = (D.map f).hom z.val :=
+    AlgHom.congr_fun (hbase ⟨i, j, f⟩) z.val
+  have hg₀ (z : M) : (g₀ z).val = (D.map g).hom z.val :=
+    AlgHom.congr_fun (hbase ⟨i, k, g⟩) z.val
+  have hp₀ (z : N) : (p₀ z).val = (D.map p).hom z.val :=
+    AlgHom.congr_fun (hbase ⟨j, l, p⟩) z.val
+  have hq₀ (z : P) : (q₀ z).val = (D.map q).hom z.val :=
+    AlgHom.congr_fun (hbase ⟨k, l, q⟩) z.val
+  have hflatf : f₀.toRingHom.Flat := by
+    have : AlgebraicGeometry.IsOpenImmersion
+        (AlgebraicGeometry.Spec.map (CommRingCat.ofHom f₀.toRingHom)) := hopen ⟨i, j, f⟩
+    exact (AlgebraicGeometry.Flat.SpecMap_iff
+      (f := CommRingCat.ofHom f₀.toRingHom)).mp inferInstance
+  have hflatg : g₀.toRingHom.Flat := by
+    have : AlgebraicGeometry.IsOpenImmersion
+        (AlgebraicGeometry.Spec.map (CommRingCat.ofHom g₀.toRingHom)) := hopen ⟨i, k, g⟩
+    exact (AlgebraicGeometry.Flat.SpecMap_iff
+      (f := CommRingCat.ofHom g₀.toRingHom)).mp inferInstance
+  have hgen : p₀.range ⊔ q₀.range = ⊤ := by
+    apply model_images_eq_top Pgen eT Z hZ p₀ q₀
+    intro v
+    refine ⟨n v, (fun z ↦ ⟨x v z, hx v z⟩), (fun z ↦ ⟨y v z, hy v z⟩), ?_⟩
+    apply (hfactor v).trans
+    apply Finset.sum_congr rfl
+    intro z _
+    exact congrArg₂ (· * ·) (hp₀ ⟨x v z, hx v z⟩).symm
+      (hq₀ ⟨y v z, hy v z⟩).symm
+  exact isPushout_of_subalgebra_models R (D.map f).hom (D.map g).hom
+    (D.map p).hom (D.map q).hom hpush M N P Z f₀ g₀ p₀ q₀ hf₀ hg₀ hp₀ hq₀
+    (comparison i) (comparison j) (comparison k) (heval i) (heval j) (heval k)
+    hflatf hflatg hgen
+
+/-- Chosen coefficient models of a finite open diagram descend with generic pushout
+squares, additional algebra maps and intrinsic coordinate-image identifications. -/
+theorem exists_open_model_maps [Finite C] [∀ i j : C, Finite (i ⟶ j)]
+    [∀ b, Finite (L b)] [∀ i, Algebra.FinitePresentation S (D₀.obj i)]
+    (hfg : S.FG) (e : ∀ i, K ⊗[S] D₀.obj i ≃ₐ[K] D.obj i)
+    (hnatural : ∀ i j (f : i ⟶ j), (e j).toAlgHom.comp
+        (Algebra.TensorProduct.lTensor (S := K) K (D₀.map f).hom) =
+      (D.map f).hom.comp (e i).toAlgHom)
+    (hcover : ∀ b, Ideal.span (Set.range (fun j ↦ (D.map b.2.2).hom (a b j))) = ⊤)
+    (hlocal : ∀ b j, Function.Bijective
+      (Localization.awayMap (D.map b.2.2).hom.toRingHom (a b j)))
+    (hg : ∀ b j, e b.1 ((1 : K) ⊗ₜ[S] g b j) = a b j)
+    (smoothNodes : Set C) (hsmooth : ∀ i ∈ smoothNodes, Algebra.Smooth S (D₀.obj i))
+    {E : Type z} [Finite E] (src tgt : E → C)
+    (phi : ∀ b, D.obj (src b) →ₐ[K] D.obj (tgt b)) :
+    ∃ (R : Subalgebra ℤ K) (hSR : S ≤ R),
+      letI : Algebra S R := (Subalgebra.inclusion hSR).toAlgebra
+      letI : IsScalarTower S R K := Subalgebra.inclusion.isScalarTower_right hSR K
+      ∃ (D₁ : C ⥤ CommAlgCat.{u} R) (e₁ : ∀ i, K ⊗[R] D₁.obj i ≃ₐ[K] D.obj i)
+        (phi₁ : ∀ b, D₁.obj (src b) →ₐ[R] D₁.obj (tgt b)),
+        R.FG ∧ (∀ i, Algebra.FinitePresentation R (D₁.obj i)) ∧
+        (∀ i, i ∈ smoothNodes → Algebra.Smooth R (D₁.obj i)) ∧
+        (∀ i j (f : i ⟶ j), (e₁ j).toAlgHom.comp
+            (Algebra.TensorProduct.lTensor (S := K) K (D₁.map f).hom) =
+          (D.map f).hom.comp (e₁ i).toAlgHom) ∧
+        (∀ i, Function.Injective (fun x : D₁.obj i ↦ e₁ i ((1 : K) ⊗ₜ[R] x))) ∧
+        (∀ b, (e₁ (tgt b)).toAlgHom.comp
+            (Algebra.TensorProduct.lTensor (S := K) K (phi₁ b)) =
+          (phi b).comp (e₁ (src b)).toAlgHom) ∧
+        (∀ i j (f : i ⟶ j), AlgebraicGeometry.IsOpenImmersion
+          (AlgebraicGeometry.Spec.map (CommRingCat.ofHom (D₁.map f).hom.toRingHom))) ∧
+        (∀ (i j k l : C) (f : i ⟶ j) (g : i ⟶ k) (p : j ⟶ l) (q : k ⟶ l),
+          CategoryTheory.IsPushout (CommRingCat.ofHom (D.map f).hom.toRingHom)
+            (CommRingCat.ofHom (D.map g).hom.toRingHom)
+            (CommRingCat.ofHom (D.map p).hom.toRingHom)
+            (CommRingCat.ofHom (D.map q).hom.toRingHom) →
+          CategoryTheory.IsPushout (CommRingCat.ofHom (D₁.map f).hom.toRingHom)
+            (CommRingCat.ofHom (D₁.map g).hom.toRingHom)
+            (CommRingCat.ofHom (D₁.map p).hom.toRingHom)
+            (CommRingCat.ofHom (D₁.map q).hom.toRingHom)) ∧
+        ∀ i, ∃ u : D₁.obj i ≃ₐ[R] (scalarImageHom (R := R) (e i)).range,
+          ∀ z, e₁ i ((1 : K) ⊗ₜ[R] z) = (u z).val := by
+  classical
+  let V (i : C) := Fin (Algebra.Presentation.ofFinitePresentationVars S (D₀.obj i))
+  let W (i : C) := Fin (Algebra.Presentation.ofFinitePresentationRels S (D₀.obj i))
+  let presentations (i : C) : Algebra.Presentation S (D₀.obj i) (V i) (W i) :=
+    Algebra.Presentation.ofFinitePresentation S (D₀.obj i)
+  let values (i : C) (z : V i) : D.obj i :=
+    e i ((1 : K) ⊗ₜ[S] (presentations i).val z)
+  obtain ⟨J, finiteJ, extra, factors⟩ := exists_finite_pushout_factors D V values
+  let (i : C) : Finite (J i) := finiteJ i
+  let Jmap (i : C) := Σ b : {b : E // tgt b = i}, V (src b.val)
+  let I : PrincipalNode L → Type (max v w z)
+    | .inl i => J i ⊕ Jmap i
+    | .inr _ => PEmpty
+  let (n : PrincipalNode L) : Finite (I n) := by
+    rcases n with i | p
+    · change Finite (J i ⊕ Jmap i)
+      infer_instance
+    · change Finite PEmpty
+      infer_instance
+  let elements : ∀ n, I n → genericAt D L a n
+    | .inl i => Sum.elim (extra i)
+        (fun b ↦ b.1.property ▸ phi b.1.val (values (src b.1.val) b.2))
+    | .inr _ => fun z ↦ nomatch z
+  let maps := genericMaps D L a hlocal
+  obtain ⟨R, hSR, hmodels⟩ := exists_open_images D₀ D L g a hfg e hnatural hg
+    hlocal hcover maps (fun _ ↦ rfl) (fun _ _ ↦ rfl) (fun b j ↦ by
+      apply AlgHom.ext
+      intro x
+      exact (AlgEquiv.ofBijective
+        (Localization.awayMapₐ (D.map b.2.2).hom (a b j)) (hlocal b j)).apply_symm_apply x)
+    smoothNodes hsmooth I elements
+  let : Algebra S R := (Subalgebra.inclusion hSR).toAlgebra
+  have : IsScalarTower S R K := Subalgebra.inclusion.isScalarTower_right hSR K
+  obtain ⟨models, comparison, preserve, hfgR, hintrinsic, hfpR, hsmoothR,
+    heval, hopenR, helts⟩ := hmodels
+  have hevalOne (i : C) (z : models (.inl i)) :
+      comparison (.inl i) ((1 : K) ⊗ₜ[R] z) = z.val := by
+    rw [heval, map_one, one_mul]
+  let fm {i j : C} (f : i ⟶ j) : models (.inl i) →ₐ[R] models (.inl j) :=
+    imageMap D L a models maps preserve (.inl ⟨i, j, f⟩)
+  let D₁ : C ⥤ CommAlgCat.{u} R :=
+    { obj := fun i ↦ CommAlgCat.of R (models (.inl i))
+      map := fun f ↦ CommAlgCat.ofHom (fm f)
+      map_id := by
+        intro i
+        ext x
+        change (D.map (𝟙 i)).hom x.val = x.val
+        exact AlgHom.congr_fun
+          (congrArg (fun t : D.obj i ⟶ D.obj i ↦ t.hom) (D.map_id i)) x.val
+      map_comp := by
+        intro i j k f h
+        ext x
+        change (D.map (f ≫ h)).hom x.val = (D.map h).hom ((D.map f).hom x.val)
+        exact AlgHom.congr_fun
+          (congrArg (fun t : D.obj i ⟶ D.obj k ↦ t.hom) (D.map_comp f h)) x.val }
+  have hphi (b : E) (x : models (.inl (src b))) :
+      phi b x.val ∈ models (.inl (tgt b)) := by
+    let T : Subalgebra R (D.obj (src b)) :=
+      (models (.inl (tgt b))).comap ((phi b).restrictScalars R)
+    have hle : (scalarImageHom (R := R) (e (src b))).range ≤ T := by
+      apply scalarImage_le_of_generators (presentations (src b)).toGenerators (e (src b)) T
+      intro v
+      change phi b (values (src b) v) ∈ models (.inl (tgt b))
+      exact helts (.inl (tgt b)) (.inr ⟨⟨b, rfl⟩, v⟩)
+    apply hle
+    have hZ : (show Subalgebra R (D.obj (src b)) from models (.inl (src b))) =
+        (scalarImageHom (R := R) (e (src b))).range := hintrinsic (.inl (src b))
+    exact hZ ▸ x.property
+  let cm (b : E) : models (.inl (src b)) →ₐ[R] models (.inl (tgt b)) :=
+    (((phi b).restrictScalars R).comp (models (.inl (src b))).val).codRestrict
+      (models (.inl (tgt b))) (hphi b)
+  refine ⟨R, hSR, D₁, (fun i ↦ comparison (.inl i)), cm, hfgR,
+    (fun i ↦ hfpR (.inl i)), hsmoothR, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro i j f
+    ext x
+    change comparison (.inl j) ((1 : K) ⊗ₜ[R] fm f x) =
+      (D.map f).hom (comparison (.inl i) ((1 : K) ⊗ₜ[R] x))
+    rw [heval, heval]
+    simp only [map_one, one_mul]
+    rfl
+  · intro i x y hxy
+    apply Subtype.ext
+    exact (hevalOne i x).symm.trans (hxy.trans (hevalOne i y))
+  · intro b
+    ext x
+    change comparison (.inl (tgt b)) ((1 : K) ⊗ₜ[R] cm b x) =
+      phi b (comparison (.inl (src b)) ((1 : K) ⊗ₜ[R] x))
+    rw [heval, heval]
+    simp only [map_one, one_mul]
+    rfl
+  · intro i j f
+    exact hopenR ⟨i, j, f⟩
+  · intro i j k l f g p q hpush
+    obtain ⟨n, x, y, hfactor, hx, hy⟩ := factors i j k l f g p q hpush
+    have hxmem (z : V l) (a : Fin (n z)) : x z a ∈ models (.inl j) := by
+      obtain ⟨b, hb⟩ := hx z a
+      exact hb ▸ helts (.inl j) (.inl b)
+    have hymem (z : V l) (a : Fin (n z)) : y z a ∈ models (.inl k) := by
+      obtain ⟨b, hb⟩ := hy z a
+      exact hb ▸ helts (.inl k) (.inl b)
+    have hZ : (show Subalgebra R (D.obj l) from models (.inl l)) =
+        (scalarImageHom (R := R) (e l)).range := hintrinsic (.inl l)
+    exact imageSquare_pushout D L a models maps preserve (fun _ ↦ rfl)
+      (fun i ↦ comparison (.inl i)) hevalOne hopenR f g p q hpush
+      (e l) (presentations l).toGenerators hZ n x y hfactor hxmem hymem
+  · intro i
+    let u := Subalgebra.equivOfEq _ _ (hintrinsic (.inl i))
+    refine ⟨u, ?_⟩
+    intro z
+    exact hevalOne i z
+
+end FrobeniusSplitting

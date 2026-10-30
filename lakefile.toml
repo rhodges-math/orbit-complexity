@@ -1,0 +1,17 @@
+name = "orbit-complexity"
+version = "1.0.0"
+defaultTargets = ["OrbitComplexity.Paper.Audit"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "b2bf051988bf69448bce88722cc09a05fea31662"
+
+[[require]]
+name = "TauCeti"
+git = "https://github.com/TauCetiProject/TauCeti"
+rev = "48fe7a5f9ba49e3b1c11a72f54f665abc128b36a"
+
+[[lean_lib]]
+name = "OrbitComplexity"
+globs = ["OrbitComplexity.+"]
