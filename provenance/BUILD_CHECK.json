@@ -1,14 +1,14 @@
 {
  "success": true,
- "verified_utc": "2026-10-30T16:59:46.047978+00:00",
+ "verified_utc": "2026-11-03T04:04:25.645498+00:00",
  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
  "mathlib_rev": "b2bf051988bf69448bce88722cc09a05fea31662",
  "entry": "OrbitComplexity.Paper.Audit",
  "local_modules": 2463,
  "source_lines": 315989,
- "build_method": "python build.py --jobs 1: all local sources compiled with lake env lean and dependency-sensitive source fingerprints",
- "lake_phase_seconds": 34.48,
- "build_seconds": 17224.8,
+ "build_method": "python build.py --jobs 2: all local sources compiled with lake env lean and dependency-sensitive source fingerprints",
+ "lake_phase_seconds": 11.75,
+ "build_seconds": 817.73,
  "copied_local_olean_files": 0,
  "public_dependencies": "Pinned public Lake dependencies (lake-manifest.json): .lake/packages is a directory junction to the .lake/packages of a development project, which holds the same revisions, with Mathlib objects from the public Mathlib build cache. No compiled local module was reused.",
  "origin_kinds": {
@@ -41,7 +41,7 @@
   "errors": 0
  },
  "local_environment_notes": [
-  "The build was pinned to one CPU core (Windows processor affinity) with build.py --jobs 1, while other work ran on the same machine.",
-  "The full build of an earlier source commit took 95840 s, including a Lake phase of 3835 s. Two later source commits changed the linter attributes or argument lists of four declarations; build.py --resume then recompiled the changed modules and every module depending on them from the final sources. build_seconds is the time of the last of these runs."
+  "The last build.py run used --jobs 2 while other work ran on the same machine.",
+  "The full build of an earlier source commit took 95840 s, including a Lake phase of 3835 s, pinned to one CPU core (Windows processor affinity) with build.py --jobs 1. Later source commits changed the linter attributes or argument lists of four declarations, and then documentation comments in eight modules; build.py --resume then recompiled the changed modules and every module depending on them from the final sources. build_seconds is the time of the last of these runs."
  ]
 }

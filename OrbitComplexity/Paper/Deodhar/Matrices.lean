@@ -13,7 +13,7 @@ following products of root elements and simple representatives.
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Example 3.18.
 -/
 

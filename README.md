@@ -15,10 +15,12 @@ its Bruhat graph; moreover, $\mathrm{ad}(u,v)$ is the largest value of
 $\ell(v)-\ell(w)$ for which $\mathcal{R}\_{w,v}$ is toric
 (Theorem 1.2). In particular the $T$-complexity of the Schubert variety $X\_w$ is
 $\ell(w)-\mathrm{supp}(w)$ (Corollary 1.3). On each Deodhar component of an open
-Richardson variety, the torus weights on the orbit of a general point span the
-space $\mathrm{TD}(\mathbf{u},\mathbf{v})$ attached to the distinguished
-subword, which is contained in $\mathrm{AD}(u,v)$, with equality for the
-positive distinguished subword (Theorem 1.4). For a set $I$ of simple roots
+Richardson variety, the dimension of the torus orbit of a point is the
+dimension of the span of the roots $\beta\_k$ of its nonzero coordinates, and at
+a general point it is the dimension of the space
+$\mathrm{TD}(\mathbf{u},\mathbf{v})$ attached to the distinguished subword,
+which is contained in $\mathrm{AD}(u,v)$, with equality for the positive
+distinguished subword (Theorem 1.4). For a set $I$ of simple roots
 and the left parabolic decomposition $w={}\_Iw\\,{}^Iw$, translation by ${}\_Iw$
 maps the torus orbits of the Schubert cell $X^\circ\_{{}^Iw}$ onto the
 Levi-Borel orbits of $X^\circ\_w$, bijectively and preserving codimension when
@@ -167,7 +169,8 @@ $\Lambda^d\mathfrak{g}$, with $d=\dim\mathfrak{b}$, by
 $gB\mapsto g\cdot\Lambda^d\mathfrak{b}$. The orbit of largest dimension is the
 orbit of a general point of $\mathcal{R}\_{u,v}$, at which the coordinates of
 weight $z(2\rho)$ are nonzero for all $z\in\[u,v\]$, in place of the totally
-positive point of the paper.
+positive point of the paper. The embedding is used for $G$ itself, without
+passing to the simply connected cover of its derived subgroup.
 
 Over every $K$, the largest orbit dimension is computed from the Deodhar
 components instead, as in Theorem 1.4: every $T$-orbit of $\mathcal{R}\_{u,v}$
@@ -239,11 +242,15 @@ These declarations are in `SchubertOrbits`, `BruhatIntervals` and
 
 Fix $u\le v$ and fix a reduced word $\mathbf{v}$ of $v$. Let $\mathbf{u}$ be a
 distinguished subword of $\mathbf{v}$ for $u$, and let $\mathbf{u}\_+$ be the
-positive distinguished subword for $u$ in $\mathbf{v}$. For a general point
-$x\in D\_{\mathbf{u},\mathbf{v}}$, the span of the weights of the torus action on
-the orbit $Tx$ equals $\mathrm{TD}(\mathbf{u},\mathbf{v})$. If
-$x\in D\_{\mathbf{u},\mathbf{v}}$ is not general, then the torus weights on $Tx$
-are contained in $\mathrm{TD}(\mathbf{u},\mathbf{v})$. Moreover, we have
+positive distinguished subword for $u$ in $\mathbf{v}$. For
+$x\in D\_{\mathbf{u},\mathbf{v}}$, let $g$ be its standard form. Then
+
+$$
+\dim Tx=\dim\_{\mathbb{R}}\mathrm{span}\lbrace\beta\_k\mid k\in J\_{\mathbf{u}}^{\circ}\cup J\_{\mathbf{u}}^-,\ g^{(k)}\ne0\rbrace.
+$$
+
+In particular, $\dim Tx=\mathrm{td}(\mathbf{u},\mathbf{v})$ for a general point
+$x$. Moreover, we have
 
 $$
 \mathrm{TD}(\mathbf{u},\mathbf{v})\subseteq\mathrm{TD}(\mathbf{u}\_+,\mathbf{v})=\mathrm{AD}(u,v).
@@ -252,12 +259,14 @@ $$
 Here $D\_{\mathbf{u},\mathbf{v}}=G\_{\mathbf{u},\mathbf{v}}B/B$ is the Deodhar
 component, where $G\_{\mathbf{u},\mathbf{v}}$ is the set of products
 $g\_1\cdots g\_\ell$ of Definition 3.16, with parameters $p\_k\ne0$ for
-$k\in J^\circ\_{\mathbf{u}}$ and $m\_k$ for $k\in J^-\_{\mathbf{u}}$;
-$\mathrm{TD}(\mathbf{u},\mathbf{v})$ is the real span of the roots $\beta\_k$
-for $k\in J^\circ\_{\mathbf{u}}\cup J^-\_{\mathbf{u}}$, where
-$\beta\_k=u\_{(k-1)}(\alpha\_{i\_k})$ for $k\in J^\circ\_{\mathbf{u}}$ and
-$\beta\_k=-u\_{(k-1)}(\alpha\_{i\_k})$ for $k\in J^-\_{\mathbf{u}}$ (Definition 3.19);
-and $x$ is general if its parameters $m\_k$ are all nonzero.
+$k\in J^\circ\_{\mathbf{u}}$ and $m\_k$ for $k\in J^-\_{\mathbf{u}}$; the
+standard form of $x$ is the product $g$ with $x=gB$, and its coordinate
+$g^{(k)}$ is $p\_k$ or $m\_k$; $\mathrm{TD}(\mathbf{u},\mathbf{v})$ is the real
+span of the roots $\beta\_k$ for $k\in J^\circ\_{\mathbf{u}}\cup J^-\_{\mathbf{u}}$,
+where $\beta\_k=u\_{(k-1)}(\alpha\_{i\_k})$ for $k\in J^\circ\_{\mathbf{u}}$ and
+$\beta\_k=-u\_{(k-1)}(\alpha\_{i\_k})$ for $k\in J^-\_{\mathbf{u}}$, and
+$\mathrm{td}(\mathbf{u},\mathbf{v})$ is its dimension (Definition 3.19); and $x$
+is general if its parameters $m\_k$ are all nonzero.
 
 A reduced word is a list of simple roots, a subword is a `Subexpression` of it,
 and $u$ is its product. The theorem uses the parameter chart of
@@ -270,13 +279,15 @@ the product of a split torus of rank $\lvert J^\circ\_{\mathbf{u}}\rvert$ and an
 affine space of dimension $\lvert J^-\_{\mathbf{u}}\rvert$, and with
 $D\_{\mathbf{u},\mathbf{v}}$. The weights of $T$ on
 $Tx$ are the characters $-\beta\_k$ of the nonzero coordinates of $x$, as in the
-proof of the paper, and their real span (`deodharComponentWeightSpan`) has
-dimension $\dim Tx$. The general points form a nonempty dense open subset
+proof of the paper. Their real span (`deodharComponentWeightSpan`) is the span
+in the formula; it lies in $\mathrm{TD}(\mathbf{u},\mathbf{v})$ for every $x$ and
+equals it for a general $x$. The general points form a nonempty dense open subset
 (`deodharGeneralPoints`). The roots are taken in the real simple-root
 coordinates of the Notation. In the last clause, $\mathbf{u}\_+$ is given as a
 positive distinguished subword for $u$, which is unique by
 `positive_subexpression_unique`. The theorem is proved over every $K$, and the
-proof follows the paper.
+proof follows the paper, except that $\dim Tx$ is computed from the coordinate
+algebra of the orbit instead of from its stabilizer.
 
 These declarations are in `SchubertOrbits`, `BruhatIntervals` and
 `SchubertGeometry`
@@ -460,7 +471,7 @@ invariance of complexity under equivariant birational maps.
 the paper, with its Lean declarations. Two results that the paper quotes and no
 proof uses are not formalized: the theorem of Can and Saha in the remark after
 Definition 3.11, and the Cohen–Macaulay property and rational singularities of
-Schubert varieties.
+Schubert and Richardson varieties.
 
 ## Libraries
 

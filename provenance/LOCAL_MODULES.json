@@ -5445,7 +5445,7 @@
   "module": "OrbitComplexity.Paper.Complex.Complexity",
   "path": "OrbitComplexity/Paper/Complex/Complexity.lean",
   "origin_kind": "unchanged",
-  "sha256": "8f33f564fca7ea7877c8247eadfbce4034d444a880f1880668bbae7ac551161b"
+  "sha256": "82abccbb27da935d1dd55acffeec11e45e59890f15b3e8c7787d97d897cfb8ee"
  },
  {
   "module": "OrbitComplexity.Paper.Complex.DeodharExample",
@@ -5637,13 +5637,13 @@
   "module": "OrbitComplexity.Paper.Deodhar.Matrices",
   "path": "OrbitComplexity/Paper/Deodhar/Matrices.lean",
   "origin_kind": "unchanged",
-  "sha256": "4f3b3de695ba60ea9645e448c5974641c87f6c74ebe374f982196c3f0a3ac1c2"
+  "sha256": "c2cb319a4e522bdea22547cbeb618ec0efef5fcaaad49f566740a01550d2db07"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.MaximalWeights",
   "path": "OrbitComplexity/Paper/Deodhar/MaximalWeights.lean",
   "origin_kind": "unchanged",
-  "sha256": "5a2965bd2b5cf7007b7b6ddbf44108f6f1ccc0c7d849ee0645f7cbc86827088b"
+  "sha256": "7e5d84d53b2e9f1064896255302c3b464b1b2d960c17493179b8c99eba39c637"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.NegativeProducts",
@@ -5703,7 +5703,7 @@
   "module": "OrbitComplexity.Paper.Deodhar.ProductActions",
   "path": "OrbitComplexity/Paper/Deodhar/ProductActions.lean",
   "origin_kind": "unchanged",
-  "sha256": "5c9dc380b1e36ab0901aba5c746e064f976e5bff38c230c0683b53089af3f7b9"
+  "sha256": "f7cedc5b282a09add442857f6b624feed4a0f0897c2028f977af7a37e3bee394"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.ProductMorphisms",
@@ -5763,19 +5763,19 @@
   "module": "OrbitComplexity.Paper.Deodhar.Roots",
   "path": "OrbitComplexity/Paper/Deodhar/Roots.lean",
   "origin_kind": "unchanged",
-  "sha256": "9cc7311995c395090e50af214e161619d526c09cf4a25153c9f63728cbdb76c5"
+  "sha256": "ad8126d52049f69c1338cd2b9056a2f0b830b3827afd5ee7448782f366571bb2"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.Scaling",
   "path": "OrbitComplexity/Paper/Deodhar/Scaling.lean",
   "origin_kind": "unchanged",
-  "sha256": "b96144dea6b3fb7b292db7f3051f021ecf257ddc1dc6ed5fa80f4e402fc6b777"
+  "sha256": "3a230335350bebee9a682c19c43a4b9dddf35a2da7b2fca5fff74ee9716fc840"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.Spans",
   "path": "OrbitComplexity/Paper/Deodhar/Spans.lean",
   "origin_kind": "unchanged",
-  "sha256": "17f0c08f37b188f113c37ad9ab3db897672e75bef0340e358c7b898f55650e2c"
+  "sha256": "3b25660c1618d80fdf8dcefe0e46faaaca9d81f43ba9d89b51eb78468e8fa636"
  },
  {
   "module": "OrbitComplexity.Paper.Deodhar.StepFlags",
@@ -5793,7 +5793,7 @@
   "module": "OrbitComplexity.Paper.Deodhar.WeightRank",
   "path": "OrbitComplexity/Paper/Deodhar/WeightRank.lean",
   "origin_kind": "unchanged",
-  "sha256": "995650b56ab367235eafe5f0672b6b3240560b215b1782fbadf01c677c2d96dc"
+  "sha256": "5eb051647c0159f41ddc3c1857ec7f6ceddf17385be1980d3d1278507c07b9c3"
  },
  {
   "module": "OrbitComplexity.Paper.GeometryAudit",

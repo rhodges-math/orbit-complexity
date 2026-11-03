@@ -21,7 +21,7 @@ corresponding Bruhat edges.
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Definition 3.19.
 -/
 

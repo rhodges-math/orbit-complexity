@@ -435,7 +435,7 @@ Status: **formalized**
 
 Status: **formalized**
 
-Here the weights of $T$ on $Tx$ are the characters $-\beta\_k$ by which $T$ scales the nonzero coordinates $g^{(k)}$ of the standard form of $x$; the theorem also proves that $\dim Tx$ is the dimension of their span.
+Here the span is that of the characters $-\beta\_k$ by which $T$ scales the nonzero coordinates $g^{(k)}$ of the standard form of $x$, which is the same space. $\dim Tx$ is computed from the coordinate algebra of the orbit instead of from its stabilizer. The span lies in $\mathrm{TD}(\mathbf{u},\mathbf{v})$ for every $x$ and equals it for a general $x$.
 
 - `SchubertOrbits.deodharComponent_weights` ([OrbitComplexity/Paper/Deodhar/ComponentWeights.lean](../OrbitComplexity/Paper/Deodhar/ComponentWeights.lean))
 - `SchubertOrbits.subwordWeightSpan_interval` ([OrbitComplexity/Paper/Deodhar/Spans.lean](../OrbitComplexity/Paper/Deodhar/Spans.lean))
@@ -968,7 +968,7 @@ Stated for every finite reduced crystallographic root system.
 
 Status: **formalized**
 
-Over $\mathbb{C}$ the proof uses a point of $\mathcal{R}\_{u,v}$ with full weight support (Section 3) instead of a totally positive point. Also stated over $K$, with the proof through Theorem 1.4 described under Theorem 1.2.
+Over $\mathbb{C}$ the proof uses a point of $\mathcal{R}\_{u,v}$ with full weight support (Section 3) instead of a totally positive point, and the embedding of $G/B$ determined by $2\rho$ without passing to the simply connected cover of the derived subgroup. Also stated over $K$, with the proof through Theorem 1.4 described under Theorem 1.2.
 
 - `SchubertOrbits.richardson_orbit_maximum_complex` ([OrbitComplexity/Paper/IntervalPolytopes.lean](../OrbitComplexity/Paper/IntervalPolytopes.lean))
 - `SchubertOrbits.richardson_orbit_maximum` ([OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean](../OrbitComplexity/Paper/Deodhar/RichardsonOrbits.lean))
@@ -1810,6 +1810,8 @@ Status: **formalized**
 - `SchubertGeometry.rootParameterMap_tangent_mem` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
 - `SchubertGeometry.rootParameterMap_tangent_ne_zero` ([OrbitComplexity/SchubertGeometry/Roots/Parameters.lean](../OrbitComplexity/SchubertGeometry/Roots/Parameters.lean))
 - `SchubertOrbits.deodharRootFactors` ([OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean](../OrbitComplexity/Paper/Deodhar/SubwordRootSubgroups.lean))
+- `SchubertGeometry.subwordRootMap` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
+- `SchubertGeometry.subwordRootMap_point` ([OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean](../OrbitComplexity/SchubertGeometry/Deodhar/RootMaps.lean))
 
 ### Lemma 3.20 (`lemma:DeodharcomponentUnipotentSubgroup`)
 

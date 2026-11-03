@@ -17,7 +17,7 @@ is bounded by the dimension attained by the positive distinguished subexpression
 
 * R. J. Marsh and K. Rietsch, *Parametrizations of flag varieties*, Representation Theory 8 (2004),
   Section 3.
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Theorem 1.4.
 -/
 

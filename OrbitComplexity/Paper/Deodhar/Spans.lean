@@ -16,7 +16,7 @@ subexpressions have only the first two cases, so their span is the whole interva
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Theorem 1.4.
 -/
 

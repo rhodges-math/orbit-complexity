@@ -14,7 +14,7 @@ The real span of these torus characters has the dimension of the subexpression's
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Definition 3.19 and Theorem 1.4.
 -/
 

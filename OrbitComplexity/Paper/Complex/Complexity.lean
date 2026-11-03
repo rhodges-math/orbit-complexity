@@ -12,8 +12,8 @@ acting by restriction of the reductive group action.
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
-  arXiv:2405.13774v2, Definition 1.1.
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
+  arXiv:2405.13774v3, Definition 1.1.
 -/
 
 open CategoryTheory GroupActions

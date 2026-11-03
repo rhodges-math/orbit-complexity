@@ -16,7 +16,7 @@ coordinates. The root-product flag morphism is equivariant for that algebraic ac
 
 ## References
 
-* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson varieties*,
+* Y. Gao and R. Hodges, *Orbit structures and complexity in Schubert and Richardson Varieties*,
   Theorem 1.4.
 -/
 open CategoryTheory AlgebraicGeometry
